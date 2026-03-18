@@ -1,4 +1,4 @@
-import { Phone, Facebook, Globe, Youtube, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Phone, Facebook, Globe, Youtube, Mail, MapPin, MessageCircle, Linkedin } from 'lucide-react';
 import type { Contact as ContactType } from '@/types/product';
 import { PhLogo } from '@/components/PhLogo';
 import { useLang } from '@/contexts/LanguageContext';
@@ -18,6 +18,7 @@ export function Contact({ contact }: ContactProps) {
     { icon: MessageCircle, key: 'tiktok' as const, value: contact.tiktok, href: `https://tiktok.com/${contact.tiktok}` },
     { icon: Mail, key: 'email' as const, value: contact.email, href: `mailto:${contact.email}` },
     { icon: MapPin, key: 'address' as const, value: contact.address, href: '#', isAddress: true },
+    ...(contact.linkedin ? [{ icon: Linkedin, key: 'linkedin' as const, value: 'tung-xe-tho', href: contact.linkedin }] : []),
   ];
 
   return (
@@ -34,7 +35,7 @@ export function Contact({ contact }: ContactProps) {
         </div>
 
         {/* Contact Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-12">
           {contactItems.map((item) => (
             <a
               key={item.key}

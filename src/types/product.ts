@@ -23,6 +23,7 @@ export interface Contact {
   tiktok: string;
   email: string;
   address: string;
+  linkedin?: string;
 }
 
 export interface ProductsConfig {

@@ -13,7 +13,7 @@ export const translations = {
     contactDesc: 'Reach out through any channel below. We\'re ready to help.',
     labels: {
       phone: 'Phone', facebook: 'Facebook', website: 'Website',
-      youtube: 'YouTube', tiktok: 'TikTok', email: 'Email', address: 'Address',
+      youtube: 'YouTube', tiktok: 'TikTok', email: 'Email', address: 'Address', linkedin: 'LinkedIn',
     },
     ready: 'Ready',
     allRights: 'All rights reserved.',
@@ -29,7 +29,7 @@ export const translations = {
     contactDesc: 'Liên hệ qua bất kỳ kênh nào bên dưới. Chúng tôi luôn sẵn sàng hỗ trợ.',
     labels: {
       phone: 'Điện Thoại', facebook: 'Facebook', website: 'Website',
-      youtube: 'YouTube', tiktok: 'TikTok', email: 'Email', address: 'Địa Chỉ',
+      youtube: 'YouTube', tiktok: 'TikTok', email: 'Email', address: 'Địa Chỉ', linkedin: 'LinkedIn',
     },
     ready: 'Sẵn Sàng',
     allRights: 'Bảo lưu mọi quyền.',
