@@ -1,98 +1,56 @@
-import { 
-  Phone, 
-  Facebook, 
-  Globe, 
-  Youtube, 
-  Mail, 
-  MapPin,
-  MessageCircle
-} from 'lucide-react';
+import { Phone, Facebook, Globe, Youtube, Mail, MapPin, MessageCircle } from 'lucide-react';
 import type { Contact as ContactType } from '@/types/product';
+import { PhLogo } from '@/components/PhLogo';
+import { useLang } from '@/contexts/LanguageContext';
 
 interface ContactProps {
   contact: ContactType;
 }
 
 export function Contact({ contact }: ContactProps) {
+  const { t } = useLang();
+
   const contactItems = [
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: contact.phone,
-      href: `tel:${contact.phone.replace(/\s/g, '')}`,
-    },
-    {
-      icon: Facebook,
-      label: 'Facebook',
-      value: contact.facebook,
-      href: `https://${contact.facebook}`,
-    },
-    {
-      icon: Globe,
-      label: 'Website',
-      value: contact.website,
-      href: `https://${contact.website}`,
-    },
-    {
-      icon: Youtube,
-      label: 'YouTube',
-      value: contact.youtube,
-      href: `https://youtube.com/${contact.youtube}`,
-    },
-    {
-      icon: MessageCircle,
-      label: 'TikTok',
-      value: contact.tiktok,
-      href: `https://tiktok.com/${contact.tiktok}`,
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      value: contact.email,
-      href: `mailto:${contact.email}`,
-    },
-    {
-      icon: MapPin,
-      label: 'Address',
-      value: contact.address,
-      href: '#',
-      isAddress: true,
-    },
+    { icon: Phone, key: 'phone' as const, value: contact.phone, href: `tel:${contact.phone.replace(/\s/g, '')}` },
+    { icon: Facebook, key: 'facebook' as const, value: contact.facebook, href: `https://${contact.facebook}` },
+    { icon: Globe, key: 'website' as const, value: contact.website, href: `https://${contact.website}` },
+    { icon: Youtube, key: 'youtube' as const, value: contact.youtube, href: `https://youtube.com/${contact.youtube}` },
+    { icon: MessageCircle, key: 'tiktok' as const, value: contact.tiktok, href: `https://tiktok.com/${contact.tiktok}` },
+    { icon: Mail, key: 'email' as const, value: contact.email, href: `mailto:${contact.email}` },
+    { icon: MapPin, key: 'address' as const, value: contact.address, href: '#', isAddress: true },
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#292929]/30">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#111111] border-t border-[#292929]">
       <div className="max-w-7xl mx-auto">
+
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-[#ffa31a]/10 border border-[#ffa31a]/30 text-[#ffa31a] text-sm font-medium mb-4">
-            Get In Touch
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Contact <span className="text-gradient">Us</span>
-          </h2>
-          <p className="text-[#808080] text-lg max-w-2xl mx-auto">
-            Have questions or want to collaborate? Reach out to us through any of the channels below.
-          </p>
+        <div className="mb-16">
+          <div className="h-1 w-16 bg-[#FF9000] mb-6" />
+          <div className="mb-4">
+            <PhLogo prefix={t.contactLogo.prefix} suffix={t.contactLogo.suffix} size="lg" />
+          </div>
+          <p className="text-[#808080] text-lg max-w-2xl leading-relaxed">{t.contactDesc}</p>
         </div>
 
         {/* Contact Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {contactItems.map((item, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+          {contactItems.map((item) => (
             <a
-              key={item.label}
+              key={item.key}
               href={item.href}
               target={item.isAddress ? undefined : '_blank'}
               rel={item.isAddress ? undefined : 'noopener noreferrer'}
-              className="group flex items-center gap-4 p-6 bg-[#292929] rounded-xl border border-[#808080]/20 hover:border-[#ffa31a]/50 transition-all hover-lift"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="group flex items-center gap-4 p-5 bg-[#1b1b1b] border border-[#292929] border-l-4 border-l-[#FF9000]/40 hover:border-[#FF9000]/60 hover:border-l-[#FF9000] hover:bg-[#1e1e1e] transition-all duration-150 rounded-sm"
             >
-              <div className="w-12 h-12 rounded-lg bg-[#ffa31a]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#ffa31a]/20 transition-colors">
-                <item.icon className="w-6 h-6 text-[#ffa31a]" />
+              <div className="w-11 h-11 bg-[#FF9000] flex items-center justify-center shrink-0 rounded-sm group-hover:bg-white transition-colors duration-150">
+                <item.icon className="w-5 h-5 text-black" />
               </div>
               <div className="min-w-0">
-                <p className="text-sm text-[#808080] mb-0.5">{item.label}</p>
-                <p className="text-white font-medium truncate group-hover:text-[#ffa31a] transition-colors">
+                <p className="text-xs text-[#808080] font-bold tracking-widest uppercase mb-1">
+                  {t.labels[item.key]}
+                </p>
+                <p className="text-white font-bold truncate group-hover:text-[#FF9000] transition-colors duration-150 text-lg">
                   {item.value}
                 </p>
               </div>
@@ -100,34 +58,6 @@ export function Contact({ contact }: ContactProps) {
           ))}
         </div>
 
-        {/* Map or Additional Info */}
-        <div className="mt-12 p-8 bg-[#292929] rounded-2xl border border-[#808080]/20 text-center">
-          <h3 className="text-xl font-semibold text-white mb-3">
-            Ready to Transform Your Experience?
-          </h3>
-          <p className="text-[#808080] mb-6 max-w-xl mx-auto">
-            Join thousands of users who are already using PsiHub products to enhance their 
-            productivity and daily life.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={`https://${contact.website}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-orange text-black rounded-lg font-medium hover:shadow-lg hover:shadow-[#ffa31a]/20 transition-all"
-            >
-              <Globe className="w-5 h-5" />
-              Visit Main Website
-            </a>
-            <a
-              href={`mailto:${contact.email}`}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1b1b1b] border border-[#808080]/30 text-white rounded-lg font-medium hover:border-[#ffa31a]/50 transition-all"
-            >
-              <Mail className="w-5 h-5" />
-              Send Email
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

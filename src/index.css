@@ -25,7 +25,7 @@
     --ring: 35 100% 55%;
     --radius: 0.625rem;
     
-    --psi-orange: #ffa31a;
+    --psi-orange: #FF9000;
     --psi-gray: #808080;
     --psi-dark: #292929;
     --psi-darker: #1b1b1b;
@@ -48,51 +48,34 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #ffa31a 0%, #ffcc80 100%);
+    background: linear-gradient(135deg, #FF9000 0%, #ffcc80 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .bg-gradient-orange {
-    background: linear-gradient(135deg, #ffa31a 0%, #e6910a 100%);
+    background: #FF9000;
   }
-  
-  .glow-orange {
-    box-shadow: 0 0 30px rgba(255, 163, 26, 0.3);
-  }
-  
-  .glow-orange-strong {
-    box-shadow: 0 0 50px rgba(255, 163, 26, 0.5);
-  }
-  
-  .border-glow {
-    border: 1px solid rgba(255, 163, 26, 0.3);
-  }
-  
+
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  
+
   .hover-lift:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
   }
-  
-  .glass {
-    background: rgba(41, 41, 41, 0.8);
-    backdrop-filter: blur(10px);
-  }
-  
+
   .status-ready {
-    background: rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.15);
     color: #22c55e;
     border: 1px solid rgba(34, 197, 94, 0.3);
   }
-  
+
   .status-beta {
-    background: rgba(255, 163, 26, 0.2);
-    color: #ffa31a;
+    background: rgba(255, 163, 26, 0.15);
+    color: #FF9000;
     border: 1px solid rgba(255, 163, 26, 0.3);
   }
 }
@@ -108,7 +91,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffa31a;
+  background: #FF9000;
   border-radius: 4px;
 }
 

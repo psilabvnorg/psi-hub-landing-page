@@ -3,6 +3,7 @@ import { Hero } from '@/sections/Hero';
 import { Products } from '@/sections/Products';
 import { Contact } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 import { Loader2 } from 'lucide-react';
 import './App.css';
 
@@ -13,7 +14,7 @@ function App() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#1b1b1b]">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 text-[#ffa31a] animate-spin mx-auto mb-4" />
+          <Loader2 className="w-12 h-12 text-[#FF9000] animate-spin mx-auto mb-4" />
           <p className="text-[#808080]">Loading PsiHub...</p>
         </div>
       </div>
@@ -37,12 +38,14 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1b1b1b]">
-      <Hero brand={config.brand} />
-      <Products products={config.products} />
-      <Contact contact={config.contact} />
-      <Footer brandName={config.brand.name} />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-[#1b1b1b] pt-16">
+        <Hero />
+        <Products products={config.products} />
+        <Contact contact={config.contact} />
+        <Footer brandName={config.brand.name} />
+      </div>
+    </LanguageProvider>
   );
 }
 
