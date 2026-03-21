@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, BookOpen, Home, Package, Phone, FileText, Layers } from 'lucide-react';
+import { ArrowLeft, ExternalLink, BookOpen, Home, Package, FileText, Layers } from 'lucide-react';
 import { PhLogo } from '@/components/PhLogo';
 
 interface PageCard {
