@@ -50,6 +50,18 @@ const steps = [
     description: 'Nhấn "Run anyway" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.',
     image: '/assets/docs/contenthub/5.PNG',
   },
+  {
+    number: 6,
+    title: 'Chờ ứng dụng khởi động',
+    description: 'Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.',
+    image: '/assets/docs/contenthub/6.PNG',
+  },
+  {
+    number: 7,
+    title: 'Vào trang cài đặt để khởi động ứng dụng',
+    description: 'Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.',
+    image: '/assets/docs/contenthub/7.PNG',
+  },
 ];
 
 export function ContentHubInstallGuide() {
@@ -79,7 +91,7 @@ export function ContentHubInstallGuide() {
           <div className="mb-12 text-center">
             <div className="h-1 w-16 bg-[#ffa31a] mx-auto mb-6" />
             <h1 className="text-white text-3xl font-bold mb-3">Hướng Dẫn Cài Đặt</h1>
-            <p className="text-[#808080] text-base">Làm theo 5 bước dưới đây để cài đặt và chạy ContentHub trên máy tính.</p>
+            <p className="text-[#808080] text-base">Làm theo 7 bước dưới đây để cài đặt và chạy ContentHub trên máy tính.</p>
           </div>
 
           <div className="flex flex-col gap-12">
