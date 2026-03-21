@@ -17,7 +17,7 @@ html {
   outline-offset: 2px;
 }
 
-/* Image loading placeholder */
-img {
+/* Image loading placeholder — screenshots only, not logos */
+img[alt*="screenshot"] {
   background: linear-gradient(135deg, #292929 0%, #1b1b1b 100%);
 }

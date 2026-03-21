@@ -1,5 +1,6 @@
 import { useProducts } from '@/hooks/useProducts';
 import { Hero } from '@/sections/Hero';
+import { Banner } from '@/sections/Banner';
 import { Products } from '@/sections/Products';
 import { Contact } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
@@ -41,6 +42,7 @@ function App() {
     <LanguageProvider>
       <div className="min-h-screen bg-[#1b1b1b] pt-16">
         <Hero />
+        <Banner contentHub={config.products.find(p => p.id === 'contenthub')} />
         <Products products={config.products} />
 <Contact contact={config.contact} />
         <Footer brandName={config.brand.name} />

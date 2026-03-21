@@ -6,7 +6,7 @@ import { Footer } from '@/sections/Footer';
 import { useProducts } from '@/hooks/useProducts';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
-export function ContentHubDocs() {
+export function ContentHubHuongDan() {
   const { config } = useProducts();
 
   return (
@@ -20,16 +20,16 @@ export function ContentHubDocs() {
               className="flex items-center gap-2 text-[#606060] hover:text-[#ffa31a] transition-colors duration-150 text-2xl font-bold"
             >
               <ArrowLeft className="w-7 h-7" />
-              Back
+              Quay Lại
             </Link>
             <div className="h-6 w-px bg-[#333]" />
             <span className="text-white text-2xl font-bold">ContentHub</span>
             <span className="text-[#606060] text-2xl">/</span>
-            <span className="text-[#ffa31a] text-2xl font-mono font-bold">API Docs</span>
+            <span className="text-[#ffa31a] text-2xl font-mono font-bold">ContentHub API</span>
           </div>
         </div>
 
-        <ApiDocs />
+        <ApiDocs lang="vi" />
 
         {config && <Contact contact={config.contact} />}
         {config && <Footer brandName={config.brand.name} />}

@@ -9,17 +9,19 @@
       "id": "contenthub",
       "name": "ContentHub",
       "logo": "",
-      "description": "All-in-one content management platform. Create, organize, and distribute your content seamlessly across multiple channels with powerful analytics.",
+      "description": "AI-powered desktop app for Windows. Turn news into video, auto-generate karaoke, bulk download & process YouTube playlists, clone voices, dub videos, remove backgrounds, upscale images, and automate content pipelines — all in one tool.",
+      "description_vi": "Ứng dụng desktop tích hợp AI cho Windows. Biến tin tức thành video, tự động tạo karaoke, tải hàng loạt & xử lý playlist YouTube, nhân bản giọng nói, lồng tiếng video, xóa nền, nâng cấp ảnh và tự động hóa quy trình sản xuất nội dung — tất cả trong một công cụ.",
       "screenshots": [],
       "demoUrl": "https://psihub.me",
       "status": "Ready",
-      "linkUrl": "https://psihub.me"
+      "linkUrl": "https://huggingface.co/psilab/ai-content-hub-release"
     },
     {
       "id": "psi69",
       "name": "Psi69",
       "logo": "",
-      "description": "Next-generation social platform connecting like-minded individuals. Experience meaningful connections in a safe, innovative environment.",
+      "description": "Electric 2-wheel cargo vehicle with government approval and durable stainless steel frame. Eco-friendly, powerful, and built for everyday transport.",
+      "description_vi": "Xe điện 2 bánh chở hàng được cấp phép lưu hành, khung thép không gỉ bền bỉ. Thân thiện môi trường, mạnh mẽ và phù hợp cho vận chuyển hàng ngày.",
       "screenshots": [],
       "demoUrl": "https://xechohang.vn",
       "status": "Ready",
@@ -30,9 +32,10 @@
       "name": "PromptHub",
       "logo": "",
       "description": "Curated AI prompt library for creators. Access thousands of optimized prompts for ChatGPT, Midjourney, DALL-E, and more AI tools.",
+      "description_vi": "Thư viện prompt AI dành cho nhà sáng tạo. Truy cập hàng nghìn prompt tối ưu cho ChatGPT, Midjourney, DALL-E và nhiều công cụ AI khác.",
       "screenshots": [],
       "demoUrl": "https://psihub.me",
-      "status": "Ready",
+      "status": "Coming Soon",
       "linkUrl": "https://psihub.me"
     },
     {
@@ -40,6 +43,7 @@
       "name": "JobHub",
       "logo": "",
       "description": "Revolutionary job matching platform. Connect with your dream career using AI-powered recommendations and smart filtering.",
+      "description_vi": "Nền tảng kết nối việc làm thông minh. Tìm công việc mơ ước với gợi ý từ AI và bộ lọc thông minh.",
       "screenshots": [],
       "demoUrl": "https://job-tinder-clone-app.vercel.app/",
       "status": "Beta",
@@ -50,6 +54,7 @@
       "name": "LifeHub",
       "logo": "",
       "description": "Personal life management assistant. Track habits, set goals, manage schedules, and optimize your daily routines effortlessly.",
+      "description_vi": "Trợ lý quản lý cuộc sống cá nhân. Theo dõi thói quen, đặt mục tiêu, quản lý lịch trình và tối ưu hóa sinh hoạt hàng ngày một cách dễ dàng.",
       "screenshots": [],
       "demoUrl": "https://horoscope-app-rouge.vercel.app/",
       "status": "Beta",
@@ -60,9 +65,10 @@
       "name": "SportHub",
       "logo": "",
       "description": "Complete sports and fitness companion. Track workouts, join challenges, connect with athletes, and achieve your fitness goals.",
+      "description_vi": "Bạn đồng hành thể thao và sức khỏe toàn diện. Theo dõi tập luyện, tham gia thử thách, kết nối vận động viên và đạt mục tiêu thể chất.",
       "screenshots": [],
       "demoUrl": "https://psihub.me",
-      "status": "Ready",
+      "status": "Coming Soon",
       "linkUrl": "https://psihub.me"
     },
     {
@@ -70,9 +76,10 @@
       "name": "PsiBot",
       "logo": "",
       "description": "Intelligent AI assistant for automation. Streamline workflows, answer queries, and boost productivity with smart bot integration.",
+      "description_vi": "Trợ lý AI thông minh cho tự động hóa. Tối ưu quy trình, trả lời câu hỏi và tăng năng suất với tích hợp bot thông minh.",
       "screenshots": [],
       "demoUrl": "https://psihub.me",
-      "status": "Beta",
+      "status": "Coming Soon",
       "linkUrl": "https://psihub.me"
     }
   ],

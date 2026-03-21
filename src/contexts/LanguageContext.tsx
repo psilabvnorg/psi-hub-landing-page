@@ -18,6 +18,7 @@ export const translations = {
     ready: 'Ready',
     readySection: 'Ready',
     comingSoonSection: 'Coming Soon',
+    demoGuide: 'Demo and Installation Guide',
     allRights: 'All rights reserved.',
     madeIn: 'Made in',
   },
@@ -26,7 +27,7 @@ export const translations = {
     productsLogo: { prefix: 'Sản ', suffix: 'Phẩm' },
     contactLogo: { prefix: 'Liên ', suffix: 'Hệ' },
     getInTouch: 'Liên Hệ',
-    liveDemo: 'Xem Demo',
+    liveDemo: 'Hướng Dẫn',
     visitSite: 'Truy Cập',
     contactDesc: 'Liên hệ qua bất kỳ kênh nào bên dưới. Chúng tôi luôn sẵn sàng hỗ trợ.',
     labels: {
@@ -36,6 +37,7 @@ export const translations = {
     ready: 'Sẵn Sàng',
     readySection: 'Sẵn Sàng',
     comingSoonSection: 'Sắp Ra Mắt',
+    demoGuide: 'Demo và Hướng Dẫn Cài Đặt',
     allRights: 'Bảo lưu mọi quyền.',
     madeIn: 'Sản xuất tại',
   },
@@ -52,7 +54,7 @@ const LanguageContext = createContext<{
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Lang>('en');
+  const [lang, setLang] = useState<Lang>('vi');
   const toggle = () => setLang((l) => (l === 'en' ? 'vi' : 'en'));
   return (
     <LanguageContext.Provider value={{ lang, t: translations[lang], toggle }}>

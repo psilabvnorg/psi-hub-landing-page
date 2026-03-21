@@ -39,7 +39,7 @@ export function Products({ products }: ProductsProps) {
           {readyProducts.map((product, index) => (
             <div
               key={product.id}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up flex flex-col"
               style={{ animationDelay: `${index * 0.08}s` }}
             >
               <ProductCard product={product} />
@@ -60,7 +60,7 @@ export function Products({ products }: ProductsProps) {
               {comingSoonProducts.map((product, index) => (
                 <div
                   key={product.id}
-                  className="animate-fade-in-up"
+                  className="animate-fade-in-up flex flex-col"
                   style={{ animationDelay: `${(readyProducts.length + index) * 0.08}s` }}
                 >
                   <ProductCard product={product} />

@@ -1,4 +1,5 @@
 import { useLang } from '@/contexts/LanguageContext';
+import { PhLogo } from '@/components/PhLogo';
 
 interface FooterProps {
   brandName: string;
@@ -11,9 +12,7 @@ export function Footer({ brandName }: FooterProps) {
   return (
     <footer className="border-t-4 border-[#ffa31a] bg-[#0f0f0f] py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="text-xl font-black tracking-widest uppercase text-[#ffa31a]">
-          {brandName}
-        </span>
+        <PhLogo prefix="Psi" suffix="Hub" size="md" showImage />
         <p className="text-[#808080] text-sm">
           &copy; {currentYear} {brandName}. {t.allRights}
         </p>

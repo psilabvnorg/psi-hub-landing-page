@@ -5,7 +5,11 @@ import { PhLogo } from '@/components/PhLogo';
 import { useLang } from '@/contexts/LanguageContext';
 
 const DOC_LINKS = [
-  { label: 'ContentHub API', path: '/contenthub/docs' },
+  { label: 'ContentHub', path: '/contenthub/huong-dan' },
+  { label: 'ContentHub API', path: '/contenthub/huong-dan-api' },
+  { label: 'Psi69', path: '/psi69/huong-dan' },
+  { label: 'JobHub', path: '/jobhub/huong-dan' },
+  { label: 'LifeHub', path: '/lifehub/huong-dan' },
 ];
 
 export function Hero() {
@@ -34,23 +38,23 @@ export function Hero() {
           <div className="relative" ref={menuRef}>
             <button
               onClick={() => setDocsOpen(o => !o)}
-              className="flex items-center gap-1.5 text-sm font-bold tracking-wide text-[#808080] hover:text-[#ffa31a] transition-colors duration-150 px-2 py-1"
+              className="flex items-center gap-2 text-xl font-black tracking-widest uppercase text-[#ffa31a] hover:text-white transition-colors duration-150 px-3 py-1"
             >
-              <BookOpen className="w-4 h-4" />
-              Docs
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-150 ${docsOpen ? 'rotate-180' : ''}`} />
+              <BookOpen className="w-5 h-5" />
+              Hướng Dẫn
+              <ChevronDown className={`w-4 h-4 transition-transform duration-150 ${docsOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {docsOpen && (
-              <div className="absolute right-0 top-full mt-2 w-52 bg-[#111111] border border-[#2a2a2a] rounded-sm shadow-xl py-1">
+              <div className="absolute right-0 top-full mt-2 w-64 bg-[#111111] border border-[#2a2a2a] rounded-sm shadow-xl py-1">
                 {DOC_LINKS.map(item => (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={() => setDocsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#808080] hover:text-[#ffa31a] hover:bg-[#1a1a1a] transition-colors duration-100"
+                    className="flex items-center gap-3 px-4 py-3 text-base font-black tracking-wide text-[#ffa31a] hover:text-white hover:bg-[#1a1a1a] transition-colors duration-100"
                   >
-                    <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                    <BookOpen className="w-5 h-5 shrink-0" />
                     {item.label}
                   </Link>
                 ))}

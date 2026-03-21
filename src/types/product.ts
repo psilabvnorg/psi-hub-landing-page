@@ -3,9 +3,10 @@ export interface Product {
   name: string;
   logo: string;
   description: string;
+  description_vi: string;
   screenshots: string[];
   demoUrl: string;
-  status: 'Ready' | 'Beta';
+  status: 'Ready' | 'Beta' | 'Coming Soon';
   linkUrl: string;
 }
 

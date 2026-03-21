@@ -1,9 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ExternalLink, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import type { Product } from '@/types/product';
 import { PhLogo } from '@/components/PhLogo';
 import { useLang } from '@/contexts/LanguageContext';
 import { getProductScreenshots } from '@/utils/productImages';
+
+const GUIDE_ROUTES: Record<string, string> = {
+  contenthub: '/contenthub/huong-dan',
+  psi69: '/psi69/huong-dan',
+  jobhub: '/jobhub/huong-dan',
+  lifehub: '/lifehub/huong-dan',
+};
 
 interface ProductCardProps {
   product: Product;
@@ -30,10 +38,16 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const prev = () => setCurrent((c) => (c - 1 + total) % total);
   const next = () => setCurrent((c) => (c + 1) % total);
-  const { t } = useLang();
+  const { t, lang } = useLang();
+
+  useEffect(() => {
+    if (total <= 1) return;
+    const timer = setInterval(() => setCurrent((c) => (c + 1) % total), 2000);
+    return () => clearInterval(timer);
+  }, [total]);
 
   return (
-    <div className="group bg-[#111111] border border-[#222222] hover:border-[#ffa31a]/40 transition-colors duration-200 overflow-hidden rounded-sm">
+    <div className="group flex flex-col h-full bg-[#111111] border border-[#222222] hover:border-[#ffa31a]/40 transition-colors duration-200 overflow-hidden rounded-sm">
 
       {/* Top orange accent line */}
       <div className="h-[3px] bg-[#ffa31a]" />
@@ -46,20 +60,22 @@ export function ProductCard({ product }: ProductCardProps) {
           <span className={`inline-flex items-center px-2.5 py-1 text-[10px] font-black tracking-[0.15em] uppercase rounded-sm ${
             product.status === 'Ready'
               ? 'bg-green-500/15 text-green-400 border border-green-500/30'
+              : product.status === 'Coming Soon'
+              ? 'bg-[#ffa31a]/15 text-[#ffa31a] border border-[#ffa31a]/40'
               : 'bg-[#ffa31a]/15 text-[#ffa31a] border border-[#ffa31a]/40'
           }`}>
-            {product.status === 'Ready' ? t.ready : 'Beta'}
+            {product.status === 'Ready' ? t.ready : product.status === 'Coming Soon' ? (lang === 'vi' ? 'Sắp Ra Mắt' : 'Coming Soon') : 'Beta'}
           </span>
         </div>
 
         {/* Description */}
         <p className="text-white text-base leading-relaxed max-w-lg">
-          {product.description}
+          {lang === 'vi' ? product.description_vi : product.description}
         </p>
       </div>
 
       {/* Screenshot */}
-      <div className="relative bg-[#0a0a0a] border-t border-b border-[#222222]">
+      <div className="relative bg-[#0a0a0a] border-t border-b border-[#222222] flex-1">
         <div className="aspect-video relative overflow-hidden">
           {screenshots.map((src, i) => (
             <img
@@ -100,15 +116,25 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Actions */}
       <div className="px-6 py-4 flex flex-col gap-2">
         <div className="flex gap-3">
-          <a
-            href={product.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-2 py-3 border border-[#333333] text-[#808080] font-bold text-sm tracking-wide hover:border-[#ffa31a]/50 hover:text-[#ffa31a] transition-all duration-150 rounded-sm"
-          >
-            <Play className="w-4 h-4" />
-            {t.liveDemo}
-          </a>
+          {GUIDE_ROUTES[product.id] ? (
+            <Link
+              to={GUIDE_ROUTES[product.id]}
+              className="flex-1 inline-flex items-center justify-center gap-2 py-3 border border-[#333333] text-[#808080] font-bold text-sm tracking-wide hover:border-[#ffa31a]/50 hover:text-[#ffa31a] transition-all duration-150 rounded-sm"
+            >
+              <Play className="w-4 h-4" />
+              {t.liveDemo}
+            </Link>
+          ) : (
+            <a
+              href={product.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-2 py-3 border border-[#333333] text-[#808080] font-bold text-sm tracking-wide hover:border-[#ffa31a]/50 hover:text-[#ffa31a] transition-all duration-150 rounded-sm"
+            >
+              <Play className="w-4 h-4" />
+              {t.liveDemo}
+            </a>
+          )}
           <a
             href={product.linkUrl}
             target="_blank"

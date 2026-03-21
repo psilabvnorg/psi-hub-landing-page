@@ -18,11 +18,13 @@ interface Endpoint {
   params?: Param[];
   returns?: string;
   note?: string;
+  example?: { request?: string; response?: string };
 }
 
 interface Group {
   label: string;
   endpoints: Endpoint[];
+  note?: string;
 }
 
 /* ─── Data ───────────────────────────────────────────── */
@@ -35,8 +37,10 @@ const groups: Group[] = [
   {
     label: 'System',
     endpoints: [
-      { method: 'GET', path: '/health', description: 'Health check' },
-      { method: 'GET', path: '/status', description: 'System status and version info' },
+      { method: 'GET', path: '/health', description: 'Health check',
+        example: { response: `{ "status": "ok" }` } },
+      { method: 'GET', path: '/status', description: 'System status and version info',
+        example: { response: `{\n  "status": "running",\n  "uptime": 3600,\n  "version": "1.0.0"\n}` } },
       { method: 'GET', path: '/logs/tail', description: 'Retrieve last N log lines', params: [{ name: 'lines', type: 'query int', default: '200' }] },
       { method: 'GET', path: '/logs/stream', description: 'Stream logs in real-time (SSE)' },
       { method: 'DELETE', path: '/cache/temp', description: 'Clear temporary cache' },
@@ -55,6 +59,10 @@ const groups: Group[] = [
           { name: 'save_dir', type: 'string' },
         ],
         returns: '{ job_id }',
+        example: {
+          request: `{\n  "url": "https://www.youtube.com/watch?v=abc123",\n  "platform": "youtube",\n  "convert_to_h264": true\n}`,
+          response: `{ "job_id": "dl_a1b2c3d4" }`,
+        },
       },
       { method: 'GET', path: '/video/download/stream/{job_id}', description: 'Stream download progress (SSE)' },
       { method: 'GET', path: '/video/download/status/{job_id}', description: 'Poll download status' },
@@ -66,6 +74,10 @@ const groups: Group[] = [
           { name: 'end_time', type: 'string' },
         ],
         returns: '{ status, filename, download_url }',
+        example: {
+          request: `# multipart/form-data\nfile: video.mp4\nstart_time: 00:00:10\nend_time: 00:01:30`,
+          response: `{\n  "status": "success",\n  "filename": "trimmed_video.mp4",\n  "download_url": "/api/v1/files/abc123"\n}`,
+        },
       },
       {
         method: 'POST', path: '/video/extract-audio', description: 'Extract audio track from video',
@@ -74,6 +86,10 @@ const groups: Group[] = [
           { name: 'format', type: 'string', default: 'mp3' },
         ],
         returns: '{ status, filename, download_url }',
+        example: {
+          request: `# multipart/form-data\nfile: video.mp4\nformat: mp3`,
+          response: `{\n  "status": "success",\n  "filename": "audio.mp3",\n  "download_url": "/api/v1/files/xyz789"\n}`,
+        },
       },
       {
         method: 'POST', path: '/video/extract-audio-from-fileid', description: 'Extract audio using an existing file_id',
@@ -115,6 +131,10 @@ const groups: Group[] = [
           { name: 'speed', type: 'float', required: true },
         ],
         returns: '{ status, filename, download_url, speed }',
+        example: {
+          request: `# multipart/form-data\nfile: audio.mp3\nspeed: 1.5`,
+          response: `{\n  "status": "success",\n  "filename": "audio_1.5x.mp3",\n  "download_url": "/api/v1/files/spd001",\n  "speed": 1.5\n}`,
+        },
       },
       {
         method: 'POST', path: '/media/remove-silence', description: 'Remove silence from audio',
@@ -195,9 +215,14 @@ const groups: Group[] = [
           { name: 'script_text', type: 'string', description: 'Optional reference script for alignment' },
         ],
         returns: '{ task_id }',
+        example: {
+          request: `# multipart/form-data\nfile: audio.mp3\nmodel: large-v3\nlanguage: vi\nadd_punctuation: true`,
+          response: `{ "task_id": "wsp_9f3a2b1c" }`,
+        },
       },
       { method: 'GET', path: '/whisper/transcribe/stream/{task_id}', description: 'Stream transcription progress (SSE)' },
-      { method: 'GET', path: '/whisper/transcribe/result/{task_id}', description: 'Get transcription result' },
+      { method: 'GET', path: '/whisper/transcribe/result/{task_id}', description: 'Get transcription result',
+        example: { response: `{\n  "status": "done",\n  "segments": [\n    { "start": 0.0, "end": 3.2, "text": "Xin chào, đây là bản ghi âm." },\n    { "start": 3.5, "end": 6.1, "text": "Hệ thống nhận dạng giọng nói." }\n  ],\n  "full_text": "Xin chào, đây là bản ghi âm. Hệ thống nhận dạng giọng nói."\n}` } },
     ],
   },
   {
@@ -214,6 +239,10 @@ const groups: Group[] = [
           { name: 'pitch', type: 'int', default: '0', description: 'Pitch offset (Hz)' },
         ],
         returns: '{ status, file_id, filename, download_url }',
+        example: {
+          request: `{\n  "text": "Xin chào, đây là giọng đọc tự động.",\n  "voice": "vi-VN-HoaiMyNeural",\n  "rate": 10,\n  "pitch": 0\n}`,
+          response: `{\n  "status": "success",\n  "file_id": "tts_abc001",\n  "filename": "output.mp3",\n  "download_url": "/api/v1/files/tts_abc001"\n}`,
+        },
       },
     ],
   },
@@ -232,6 +261,10 @@ const groups: Group[] = [
           { name: 'language', type: 'string', default: 'vi' },
           { name: 'speed', type: 'float', default: '1.0' },
         ],
+        example: {
+          request: `{\n  "text": "Hôm nay thời tiết rất đẹp.",\n  "voice_id": "vi_vn_northern_female",\n  "language": "vi",\n  "speed": 1.0\n}`,
+          response: `{\n  "status": "success",\n  "file_id": "pip_xyz123",\n  "download_url": "/api/v1/files/pip_xyz123"\n}`,
+        },
       },
     ],
   },
@@ -269,6 +302,10 @@ const groups: Group[] = [
           { name: 'language', type: 'string', default: 'vi' },
         ],
         returns: '{ task_id }',
+        example: {
+          request: `{\n  "voice_id": "custom_voice_001",\n  "text": "Đây là giọng nói được nhân bản bằng AI.",\n  "speed": 1.0,\n  "cfg_strength": 2.0,\n  "nfe_step": 32,\n  "remove_silence": true,\n  "language": "vi"\n}`,
+          response: `{ "task_id": "f5_3c2b1a9d" }`,
+        },
       },
       { method: 'GET', path: '/generate/stream/{task_id}', description: 'Stream generation progress (SSE)' },
       { method: 'GET', path: '/generate/download/{task_id}', description: 'Get download info after generation', returns: '{ status, filename, download_url }' },
@@ -291,6 +328,10 @@ const groups: Group[] = [
           { name: 'preserve_emotion', type: 'boolean', default: 'true' },
         ],
         returns: '{ job_id }',
+        example: {
+          request: `{\n  "source_lang": "vi",\n  "target_lang": "en",\n  "text": "Xin chào thế giới. Hôm nay trời đẹp.",\n  "preserve_emotion": true\n}`,
+          response: `{ "job_id": "trans_7f4d2e1b" }`,
+        },
       },
       { method: 'GET', path: '/translation/translate/stream/{job_id}', description: 'Stream translation progress (SSE)' },
       { method: 'GET', path: '/translation/translate/result/{job_id}', description: 'Get translation result' },
@@ -311,6 +352,10 @@ const groups: Group[] = [
           { name: 'input_text', type: 'string', required: true },
           { name: 'model', type: 'string' },
         ],
+        example: {
+          request: `{\n  "prompt": "Tóm tắt đoạn văn bản sau thành 3 câu ngắn gọn:",\n  "input_text": "Trí tuệ nhân tạo đang thay đổi cách con người làm việc...",\n  "model": "llama3"\n}`,
+          response: `{\n  "result": "AI đang thay đổi công việc của con người. Các mô hình ngôn ngữ lớn giúp tự động hóa nhiều tác vụ. Tương lai sẽ có sự cộng tác giữa người và máy."\n}`,
+        },
       },
       {
         method: 'POST', path: '/llm/combine', description: 'Run multiple prompts in a single Ollama call',
@@ -319,6 +364,10 @@ const groups: Group[] = [
           { name: 'prompts', type: 'array of { id, prompt }', required: true },
           { name: 'model', type: 'string' },
         ],
+        example: {
+          request: `{\n  "input_text": "ContentHub là nền tảng quản lý nội dung đa kênh.",\n  "prompts": [\n    { "id": "title", "prompt": "Viết tiêu đề hấp dẫn cho:" },\n    { "id": "summary", "prompt": "Tóm tắt ngắn gọn:" },\n    { "id": "hashtags", "prompt": "Tạo 5 hashtag phù hợp cho:" }\n  ],\n  "model": "llama3"\n}`,
+          response: `{\n  "title": "ContentHub – Giải Pháp Quản Lý Nội Dung Toàn Diện",\n  "summary": "Nền tảng giúp tạo, tổ chức và phân phối nội dung đa kênh.",\n  "hashtags": "#ContentHub #QuanLyNoiDung #AI #Marketing #Digital"\n}`,
+        },
       },
       {
         method: 'POST', path: '/llm/batch/preview', description: 'Preview batch prompt processing',
@@ -347,6 +396,10 @@ const groups: Group[] = [
           { name: 'text', type: 'string', required: true },
           { name: 'language', type: 'string', default: 'vi' },
         ],
+        example: {
+          request: `{\n  "text": "Ngày 15/3/2025, doanh thu đạt 1.500.000đ, tăng 20% so với Q1.",\n  "language": "vi"\n}`,
+          response: `{\n  "normalized": "Ngày mười lăm tháng ba năm hai nghìn không trăm hai mươi lăm, doanh thu đạt một triệu năm trăm nghìn đồng, tăng hai mươi phần trăm so với quý một."\n}`,
+        },
       },
     ],
   },
@@ -363,6 +416,10 @@ const groups: Group[] = [
           { name: 'sources', type: 'array' },
           { name: 'use_llm', type: 'boolean', default: 'true' },
         ],
+        example: {
+          request: `{\n  "text": "cảnh hoàng hôn trên biển Việt Nam",\n  "number_of_images": 5,\n  "use_llm": true\n}`,
+          response: `{\n  "images": [\n    { "url": "https://example.com/img1.jpg", "title": "Hoàng hôn Phú Quốc", "source": "unsplash" },\n    { "url": "https://example.com/img2.jpg", "title": "Sunset Đà Nẵng", "source": "pexels" }\n  ]\n}`,
+        },
       },
       {
         method: 'POST', path: '/image-search/image-finder/download-all', description: 'Batch download images by URL list',
@@ -395,6 +452,10 @@ const groups: Group[] = [
       {
         method: 'POST', path: '/news-scraper/scrape', description: 'Scrape a single article by URL',
         params: [{ name: 'url', type: 'string', required: true }, { name: 'source', type: 'string' }],
+        example: {
+          request: `{\n  "url": "https://vnexpress.net/bai-viet-mau-4800000.html",\n  "source": "vnexpress"\n}`,
+          response: `{\n  "title": "Tiêu đề bài báo",\n  "content": "Nội dung bài báo đầy đủ...",\n  "author": "Nguyễn Văn A",\n  "published_at": "2025-03-20T08:00:00",\n  "images": ["https://i1.vnexpress.net/img1.jpg"]\n}`,
+        },
       },
       {
         method: 'POST', path: '/news-scraper/crawl/start', description: 'Start a batch crawl job',
@@ -431,6 +492,10 @@ const groups: Group[] = [
           { name: 'image_source', type: 'string' },
         ],
         returns: '{ task_id }',
+        example: {
+          request: `{\n  "url": "https://vnexpress.net/bai-viet-4800000.html",\n  "processing_mode": "full",\n  "language": "vi",\n  "title": "Tin tức hôm nay",\n  "template_id": "dff",\n  "voice_model": "piper-tts",\n  "voice_id": "vi_vn_northern_female",\n  "render_profile": "tiktok",\n  "background_music_volume": 0.3,\n  "image_source": "auto"\n}`,
+          response: `{ "task_id": "ntv_5e6f7a8b" }`,
+        },
       },
       { method: 'GET', path: '/news-to-video/quick-generate/stream/{task_id}', description: 'Stream quick-generate progress (SSE)' },
       { method: 'GET', path: '/news-to-video/quick-generate/result/{task_id}', description: 'Get quick-generate result' },
@@ -511,6 +576,10 @@ const groups: Group[] = [
           { name: 'rows', type: 'array', required: true },
           { name: 'label_column', type: 'string' },
         ],
+        example: {
+          request: `{\n  "template": {\n    "background": "#1b1b1b",\n    "width": 1280,\n    "height": 720,\n    "font": "bold 64px Arial",\n    "text_color": "#ffffff"\n  },\n  "rows": [\n    { "title": "Tin tức công nghệ", "image": "/path/to/img1.jpg" },\n    { "title": "Kinh tế hôm nay", "image": "/path/to/img2.jpg" }\n  ],\n  "label_column": "title"\n}`,
+          response: `{\n  "job_id": "thumb_9a1b2c3d",\n  "total": 2\n}`,
+        },
       },
       { method: 'GET', path: '/thumbnail/batch/stream/{job_id}', description: 'Stream generation progress (SSE)' },
       { method: 'GET', path: '/thumbnail/batch/status/{job_id}', description: 'Poll generation status' },
@@ -546,9 +615,11 @@ function MethodBadge({ method }: { method: string }) {
   );
 }
 
-function EndpointRow({ ep, baseNote }: { ep: Endpoint; baseNote?: string }) {
+type UiLang = typeof ui['en'];
+
+function EndpointRow({ ep, baseNote, uiLang }: { ep: Endpoint; baseNote?: string; uiLang: UiLang }) {
   const [open, setOpen] = useState(false);
-  const hasDetail = (ep.params && ep.params.length > 0) || ep.returns || ep.note;
+  const hasDetail = (ep.params && ep.params.length > 0) || ep.returns || ep.note || ep.example;
 
   return (
     <div className="border border-[#2a2a2a] rounded-sm overflow-hidden">
@@ -576,7 +647,7 @@ function EndpointRow({ ep, baseNote }: { ep: Endpoint; baseNote?: string }) {
 
           {ep.params && ep.params.length > 0 && (
             <div>
-              <p className="text-[#606060] text-[11px] uppercase tracking-widest mb-2 font-bold">Parameters</p>
+              <p className="text-[#606060] text-[11px] uppercase tracking-widest mb-2 font-bold">{uiLang.params}</p>
               <div className="space-y-1">
                 {ep.params.map(p => (
                   <div key={p.name} className="flex items-start gap-3 text-xs">
@@ -594,8 +665,26 @@ function EndpointRow({ ep, baseNote }: { ep: Endpoint; baseNote?: string }) {
 
           {ep.returns && (
             <div>
-              <p className="text-[#606060] text-[11px] uppercase tracking-widest mb-1 font-bold">Returns</p>
+              <p className="text-[#606060] text-[11px] uppercase tracking-widest mb-1 font-bold">{uiLang.returns}</p>
               <code className="text-green-400/80 text-xs font-mono">{ep.returns}</code>
+            </div>
+          )}
+
+          {ep.example && (
+            <div className="space-y-2">
+              <p className="text-[#606060] text-[11px] uppercase tracking-widest font-bold">{uiLang.example}</p>
+              {ep.example.request && (
+                <div>
+                  <p className="text-[#505050] text-[10px] uppercase tracking-widest mb-1">{uiLang.exRequest}</p>
+                  <pre className="bg-[#0a0a0a] border border-[#2a2a2a] rounded-sm p-3 text-xs font-mono text-[#ffa31a]/80 overflow-x-auto whitespace-pre-wrap">{ep.example.request}</pre>
+                </div>
+              )}
+              {ep.example.response && (
+                <div>
+                  <p className="text-[#505050] text-[10px] uppercase tracking-widest mb-1">{uiLang.exResponse}</p>
+                  <pre className="bg-[#0a0a0a] border border-[#2a2a2a] rounded-sm p-3 text-xs font-mono text-green-400/80 overflow-x-auto whitespace-pre-wrap">{ep.example.response}</pre>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -604,7 +693,7 @@ function EndpointRow({ ep, baseNote }: { ep: Endpoint; baseNote?: string }) {
   );
 }
 
-function GroupSection({ group }: { group: Group }) {
+function GroupSection({ group, uiLang }: { group: Group; uiLang: UiLang }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border border-[#222222] rounded-sm overflow-hidden">
@@ -617,17 +706,17 @@ function GroupSection({ group }: { group: Group }) {
             ? <ChevronDown className="w-4 h-4 text-[#ffa31a]" />
             : <ChevronRight className="w-4 h-4 text-[#ffa31a]" />}
           <span className="text-white font-bold text-sm tracking-wide">{group.label}</span>
-          <span className="text-[#505050] text-xs">{group.endpoints.length} endpoints</span>
+          <span className="text-[#505050] text-xs">{group.endpoints.length} {uiLang.endpoints}</span>
         </div>
-        {(group as any).note && (
-          <span className="text-[#ffa31a]/50 text-[10px] font-mono hidden md:block">{(group as any).note}</span>
+        {group.note && (
+          <span className="text-[#ffa31a]/50 text-[10px] font-mono hidden md:block">{group.note}</span>
         )}
       </button>
 
       {open && (
         <div className="border-t border-[#222222] p-3 space-y-1.5">
           {group.endpoints.map((ep, i) => (
-            <EndpointRow key={i} ep={ep} baseNote={(group as any).note} />
+            <EndpointRow key={i} ep={ep} baseNote={group.note} uiLang={uiLang} />
           ))}
         </div>
       )}
@@ -635,9 +724,74 @@ function GroupSection({ group }: { group: Group }) {
   );
 }
 
+/* ─── i18n ───────────────────────────────────────────── */
+const groupLabelsVi: Record<string, string> = {
+  'System': 'Hệ Thống',
+  'Video Processing': 'Xử Lý Video',
+  'Audio Processing': 'Xử Lý Âm Thanh',
+  'Image Processing': 'Xử Lý Hình Ảnh',
+  'Background Removal': 'Xóa Nền',
+  'Speech-to-Text (Whisper)': 'Nhận Dạng Giọng Nói (Whisper)',
+  'Text-to-Speech — Edge TTS': 'Chuyển Văn Bản Thành Giọng Nói — Edge TTS',
+  'Text-to-Speech — Piper TTS': 'Chuyển Văn Bản Thành Giọng Nói — Piper TTS',
+  'Text-to-Speech — F5-TTS': 'Chuyển Văn Bản Thành Giọng Nói — F5-TTS',
+  'Translation': 'Dịch Thuật',
+  'LLM (Ollama)': 'Mô Hình Ngôn Ngữ (Ollama)',
+  'Text Normalization': 'Chuẩn Hóa Văn Bản',
+  'Image Search': 'Tìm Kiếm Hình Ảnh',
+  'News Scraper': 'Thu Thập Tin Tức',
+  'News-to-Video': 'Tin Tức Thành Video',
+  'Karaoke': 'Karaoke',
+  'Music Playlist Video': 'Video Danh Sách Nhạc',
+  'Thumbnail Batch': 'Tạo Thumbnail Hàng Loạt',
+  'Models & Tools': 'Mô Hình & Công Cụ',
+};
+
+const ui = {
+  en: {
+    badge: 'API Reference',
+    desc: 'REST API powering ContentHub — video/audio processing, AI speech, translation, image tools, and automated content pipeline. All async operations return a',
+    descSuffix: 'and expose an SSE stream endpoint.',
+    meta: (cats: number, eps: number) => `${cats} categories · ${eps} endpoints · click an endpoint to expand parameters`,
+    params: 'Parameters',
+    returns: 'Returns',
+    errorTitle: 'Common Error Codes',
+    errors: [
+      ['400', 'Bad request / validation'],
+      ['404', 'File or job not found'],
+      ['503', 'Model not loaded / Ollama offline'],
+      ['500', 'Internal server error'],
+    ] as [string, string][],
+    endpoints: 'endpoints',
+    example: 'Example',
+    exRequest: 'Request',
+    exResponse: 'Response',
+  },
+  vi: {
+    badge: 'Tài Liệu API',
+    desc: 'REST API cho ContentHub — xử lý video/âm thanh, giọng nói AI, dịch thuật, công cụ hình ảnh và pipeline tạo nội dung tự động. Tất cả tác vụ bất đồng bộ trả về',
+    descSuffix: 'và cung cấp endpoint SSE để theo dõi tiến trình.',
+    meta: (cats: number, eps: number) => `${cats} nhóm chức năng · ${eps} endpoint · nhấn vào endpoint để xem tham số`,
+    params: 'Tham Số',
+    returns: 'Kết Quả Trả Về',
+    errorTitle: 'Mã Lỗi Thường Gặp',
+    errors: [
+      ['400', 'Yêu cầu không hợp lệ / lỗi xác thực'],
+      ['404', 'Không tìm thấy file hoặc job'],
+      ['503', 'Mô hình chưa được tải / Ollama ngoại tuyến'],
+      ['500', 'Lỗi máy chủ nội bộ'],
+    ] as [string, string][],
+    endpoints: 'endpoint',
+    example: 'Ví Dụ',
+    exRequest: 'Yêu Cầu',
+    exResponse: 'Phản Hồi',
+  },
+};
+
 /* ─── Main Section ───────────────────────────────────── */
-export function ApiDocs() {
+export function ApiDocs({ lang = 'en' }: { lang?: 'en' | 'vi' }) {
   const totalEndpoints = groups.reduce((s, g) => s + g.endpoints.length, 0);
+  const t = ui[lang];
 
   return (
     <section id="api-docs" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#141414] border-t border-[#222222]">
@@ -648,11 +802,10 @@ export function ApiDocs() {
           <div className="h-1 w-16 bg-[#ffa31a] mb-6" />
           <div className="flex items-center gap-4 mb-4">
             <PhLogo prefix="Content" suffix="Hub" size="lg" />
-            <span className="text-[#606060] text-sm border border-[#333] px-3 py-1 rounded-sm font-mono">API Reference</span>
+            <span className="text-[#606060] text-sm border border-[#333] px-3 py-1 rounded-sm font-mono">{t.badge}</span>
           </div>
           <p className="text-[#808080] text-base leading-relaxed max-w-2xl mb-6">
-            REST API powering ContentHub — video/audio processing, AI speech, translation, image tools, and automated content pipeline.
-            All async operations return a <code className="text-[#ffa31a] bg-[#ffa31a]/10 px-1 rounded">task_id</code> and expose an SSE stream endpoint.
+            {t.desc} <code className="text-[#ffa31a] bg-[#ffa31a]/10 px-1 rounded">task_id</code> {t.descSuffix}
           </p>
 
           {/* Base URLs */}
@@ -667,23 +820,24 @@ export function ApiDocs() {
             </div>
           </div>
 
-          <p className="text-[#505050] text-xs">
-            {groups.length} categories · {totalEndpoints} endpoints · click an endpoint to expand parameters
-          </p>
+          <p className="text-[#505050] text-xs">{t.meta(groups.length, totalEndpoints)}</p>
         </div>
 
         {/* Groups */}
         <div className="space-y-2">
-          {groups.map((g) => (
-            <GroupSection key={g.label} group={g} />
-          ))}
+          {groups.map((g) => {
+            const label = lang === 'vi' ? (groupLabelsVi[g.label] ?? g.label) : g.label;
+            return (
+              <GroupSection key={g.label} group={{ ...g, label }} uiLang={t} />
+            );
+          })}
         </div>
 
         {/* Error codes */}
         <div className="mt-10 border border-[#222222] rounded-sm p-5 bg-[#111111]">
-          <p className="text-[#606060] text-[11px] uppercase tracking-widest font-bold mb-3">Common Error Codes</p>
+          <p className="text-[#606060] text-[11px] uppercase tracking-widest font-bold mb-3">{t.errorTitle}</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-            {[['400', 'Bad request / validation'], ['404', 'File or job not found'], ['503', 'Model not loaded / Ollama offline'], ['500', 'Internal server error']].map(([code, desc]) => (
+            {t.errors.map(([code, desc]) => (
               <div key={code} className="flex flex-col gap-1">
                 <span className="text-red-400 font-mono font-bold">{code}</span>
                 <span className="text-[#505050]">{desc}</span>
