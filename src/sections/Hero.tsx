@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, BookOpen } from 'lucide-react';
+import { ChevronDown, BookOpen, LayoutGrid } from 'lucide-react';
 import { PhLogo } from '@/components/PhLogo';
 import { useLang } from '@/contexts/LanguageContext';
 
@@ -61,6 +61,14 @@ export function Hero() {
               </div>
             )}
           </div>
+
+          {/* Site preview link */}
+          <Link
+            to="/preview"
+            className="flex items-center gap-2 text-xl font-black tracking-widest uppercase text-[#606060] hover:text-[#ffa31a] transition-colors duration-150 px-3 py-1"
+          >
+            <LayoutGrid className="w-5 h-5" />
+          </Link>
 
           {/* Language toggle */}
           <button

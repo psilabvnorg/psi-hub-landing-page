@@ -6,6 +6,7 @@ import App from './App.tsx'
 import { ContentHubDocs } from './pages/ContentHubDocs.tsx'
 import { ContentHubHuongDan } from './pages/ContentHubHuongDan.tsx'
 import { ContentHubInstallGuide } from './pages/ContentHubInstallGuide.tsx'
+import { SitePreview } from './pages/SitePreview.tsx'
 import { ComingSoon } from './pages/ComingSoon.tsx'
 
 createRoot(document.getElementById('root')!).render(
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/psi69/huong-dan" element={<ComingSoon prefix="Psi" suffix="69" />} />
         <Route path="/jobhub/huong-dan" element={<ComingSoon prefix="Job" suffix="Hub" />} />
         <Route path="/lifehub/huong-dan" element={<ComingSoon prefix="Life" suffix="Hub" />} />
+        <Route path="/preview" element={<SitePreview />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
