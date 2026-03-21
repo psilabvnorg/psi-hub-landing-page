@@ -3,6 +3,7 @@ import { ExternalLink, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Product } from '@/types/product';
 import { PhLogo } from '@/components/PhLogo';
 import { useLang } from '@/contexts/LanguageContext';
+import { getProductScreenshots } from '@/utils/productImages';
 
 interface ProductCardProps {
   product: Product;
@@ -22,8 +23,9 @@ function splitName(name: string): [string, string] {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const screenshots = getProductScreenshots(product.id);
   const [current, setCurrent] = useState(0);
-  const total = product.screenshots.length;
+  const total = screenshots.length;
   const [prefix, suffix] = splitName(product.name);
 
   const prev = () => setCurrent((c) => (c - 1 + total) % total);
@@ -31,10 +33,10 @@ export function ProductCard({ product }: ProductCardProps) {
   const { t } = useLang();
 
   return (
-    <div className="group bg-[#111111] border border-[#222222] hover:border-[#FF9000]/40 transition-colors duration-200 overflow-hidden rounded-sm">
+    <div className="group bg-[#111111] border border-[#222222] hover:border-[#ffa31a]/40 transition-colors duration-200 overflow-hidden rounded-sm">
 
       {/* Top orange accent line */}
-      <div className="h-[3px] bg-[#FF9000]" />
+      <div className="h-[3px] bg-[#ffa31a]" />
 
       {/* Header */}
       <div className="px-6 pt-5 pb-4">
@@ -44,14 +46,14 @@ export function ProductCard({ product }: ProductCardProps) {
           <span className={`inline-flex items-center px-2.5 py-1 text-[10px] font-black tracking-[0.15em] uppercase rounded-sm ${
             product.status === 'Ready'
               ? 'bg-green-500/15 text-green-400 border border-green-500/30'
-              : 'bg-[#FF9000]/15 text-[#FF9000] border border-[#FF9000]/40'
+              : 'bg-[#ffa31a]/15 text-[#ffa31a] border border-[#ffa31a]/40'
           }`}>
             {product.status === 'Ready' ? t.ready : 'Beta'}
           </span>
         </div>
 
         {/* Description */}
-        <p className="text-[#808080] text-sm leading-relaxed max-w-lg">
+        <p className="text-white text-base leading-relaxed max-w-lg">
           {product.description}
         </p>
       </div>
@@ -59,7 +61,7 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Screenshot */}
       <div className="relative bg-[#0a0a0a] border-t border-b border-[#222222]">
         <div className="aspect-video relative overflow-hidden">
-          {product.screenshots.map((src, i) => (
+          {screenshots.map((src, i) => (
             <img
               key={i}
               src={src}
@@ -75,13 +77,13 @@ export function ProductCard({ product }: ProductCardProps) {
             <>
               <button
                 onClick={prev}
-                className="absolute left-0 top-0 bottom-0 w-12 flex items-center justify-center bg-gradient-to-r from-black/70 to-transparent text-white opacity-0 group-hover:opacity-100 hover:text-[#FF9000] transition-all duration-150"
+                className="absolute left-0 top-0 bottom-0 w-12 flex items-center justify-center bg-gradient-to-r from-black/70 to-transparent text-white opacity-0 group-hover:opacity-100 hover:text-[#ffa31a] transition-all duration-150"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={next}
-                className="absolute right-0 top-0 bottom-0 w-12 flex items-center justify-center bg-gradient-to-l from-black/70 to-transparent text-white opacity-0 group-hover:opacity-100 hover:text-[#FF9000] transition-all duration-150"
+                className="absolute right-0 top-0 bottom-0 w-12 flex items-center justify-center bg-gradient-to-l from-black/70 to-transparent text-white opacity-0 group-hover:opacity-100 hover:text-[#ffa31a] transition-all duration-150"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -96,25 +98,27 @@ export function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Actions */}
-      <div className="px-6 py-4 flex gap-3">
-        <a
-          href={product.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 py-3 border border-[#333333] text-[#808080] font-bold text-sm tracking-wide hover:border-[#FF9000]/50 hover:text-[#FF9000] transition-all duration-150 rounded-sm"
-        >
-          <Play className="w-4 h-4" />
-          {t.liveDemo}
-        </a>
-        <a
-          href={product.linkUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 py-3 bg-[#FF9000] text-black font-black text-sm tracking-widest uppercase hover:bg-white transition-colors duration-150 rounded-sm"
-        >
-          <ExternalLink className="w-4 h-4" />
-          {t.visitSite}
-        </a>
+      <div className="px-6 py-4 flex flex-col gap-2">
+        <div className="flex gap-3">
+          <a
+            href={product.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 inline-flex items-center justify-center gap-2 py-3 border border-[#333333] text-[#808080] font-bold text-sm tracking-wide hover:border-[#ffa31a]/50 hover:text-[#ffa31a] transition-all duration-150 rounded-sm"
+          >
+            <Play className="w-4 h-4" />
+            {t.liveDemo}
+          </a>
+          <a
+            href={product.linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 inline-flex items-center justify-center gap-2 py-3 bg-[#ffa31a] text-black font-black text-sm tracking-widest uppercase hover:bg-white transition-colors duration-150 rounded-sm"
+          >
+            <ExternalLink className="w-4 h-4" />
+            {t.visitSite}
+          </a>
+        </div>
       </div>
     </div>
   );

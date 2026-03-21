@@ -1,22 +1,73 @@
+import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ChevronDown, BookOpen } from 'lucide-react';
 import { PhLogo } from '@/components/PhLogo';
 import { useLang } from '@/contexts/LanguageContext';
 
+const DOC_LINKS = [
+  { label: 'ContentHub API', path: '/contenthub/docs' },
+];
+
 export function Hero() {
   const { lang, toggle } = useLang();
+  const [docsOpen, setDocsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setDocsOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0f0f0f] border-b-[3px] border-[#FF9000]">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0f0f0f] border-b-[3px] border-[#ffa31a] px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto h-16 flex items-center justify-between">
         <PhLogo prefix="Psi" suffix="Hub" size="md" showImage />
 
-        <button
-          onClick={toggle}
-          className="flex items-center gap-2 text-xl font-black tracking-widest uppercase px-3 py-1"
-        >
-          <span className={lang === 'en' ? 'text-[#FF9000]' : 'text-[#808080]'}>EN</span>
-          <span className="text-[#808080]">/</span>
-          <span className={lang === 'vi' ? 'text-[#FF9000]' : 'text-[#808080]'}>VI</span>
-        </button>
+        <div className="flex items-center gap-4">
+
+          {/* Docs dropdown */}
+          <div className="relative" ref={menuRef}>
+            <button
+              onClick={() => setDocsOpen(o => !o)}
+              className="flex items-center gap-1.5 text-sm font-bold tracking-wide text-[#808080] hover:text-[#ffa31a] transition-colors duration-150 px-2 py-1"
+            >
+              <BookOpen className="w-4 h-4" />
+              Docs
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-150 ${docsOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {docsOpen && (
+              <div className="absolute right-0 top-full mt-2 w-52 bg-[#111111] border border-[#2a2a2a] rounded-sm shadow-xl py-1">
+                {DOC_LINKS.map(item => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setDocsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-[#808080] hover:text-[#ffa31a] hover:bg-[#1a1a1a] transition-colors duration-100"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Language toggle */}
+          <button
+            onClick={toggle}
+            className="flex items-center gap-2 text-xl font-black tracking-widest uppercase px-3 py-1"
+          >
+            <span className={lang === 'en' ? 'text-[#ffa31a]' : 'text-[#808080]'}>EN</span>
+            <span className="text-[#808080]">/</span>
+            <span className={lang === 'vi' ? 'text-[#ffa31a]' : 'text-[#808080]'}>VI</span>
+          </button>
+        </div>
       </div>
     </header>
   );

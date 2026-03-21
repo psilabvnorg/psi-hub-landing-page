@@ -25,7 +25,7 @@
     --ring: 35 100% 55%;
     --radius: 0.625rem;
     
-    --psi-orange: #FF9000;
+    --psi-orange: #ffa31a;
     --psi-gray: #808080;
     --psi-dark: #292929;
     --psi-darker: #1b1b1b;
@@ -48,14 +48,14 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #FF9000 0%, #ffcc80 100%);
+    background: linear-gradient(135deg, #ffa31a 0%, #ffcc80 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .bg-gradient-orange {
-    background: #FF9000;
+    background: #ffa31a;
   }
 
   .hover-lift {
@@ -75,7 +75,7 @@
 
   .status-beta {
     background: rgba(255, 163, 26, 0.15);
-    color: #FF9000;
+    color: #ffa31a;
     border: 1px solid rgba(255, 163, 26, 0.3);
   }
 }
@@ -91,7 +91,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF9000;
+  background: #ffa31a;
   border-radius: 4px;
 }
 

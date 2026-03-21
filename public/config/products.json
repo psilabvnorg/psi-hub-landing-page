@@ -8,107 +8,72 @@
     {
       "id": "contenthub",
       "name": "ContentHub",
-      "logo": "/images/contenthub/logo.png",
+      "logo": "",
       "description": "All-in-one content management platform. Create, organize, and distribute your content seamlessly across multiple channels with powerful analytics.",
-      "screenshots": [
-        "/images/contenthub/screenshot1.png",
-        "/images/contenthub/screenshot2.png",
-        "/images/contenthub/screenshot3.png",
-        "/images/contenthub/screenshot4.png"
-      ],
-      "demoUrl": "https://contenthub.psihub.me",
+      "screenshots": [],
+      "demoUrl": "https://psihub.me",
       "status": "Ready",
-      "linkUrl": "https://contenthub.psihub.me"
+      "linkUrl": "https://psihub.me"
     },
     {
       "id": "psi69",
       "name": "Psi69",
-      "logo": "/images/psi69/logo.png",
+      "logo": "",
       "description": "Next-generation social platform connecting like-minded individuals. Experience meaningful connections in a safe, innovative environment.",
-      "screenshots": [
-        "/images/psi69/screenshot1.png",
-        "/images/psi69/screenshot2.png",
-        "/images/psi69/screenshot3.png",
-        "/images/psi69/screenshot4.png"
-      ],
-      "demoUrl": "https://psi69.psihub.me",
-      "status": "Beta",
-      "linkUrl": "https://psi69.psihub.me"
+      "screenshots": [],
+      "demoUrl": "https://xechohang.vn",
+      "status": "Ready",
+      "linkUrl": "https://xechohang.vn"
     },
     {
       "id": "prompthub",
       "name": "PromptHub",
-      "logo": "/images/prompthub/logo.png",
+      "logo": "",
       "description": "Curated AI prompt library for creators. Access thousands of optimized prompts for ChatGPT, Midjourney, DALL-E, and more AI tools.",
-      "screenshots": [
-        "/images/prompthub/screenshot1.png",
-        "/images/prompthub/screenshot2.png",
-        "/images/prompthub/screenshot3.png",
-        "/images/prompthub/screenshot4.png"
-      ],
-      "demoUrl": "https://prompthub.psihub.me",
+      "screenshots": [],
+      "demoUrl": "https://psihub.me",
       "status": "Ready",
-      "linkUrl": "https://prompthub.psihub.me"
+      "linkUrl": "https://psihub.me"
     },
     {
       "id": "jobhub",
       "name": "JobHub",
-      "logo": "/images/jobhub/logo.png",
+      "logo": "",
       "description": "Revolutionary job matching platform. Connect with your dream career using AI-powered recommendations and smart filtering.",
-      "screenshots": [
-        "/images/jobhub/screenshot1.png",
-        "/images/jobhub/screenshot2.png",
-        "/images/jobhub/screenshot3.png",
-        "/images/jobhub/screenshot4.png"
-      ],
-      "demoUrl": "https://jobhub.psihub.me",
-      "status": "Ready",
-      "linkUrl": "https://jobhub.psihub.me"
+      "screenshots": [],
+      "demoUrl": "https://job-tinder-clone-app.vercel.app/",
+      "status": "Beta",
+      "linkUrl": "https://job-tinder-clone-app.vercel.app/"
     },
     {
       "id": "lifehub",
       "name": "LifeHub",
-      "logo": "/images/lifehub/logo.png",
+      "logo": "",
       "description": "Personal life management assistant. Track habits, set goals, manage schedules, and optimize your daily routines effortlessly.",
-      "screenshots": [
-        "/images/lifehub/screenshot1.png",
-        "/images/lifehub/screenshot2.png",
-        "/images/lifehub/screenshot3.png",
-        "/images/lifehub/screenshot4.png"
-      ],
-      "demoUrl": "https://lifehub.psihub.me",
+      "screenshots": [],
+      "demoUrl": "https://horoscope-app-rouge.vercel.app/",
       "status": "Beta",
-      "linkUrl": "https://lifehub.psihub.me"
+      "linkUrl": "https://horoscope-app-rouge.vercel.app/"
     },
     {
       "id": "sporthub",
       "name": "SportHub",
-      "logo": "/images/sporthub/logo.png",
+      "logo": "",
       "description": "Complete sports and fitness companion. Track workouts, join challenges, connect with athletes, and achieve your fitness goals.",
-      "screenshots": [
-        "/images/sporthub/screenshot1.png",
-        "/images/sporthub/screenshot2.png",
-        "/images/sporthub/screenshot3.png",
-        "/images/sporthub/screenshot4.png"
-      ],
-      "demoUrl": "https://sporthub.psihub.me",
+      "screenshots": [],
+      "demoUrl": "https://psihub.me",
       "status": "Ready",
-      "linkUrl": "https://sporthub.psihub.me"
+      "linkUrl": "https://psihub.me"
     },
     {
       "id": "psibot",
       "name": "PsiBot",
-      "logo": "/images/psibot/logo.png",
+      "logo": "",
       "description": "Intelligent AI assistant for automation. Streamline workflows, answer queries, and boost productivity with smart bot integration.",
-      "screenshots": [
-        "/images/psibot/screenshot1.png",
-        "/images/psibot/screenshot2.png",
-        "/images/psibot/screenshot3.png",
-        "/images/psibot/screenshot4.png"
-      ],
-      "demoUrl": "https://psibot.psihub.me",
+      "screenshots": [],
+      "demoUrl": "https://psihub.me",
       "status": "Beta",
-      "linkUrl": "https://psibot.psihub.me"
+      "linkUrl": "https://psihub.me"
     }
   ],
   "contact": {

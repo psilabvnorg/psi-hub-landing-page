@@ -27,7 +27,7 @@ export function Contact({ contact }: ContactProps) {
 
         {/* Section Header */}
         <div className="mb-16">
-          <div className="h-1 w-16 bg-[#FF9000] mb-6" />
+          <div className="h-1 w-16 bg-[#ffa31a] mb-6" />
           <div className="mb-4">
             <PhLogo prefix={t.contactLogo.prefix} suffix={t.contactLogo.suffix} size="lg" />
           </div>
@@ -42,16 +42,16 @@ export function Contact({ contact }: ContactProps) {
               href={item.href}
               target={item.isAddress ? undefined : '_blank'}
               rel={item.isAddress ? undefined : 'noopener noreferrer'}
-              className="group flex items-center gap-4 p-5 bg-[#1b1b1b] border border-[#292929] border-l-4 border-l-[#FF9000]/40 hover:border-[#FF9000]/60 hover:border-l-[#FF9000] hover:bg-[#1e1e1e] transition-all duration-150 rounded-sm"
+              className="group flex items-center gap-4 p-5 bg-[#1b1b1b] border border-[#292929] border-l-4 border-l-[#ffa31a]/40 hover:border-[#ffa31a]/60 hover:border-l-[#ffa31a] hover:bg-[#1e1e1e] transition-all duration-150 rounded-sm"
             >
-              <div className="w-11 h-11 bg-[#FF9000] flex items-center justify-center shrink-0 rounded-sm group-hover:bg-white transition-colors duration-150">
+              <div className="w-11 h-11 bg-[#ffa31a] flex items-center justify-center shrink-0 rounded-sm group-hover:bg-white transition-colors duration-150">
                 <item.icon className="w-5 h-5 text-black" />
               </div>
               <div className="min-w-0">
                 <p className="text-xs text-[#808080] font-bold tracking-widest uppercase mb-1">
                   {t.labels[item.key]}
                 </p>
-                <p className="text-white font-bold truncate group-hover:text-[#FF9000] transition-colors duration-150 text-lg">
+                <p className="text-white font-bold truncate group-hover:text-[#ffa31a] transition-colors duration-150 text-lg">
                   {item.value}
                 </p>
               </div>

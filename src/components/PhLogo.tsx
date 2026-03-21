@@ -14,9 +14,9 @@ const sizeClass = {
 export function PhLogo({ prefix, suffix, size = 'md', showImage = false }: PhLogoProps) {
   return (
     <div className={`flex items-center gap-2 leading-none ${sizeClass[size]}`}>
-      {showImage && <img src="/logo.png" alt="logo" className="h-10 w-auto object-contain" />}
+      {showImage && <img src="/logo.png" alt="logo" className="h-10 w-auto object-contain mix-blend-screen" />}
       <span className="font-black text-white leading-none">{prefix}</span>
-      <span className="font-black bg-[#FF9000] text-black px-3 py-2 rounded-2xl leading-none">
+      <span className="font-black bg-[#ffa31a] text-black px-3 py-2 rounded-2xl leading-none">
         {suffix}
       </span>
     </div>
