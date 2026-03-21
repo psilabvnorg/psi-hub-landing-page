@@ -35,7 +35,7 @@ const steps = [
   {
     number: 3,
     title: 'Mở thư mục và chạy ứng dụng',
-    description: 'Mở thư mục vừa giải nén, nhấn đúp vào file .exe để khởi động ứng dụng.',
+    description: 'Mở thư mục vừa giải nén, click chuột phải vào file "ContentHub.exe" và chọn "Run as administrator" để chạy ứng dụng với quyền quản trị.',
     image: '/assets/docs/contenthub/3.PNG',
   },
   {
