@@ -146,6 +146,51 @@ export function ContentHubInstallGuide() {
                 )}
               </div>
             ))}
+
+            {/* Demo video after last step */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#ffa31a] flex items-center justify-center text-black font-bold text-lg">
+                  ▶
+                </div>
+                <div>
+                  <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-1">
+                    Demo
+                  </p>
+                  <h2 className="text-white text-xl font-bold">Demo và Hướng Dẫn Cài Đặt</h2>
+                </div>
+              </div>
+              <div className="relative overflow-hidden rounded-xl border border-[#2a2a2a] ml-14" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src="https://www.youtube.com/embed/IEepEZDoFDI?autoplay=0&mute=0"
+                  title="Demo và Hướng Dẫn Cài Đặt"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+              <p className="text-white text-base font-bold ml-14 mt-4">Demo</p>
+              <div className="flex flex-wrap gap-4 ml-14 mt-2">
+                <a
+                  href="https://www.youtube.com/@psihubvn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF0000]/10 border border-[#FF0000]/30 text-[#FF4444] hover:bg-[#FF0000]/20 transition-colors text-sm font-medium"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+                  YouTube: @psihubvn
+                </a>
+                <a
+                  href="https://www.tiktok.com/@psihub.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00f2ea]/10 border border-[#00f2ea]/30 text-[#00f2ea] hover:bg-[#00f2ea]/20 transition-colors text-sm font-medium"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.84 4.84 0 0 1-1-.15z"/></svg>
+                  TikTok: @psihub.me
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
