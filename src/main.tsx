@@ -8,10 +8,12 @@ import { ContentHubHuongDan } from './pages/ContentHubHuongDan.tsx'
 import { ContentHubInstallGuide } from './pages/ContentHubInstallGuide.tsx'
 import { SitePreview } from './pages/SitePreview.tsx'
 import { ComingSoon } from './pages/ComingSoon.tsx'
+import { ScrollToTop } from './components/ScrollToTop.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/contenthub/docs" element={<ContentHubDocs />} />

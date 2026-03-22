@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Contact } from '@/sections/Contact';
@@ -6,66 +7,62 @@ import { useProducts } from '@/hooks/useProducts';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { PhLogo } from '@/components/PhLogo';
 
-const steps = [
-  {
-    number: 1,
-    title: 'Tải file cài đặt về máy',
-    description: (
-      <>
-        Tải file <strong>full69.rar</strong> (đầy đủ, không có nhân giọng) hoặc{' '}
-        <strong>full69_plus_voice_clone.rar</strong> (đầy đủ, có nhân giọng) về máy tính.{' '}
-        <a
-          href="https://huggingface.co/psilab/ai-content-hub-release/tree/main"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#ffa31a] underline hover:text-white transition-colors duration-150"
-        >
-          Tải tại đây →
-        </a>
-      </>
-    ),
-    image: '/assets/docs/contenthub/1.PNG',
-  },
-  {
-    number: 2,
-    title: 'Giải nén file',
-    description: 'Nhấn chuột phải vào file .rar vừa tải về và giải nén ra một thư mục.',
-    image: '/assets/docs/contenthub/2.PNG',
-  },
-  {
-    number: 3,
-    title: 'Mở thư mục và chạy ứng dụng',
-    description: 'Mở thư mục vừa giải nén, click chuột phải vào file "ContentHub.exe" và chọn "Run as administrator" để chạy ứng dụng với quyền quản trị.',
-    image: '/assets/docs/contenthub/3.PNG',
-  },
-  {
-    number: 4,
-    title: 'Cảnh báo Windows — nhấn "More info"',
-    description: 'Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn "More info" để tiếp tục.',
-    image: '/assets/docs/contenthub/4.PNG',
-  },
-  {
-    number: 5,
-    title: 'Nhấn "Run anyway" để chạy',
-    description: 'Nhấn "Run anyway" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.',
-    image: '/assets/docs/contenthub/5.PNG',
-  },
-  {
-    number: 6,
-    title: 'Chờ ứng dụng khởi động',
-    description: 'Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.',
-    image: '/assets/docs/contenthub/6.PNG',
-  },
-  {
-    number: 7,
-    title: 'Vào trang cài đặt để khởi động ứng dụng',
-    description: 'Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.',
-    image: '/assets/docs/contenthub/7.PNG',
-  },
-];
+type Platform = 'windows' | 'mac';
+
+interface StepLink {
+  text: string;
+  url: string;
+}
+
+interface StepData {
+  number: number;
+  title: string;
+  description: string;
+  link?: StepLink;
+  image: string;
+}
+
+const JSON_URLS: Record<Platform, string> = {
+  windows: '/config/install_windows_contenthub.json',
+  mac: '/config/install_mac_contenthub.json',
+};
+
+function renderDescription(description: string, link?: StepLink) {
+  // Convert **bold** markdown to JSX
+  const parts = description.split(/\*\*(.+?)\*\*/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+      )}
+      {link && (
+        <>
+          {' '}
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#ffa31a] underline hover:text-white transition-colors duration-150"
+          >
+            {link.text}
+          </a>
+        </>
+      )}
+    </>
+  );
+}
 
 export function ContentHubInstallGuide() {
   const { config } = useProducts();
+  const [platform, setPlatform] = useState<Platform>('windows');
+  const [steps, setSteps] = useState<StepData[]>([]);
+
+  useEffect(() => {
+    fetch(JSON_URLS[platform])
+      .then((r) => r.json())
+      .then(setSteps)
+      .catch(() => setSteps([]));
+  }, [platform]);
 
   return (
     <LanguageProvider>
@@ -91,25 +88,53 @@ export function ContentHubInstallGuide() {
           <div className="mb-12 text-center">
             <div className="h-1 w-16 bg-[#ffa31a] mx-auto mb-6" />
             <h1 className="text-white text-3xl font-bold mb-3">Hướng Dẫn Cài Đặt</h1>
-            <p className="text-[#808080] text-base">Làm theo 7 bước dưới đây để cài đặt và chạy ContentHub trên máy tính.</p>
+            <p className="text-[#808080] text-base mb-8">
+              Làm theo {steps.length} bước dưới đây để cài đặt và chạy ContentHub trên máy tính.
+            </p>
+
+            {/* Platform toggle */}
+            <div className="inline-flex rounded-xl overflow-hidden border-2 border-[#ffa31a]">
+              <button
+                onClick={() => setPlatform('windows')}
+                className={`px-8 py-3 text-lg font-bold transition-all duration-200 cursor-pointer ${
+                  platform === 'windows'
+                    ? 'bg-[#ffa31a] text-black'
+                    : 'bg-transparent text-[#ffa31a] hover:bg-[#ffa31a]/10'
+                }`}
+              >
+                🪟 Windows
+              </button>
+              <button
+                onClick={() => setPlatform('mac')}
+                className={`px-8 py-3 text-lg font-bold transition-all duration-200 cursor-pointer ${
+                  platform === 'mac'
+                    ? 'bg-[#ffa31a] text-black'
+                    : 'bg-transparent text-[#ffa31a] hover:bg-[#ffa31a]/10'
+                }`}
+              >
+                🍎 macOS
+              </button>
+            </div>
           </div>
 
           <div className="flex flex-col gap-12">
             {steps.map((step) => (
               <div key={step.number} className="flex flex-col gap-4">
-                {/* Step header */}
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#ffa31a] flex items-center justify-center text-black font-bold text-lg">
                     {step.number}
                   </div>
                   <div>
-                    <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-1">Bước {step.number}</p>
+                    <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-1">
+                      Bước {step.number}
+                    </p>
                     <h2 className="text-white text-xl font-bold">{step.title}</h2>
-                    <p className="text-[#909090] text-base mt-1">{step.description}</p>
+                    <p className="text-[#909090] text-base mt-1">
+                      {renderDescription(step.description, step.link)}
+                    </p>
                   </div>
                 </div>
 
-                {/* Image */}
                 <div className="rounded-xl overflow-hidden border border-[#2a2a2a] ml-14">
                   <img
                     src={step.image}
