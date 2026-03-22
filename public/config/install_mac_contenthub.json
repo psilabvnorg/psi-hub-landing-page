@@ -2,7 +2,7 @@
   {
     "number": 1,
     "title": "Tải file cài đặt về máy",
-    "description": "Tải file **mac-psi-full69.zip** (đầy đủ, không có nhân giọng) hoặc **mac-psi-full69-voice-clone.zip** (đầy đủ, có nhân giọng) về máy tính.",
+    "description": "Tải file **mac-psi-full69.rar** (không có tính năng nhại giọng) hoặc **mac-psi-full69-voice-clone.rar** (có tính năng nhại giọng) về máy tính. Lưu ý: ấn nút tải xuống (tô đỏ) để tải file, và nhớ lựa chọn đúng phiên bản Windows hoặc MacOs",
     "link": {
       "text": "Tải tại đây →",
       "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main"
