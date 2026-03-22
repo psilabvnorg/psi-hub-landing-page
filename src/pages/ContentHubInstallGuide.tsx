@@ -87,7 +87,8 @@ export function ContentHubInstallGuide() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="mb-12 text-center">
             <div className="h-1 w-16 bg-[#ffa31a] mx-auto mb-6" />
-            <h1 className="text-white text-3xl font-bold mb-3">Hướng Dẫn Cài Đặt</h1>
+            <h1 className="text-white text-3xl font-bold mb-1">Hướng Dẫn Cài Đặt</h1>
+            <p className="text-white text-base font-bold mb-3 underline">KHÔNG TỐN TOKEN, KO CẦN API KEY</p>
             <p className="text-[#808080] text-base mb-8">
               Làm theo {steps.length} bước dưới đây để cài đặt và chạy ContentHub trên máy tính.
             </p>
