@@ -19,7 +19,7 @@ interface StepData {
   title: string;
   description: string;
   link?: StepLink;
-  image: string;
+  image?: string;
 }
 
 const JSON_URLS: Record<Platform, string> = {
@@ -135,13 +135,15 @@ export function ContentHubInstallGuide() {
                   </div>
                 </div>
 
-                <div className="rounded-xl overflow-hidden border border-[#2a2a2a] ml-14">
-                  <img
-                    src={step.image}
-                    alt={`Bước ${step.number}`}
-                    className="w-full object-cover"
-                  />
-                </div>
+                {step.image && (
+                  <div className="rounded-xl overflow-hidden border border-[#2a2a2a] ml-14">
+                    <img
+                      src={step.image}
+                      alt={`Bước ${step.number}`}
+                      className="w-full object-cover"
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>

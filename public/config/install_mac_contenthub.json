@@ -2,7 +2,7 @@
   {
     "number": 1,
     "title": "Tải file cài đặt về máy",
-    "description": "Tải file **full69.rar** (đầy đủ, không có nhân giọng) hoặc **full69_plus_voice_clone.rar** (đầy đủ, có nhân giọng) về máy tính.",
+    "description": "Tải file **mac-psi-full69.zip** (đầy đủ, không có nhân giọng) hoặc **mac-psi-full69-voice-clone.zip** (đầy đủ, có nhân giọng) về máy tính.",
     "link": {
       "text": "Tải tại đây →",
       "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main"
@@ -12,37 +12,30 @@
   {
     "number": 2,
     "title": "Giải nén file",
-    "description": "Nhấn chuột phải vào file .rar vừa tải về và giải nén ra một thư mục.",
+    "description": "Nhấn chuột phải vào file .zip vừa tải về và giải nén ra một thư mục.",
     "image": "/assets/docs/install_mac_contenthub/2.PNG"
   },
   {
     "number": 3,
-    "title": "Mở thư mục và chạy ứng dụng",
-    "description": "Mở thư mục vừa giải nén, click chuột phải vào file \"ContentHub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
+    "title": "Mở ứng dụng — nhấn chuột phải và chọn \"Open\"",
+    "description": "Mở thư mục vừa giải nén, **nhấn chuột phải** vào **\"AI Content Hub.app\"** và chọn **\"Open\"**. Không nhấn đôi chuột trực tiếp khi lần đầu chạy.",
     "image": "/assets/docs/install_mac_contenthub/3.PNG"
   },
   {
     "number": 4,
-    "title": "Cảnh báo Windows — nhấn \"More info\"",
-    "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục.",
-    "image": "/assets/docs/install_mac_contenthub/4.PNG"
+    "title": "Xác nhận mở ứng dụng — nhấn \"Open\"",
+    "description": "macOS sẽ hiện cảnh báo bảo mật. Nhấn **\"Open\"** để xác nhận. Ứng dụng hoàn toàn an toàn."
   },
   {
     "number": 5,
-    "title": "Nhấn \"Run anyway\" để chạy",
-    "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
+    "title": "Chờ ứng dụng khởi động",
+    "description": "Lần đầu khởi động có thể mất vài phút. Nếu chờ quá 10 phút mà chưa xong, hãy vào trang **Cài Đặt** để bật thủ công.",
     "image": "/assets/docs/install_mac_contenthub/5.PNG"
   },
   {
     "number": 6,
-    "title": "Chờ ứng dụng khởi động",
-    "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
-    "image": "/assets/docs/install_mac_contenthub/6.PNG"
-  },
-  {
-    "number": 7,
     "title": "Vào trang cài đặt để khởi động ứng dụng",
-    "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.",
-    "image": "/assets/docs/install_mac_contenthub/7.PNG"
+    "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công nếu cần.",
+    "image": "/assets/docs/install_mac_contenthub/6.PNG"
   }
 ]
