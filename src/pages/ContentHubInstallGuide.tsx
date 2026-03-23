@@ -20,6 +20,7 @@ interface StepData {
   description: string;
   link?: StepLink;
   image?: string;
+  note?: string;
 }
 
 const JSON_URLS: Record<Platform, string> = {
@@ -171,6 +172,21 @@ export function ContentHubInstallGuide() {
                       alt={`Bước ${step.number}`}
                       className="w-full object-cover"
                     />
+                  </div>
+                )}
+
+                {step.note && (
+                  <div className="ml-14 p-4 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5 animate-pulse-border">
+                    <p className="text-[#ffa31a] text-base font-bold mb-1">⚠ Lưu ý</p>
+                    <p className="text-white text-base">
+                      {step.note.split(/(voice clone)/gi).map((part, i) =>
+                        part.toLowerCase() === 'voice clone' ? (
+                          <strong key={i} className="underline">{part}</strong>
+                        ) : (
+                          part
+                        )
+                      )}
+                    </p>
                   </div>
                 )}
               </div>
