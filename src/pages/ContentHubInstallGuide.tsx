@@ -89,8 +89,11 @@ export function ContentHubInstallGuide() {
             <div className="h-1 w-16 bg-[#ffa31a] mx-auto mb-6" />
             <h1 className="text-white text-3xl font-bold mb-1">Hướng Dẫn Cài Đặt</h1>
             <p className="text-white text-base font-bold mb-3 underline">KHÔNG TỐN TOKEN, KO CẦN API KEY</p>
-            <p className="text-white text-base mb-8">
+            <p className="text-white text-base mb-4">
               Làm theo {steps.length} bước dưới đây để cài đặt và chạy ContentHub trên máy tính.
+            </p>
+            <p className="text-[#ffa31a] text-lg font-bold mb-8 animate-pulse">
+              ⚠ Nhớ chọn đúng file Mac/Windows khi tải về bạn nhé!
             </p>
 
             {/* Platform toggle */}
@@ -119,6 +122,31 @@ export function ContentHubInstallGuide() {
           </div>
 
           <div className="flex flex-col gap-12">
+            {platform === 'mac' && (
+              <div className="flex flex-col gap-4">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#ffa31a] flex items-center justify-center text-black font-bold text-lg">
+                    ▶
+                  </div>
+                  <div>
+                    <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-1">
+                      Video hướng dẫn
+                    </p>
+                    <h2 className="text-white text-xl font-bold">Hướng dẫn cài đặt trên macOS</h2>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden rounded-xl border border-[#2a2a2a] ml-14" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/6XcFxdFe-hE"
+                    title="Hướng dẫn cài đặt trên macOS"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              </div>
+            )}
+
             {steps.map((step) => (
               <div key={step.number} className="flex flex-col gap-4">
                 <div className="flex items-start gap-4">
