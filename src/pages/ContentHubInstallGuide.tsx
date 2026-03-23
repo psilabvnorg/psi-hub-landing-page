@@ -148,6 +148,19 @@ export function ContentHubInstallGuide() {
               </div>
             ))}
 
+            {/* Note */}
+            <div className="ml-14 p-4 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5">
+              <p className="text-[#ffa31a] text-sm font-bold mb-2">⚠ Lưu ý</p>
+              <p className="text-[#909090] text-sm">
+                Trong trường hợp ứng dụng bị lỗi khi render video, có thể thử tải NodeJS về:{' '}
+                <a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer" className="text-[#ffa31a] underline hover:text-white transition-colors">https://nodejs.org/en/download</a>
+              </p>
+              <p className="text-[#909090] text-sm mt-2">
+                Nếu lỗi không bật được server, có thể tải Python 3.12.0 về:{' '}
+                <a href="https://www.python.org/downloads/release/python-3120/" target="_blank" rel="noopener noreferrer" className="text-[#ffa31a] underline hover:text-white transition-colors">https://www.python.org/downloads/release/python-3120/</a>
+              </p>
+            </div>
+
             {/* Demo video after last step */}
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-4">
