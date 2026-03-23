@@ -140,3 +140,18 @@
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 163, 26, 0.2);
+    border-color: rgba(255, 163, 26, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 163, 26, 0.6);
+    border-color: rgba(255, 163, 26, 0.8);
+  }
+}
+
+.animate-pulse-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}

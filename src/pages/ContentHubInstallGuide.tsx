@@ -89,7 +89,7 @@ export function ContentHubInstallGuide() {
             <div className="h-1 w-16 bg-[#ffa31a] mx-auto mb-6" />
             <h1 className="text-white text-3xl font-bold mb-1">Hướng Dẫn Cài Đặt</h1>
             <p className="text-white text-base font-bold mb-3 underline">KHÔNG TỐN TOKEN, KO CẦN API KEY</p>
-            <p className="text-[#808080] text-base mb-8">
+            <p className="text-white text-base mb-8">
               Làm theo {steps.length} bước dưới đây để cài đặt và chạy ContentHub trên máy tính.
             </p>
 
@@ -130,7 +130,7 @@ export function ContentHubInstallGuide() {
                       Bước {step.number}
                     </p>
                     <h2 className="text-white text-xl font-bold">{step.title}</h2>
-                    <p className="text-[#909090] text-base mt-1">
+                    <p className="text-white text-base mt-1">
                       {renderDescription(step.description, step.link)}
                     </p>
                   </div>
@@ -149,13 +149,13 @@ export function ContentHubInstallGuide() {
             ))}
 
             {/* Note */}
-            <div className="ml-14 p-4 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5">
-              <p className="text-[#ffa31a] text-sm font-bold mb-2">⚠ Lưu ý</p>
-              <p className="text-[#909090] text-sm">
+            <div className="ml-14 p-6 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5 animate-pulse-border">
+              <p className="text-[#ffa31a] text-xl font-bold mb-3">⚠ Lưu ý</p>
+              <p className="text-white text-lg">
                 Trong trường hợp ứng dụng bị lỗi khi render video, có thể thử tải NodeJS về:{' '}
                 <a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer" className="text-[#ffa31a] underline hover:text-white transition-colors">https://nodejs.org/en/download</a>
               </p>
-              <p className="text-[#909090] text-sm mt-2">
+              <p className="text-white text-lg mt-3">
                 Nếu lỗi không bật được server, có thể tải Python 3.12.0 về:{' '}
                 <a href="https://www.python.org/downloads/release/python-3120/" target="_blank" rel="noopener noreferrer" className="text-[#ffa31a] underline hover:text-white transition-colors">https://www.python.org/downloads/release/python-3120/</a>
               </p>
