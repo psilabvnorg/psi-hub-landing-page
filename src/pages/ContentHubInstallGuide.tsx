@@ -152,11 +152,12 @@ export function ContentHubInstallGuide() {
             <div className="ml-14 p-6 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5 animate-pulse-border">
               <p className="text-[#ffa31a] text-xl font-bold mb-3">⚠ Lưu ý</p>
               <p className="text-white text-lg">
-                Trong trường hợp ứng dụng bị lỗi khi render video, có thể thử tải NodeJS về:{' '}
+                1. NodeJS: Trong trường hợp ứng dụng bị lỗi khi render video, có thể thử tải NodeJS về:{' '}
                 <a href="https://nodejs.org/en/download" target="_blank" rel="noopener noreferrer" className="text-[#ffa31a] underline hover:text-white transition-colors">https://nodejs.org/en/download</a>
+                <br />Sau khi cài đặt NodeJS cần khởi động lại ứng dụng.
               </p>
               <p className="text-white text-lg mt-3">
-                Nếu lỗi không bật được server, có thể tải Python 3.12.0 về:{' '}
+                2. Nếu lỗi không bật được server, có thể tải Python 3.12.0 về:{' '}
                 <a href="https://www.python.org/downloads/release/python-3120/" target="_blank" rel="noopener noreferrer" className="text-[#ffa31a] underline hover:text-white transition-colors">https://www.python.org/downloads/release/python-3120/</a>
               </p>
             </div>
