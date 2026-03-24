@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import { Contact } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
 import { useProducts } from '@/hooks/useProducts';
