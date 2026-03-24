@@ -74,10 +74,9 @@ export function ContentHubInstallGuide() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center gap-6">
             <Link
               to="/"
-              className="flex items-center gap-2 text-white hover:text-[#ffa31a] transition-colors duration-150 text-2xl font-bold"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-150"
             >
-              <ArrowLeft className="w-7 h-7" />
-              Quay Lại
+              <PhLogo prefix="Psi" suffix="Hub" size="md" showImage />
             </Link>
             <div className="h-6 w-px bg-[#333]" />
             <PhLogo prefix="Content" suffix="Hub" size="md" />
@@ -191,6 +190,20 @@ export function ContentHubInstallGuide() {
                 )}
               </div>
             ))}
+
+            {/* Lock note with image */}
+            <div className="ml-14 flex flex-col gap-3">
+              <p className="text-[#ffa31a] text-lg font-bold animate-pulse">
+                ⚠ Khi sử dụng nếu bị lock sau 30p, bạn tắt app đi mở lại là ok, dùng hoàn toàn free full chức năng
+              </p>
+              <div className="rounded-xl overflow-hidden border border-[#2a2a2a]">
+                <img
+                  src="/assets/PIN.jpg"
+                  alt="Lưu ý khi bị lock"
+                  className="w-full object-cover"
+                />
+              </div>
+            </div>
 
             {/* Note */}
             <div className="ml-14 p-6 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5 animate-pulse-border">
