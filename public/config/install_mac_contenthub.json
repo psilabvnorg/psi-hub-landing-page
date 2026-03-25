@@ -20,7 +20,7 @@
     "title": "Mở ứng dụng — nhấn chuột phải và chọn \"Open\"",
     "description": "Mở thư mục vừa giải nén, **nhấn chuột phải** vào **\"AI Content Hub.app\"** và chọn **\"Open\"**. Không nhấn đôi chuột trực tiếp khi lần đầu chạy.",
     "image": "/assets/docs/install_mac_contenthub/3.PNG",
-    "note": "Nếu gặp phải lỗi này, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau để app không bị block bởi OS:\nxattr -r -d com.apple.quarantine /Applications/AppName.app",
+    "note": "Nếu gặp phải lỗi này, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau để app không bị block bởi OS:\nxattr -r -d com.apple.quarantine /Applications/AppName.app\nThay chỗ /Applications/AppName.app thành đường dẫn đến app trên máy bạn.",
     "noteImage": "/assets/MacIssue.png"
   },
   {
