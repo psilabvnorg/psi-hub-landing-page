@@ -4,6 +4,7 @@
     "title": "Tải file cài đặt về máy",
     "description": "Tải file **windows-psi-full69.rar** (không có tính năng nhại giọng) hoặc **windows-psi-full69-voice-clone.rar** (có tính năng nhại giọng) về máy tính. Lưu ý: ấn nút tải xuống (tô đỏ) để tải file, và nhớ lựa chọn đúng phiên bản Windows hoặc MacOs.",
     "note": "Tất cả tính năng đều chạy được trên CPU, hiện tại voice clone chỉ hỗ trợ GPU của NVIDIA chạy CUDA, các phiên bản chạy voice clone CPU hoặc GPU của AMD sẽ được ra mắt sớm.",
+    "noteBeforeImage": "Lưu ý, nên tải và sử dụng file ở ổ C để hạn chế lỗi về phân quyền, bạn vẫn có thể dùng ở ổ khác như ổ D hoặc E, nhưng nếu bị lỗi thì hãy dùng ở ổ C.",
     "link": {
       "text": "Tải tại đây →",
       "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main"

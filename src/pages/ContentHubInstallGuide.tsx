@@ -21,6 +21,7 @@ interface StepData {
   image?: string;
   note?: string;
   noteImage?: string;
+  noteBeforeImage?: string;
 }
 
 const JSON_URLS: Record<Platform, string> = {
@@ -163,6 +164,13 @@ export function ContentHubInstallGuide() {
                     </p>
                   </div>
                 </div>
+
+                {step.noteBeforeImage && (
+                  <div className="ml-14 p-4 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5 animate-pulse-border">
+                    <p className="text-[#ffa31a] text-base font-bold mb-1">⚠ Lưu ý</p>
+                    <p className="text-white text-base">{step.noteBeforeImage}</p>
+                  </div>
+                )}
 
                 {step.image && (
                   <div className="rounded-xl overflow-hidden border border-[#2a2a2a] ml-14">
