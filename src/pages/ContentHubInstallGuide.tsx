@@ -20,6 +20,7 @@ interface StepData {
   link?: StepLink;
   image?: string;
   note?: string;
+  noteImage?: string;
 }
 
 const JSON_URLS: Record<Platform, string> = {
@@ -176,15 +177,35 @@ export function ContentHubInstallGuide() {
                 {step.note && (
                   <div className="ml-14 p-4 rounded-xl border border-[#ffa31a]/30 bg-[#ffa31a]/5 animate-pulse-border">
                     <p className="text-[#ffa31a] text-base font-bold mb-1">⚠ Lưu ý</p>
-                    <p className="text-white text-base">
-                      {step.note.split(/(voice clone)/gi).map((part, i) =>
-                        part.toLowerCase() === 'voice clone' ? (
-                          <strong key={i} className="underline">{part}</strong>
-                        ) : (
-                          part
-                        )
-                      )}
-                    </p>
+                    <div className="text-white text-base">
+                      {step.note.split('\n').map((line, li) => {
+                        // Check if line looks like a command (starts with xattr, etc.)
+                        const isCommand = line.startsWith('xattr') || line.startsWith('$');
+                        if (isCommand) {
+                          return (
+                            <code key={li} className="block mt-2 bg-[#111] text-[#ffa31a] px-3 py-2 rounded-lg font-mono text-sm">
+                              {line}
+                            </code>
+                          );
+                        }
+                        return (
+                          <p key={li}>
+                            {line.split(/(voice clone)/gi).map((part, i) =>
+                              part.toLowerCase() === 'voice clone' ? (
+                                <strong key={i} className="underline">{part}</strong>
+                              ) : (
+                                part
+                              )
+                            )}
+                          </p>
+                        );
+                      })}
+                    </div>
+                    {step.noteImage && (
+                      <div className="mt-3 rounded-xl overflow-hidden border border-[#2a2a2a]">
+                        <img src={step.noteImage} alt="Lưu ý" className="w-full object-cover" />
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
