@@ -13,11 +13,18 @@ interface StepLink {
   url: string;
 }
 
+interface StepDetailLink {
+  text: string;
+  url: string;
+  detail: string;
+}
+
 interface StepData {
   number: number;
   title: string;
   description: string;
   link?: StepLink;
+  links?: StepDetailLink[];
   image?: string;
   note?: string;
   noteImage?: string;
@@ -162,6 +169,23 @@ export function ContentHubInstallGuide() {
                     <p className="text-white text-base mt-1">
                       {renderDescription(step.description, step.link)}
                     </p>
+                    {step.links && (
+                      <div className="mt-3 flex flex-col gap-3">
+                        {step.links.map((l, i) => (
+                          <div key={i}>
+                            <a
+                              href={l.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[#ffa31a] underline hover:text-white transition-colors font-bold"
+                            >
+                              {l.text}
+                            </a>
+                            <span className="text-white"> : {l.detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
