@@ -12,7 +12,7 @@
       {
         "text": "WINDOWS-full69-voice-clone-translation",
         "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/WINDOWS-full69-voice-clone-translation",
-        "detail": "nặng hơn khá nhiều 22GB, đầy đủ chức năng, để chạy nhại giọng voice clone thì cần GPU, có phiên bản CPU nhưng chạy sẽ rất chậm, bạn nào cần bản CPU thì liên hệ mình gửi"
+        "detail": "nặng hơn khá nhiều 22GB, đầy đủ chức năng, để chạy nhại giọng voice clone thì cần GPU của NVIDIA (Hỗ trợ CUDA), có phiên bản CPU nhưng chạy sẽ rất chậm, bạn nào cần bản CPU thì liên hệ mình gửi"
       }
     ],
     "note": "Tất cả tính năng đều chạy được trên CPU, hiện tại voice clone chỉ hỗ trợ GPU của NVIDIA chạy CUDA, các phiên bản chạy voice clone CPU hoặc GPU của AMD sẽ được ra mắt sớm.",
