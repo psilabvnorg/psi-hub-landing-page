@@ -130,31 +130,6 @@ export function ContentHubInstallGuide() {
           </div>
 
           <div className="flex flex-col gap-12">
-            {platform === 'mac' && (
-              <div className="flex flex-col gap-4">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#ffa31a] flex items-center justify-center text-black font-bold text-lg">
-                    ▶
-                  </div>
-                  <div>
-                    <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-1">
-                      Video hướng dẫn
-                    </p>
-                    <h2 className="text-white text-xl font-bold">Hướng dẫn cài đặt trên macOS</h2>
-                  </div>
-                </div>
-                <div className="relative overflow-hidden rounded-xl border border-[#2a2a2a] ml-14" style={{ paddingBottom: '56.25%' }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/6XcFxdFe-hE"
-                    title="Hướng dẫn cài đặt trên macOS"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-              </div>
-            )}
-
             {steps.map((step) => (
               <div key={step.number} className="flex flex-col gap-4">
                 <div className="flex items-start gap-4">
