@@ -27,6 +27,7 @@ interface StepData {
   links?: StepDetailLink[];
   image?: string;
   note?: string;
+  noteLinks?: StepLink[];
   noteImage?: string;
   noteBeforeImage?: string;
 }
@@ -186,7 +187,6 @@ export function ContentHubInstallGuide() {
                     <p className="text-[#ffa31a] text-base font-bold mb-1">⚠ Lưu ý</p>
                     <div className="text-white text-base">
                       {step.note.split('\n').map((line, li) => {
-                        // Check if line looks like a command (starts with xattr, etc.)
                         const isCommand = line.startsWith('xattr') || line.startsWith('$');
                         if (isCommand) {
                           return (
@@ -197,13 +197,22 @@ export function ContentHubInstallGuide() {
                         }
                         return (
                           <p key={li}>
-                            {line.split(/(voice clone)/gi).map((part, i) =>
-                              part.toLowerCase() === 'voice clone' ? (
-                                <strong key={i} className="underline">{part}</strong>
-                              ) : (
-                                part
-                              )
-                            )}
+                            {line.split(/(\[\d+\]|voice clone)/gi).map((part, i) => {
+                              const refMatch = part.match(/^\[(\d+)\]$/);
+                              if (refMatch && step.noteLinks) {
+                                const link = step.noteLinks[parseInt(refMatch[1]) - 1];
+                                if (link) return (
+                                  <a key={i} href={link.url} target="_blank" rel="noopener noreferrer"
+                                    className="text-[#ffa31a] underline hover:opacity-80">
+                                    {link.text}
+                                  </a>
+                                );
+                              }
+                              if (part.toLowerCase() === 'voice clone') {
+                                return <strong key={i} className="underline">{part}</strong>;
+                              }
+                              return part;
+                            })}
                           </p>
                         );
                       })}
