@@ -24,7 +24,7 @@
       "url": "https://www.facebook.com/reel/1611932096739881"
     },
     "image": "/assets/docs/install_mac_contenthub/3.PNG",
-    "note": "Nếu gặp phải lỗi này, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau để cho phép mở ứng dụng: `xattr -r -d com.apple.quarantine /path/to/AI-Content-Hub`. Thay /path/to/AI-Content-Hub bằng đường dẫn thực tế đến thư mục ứng dụng ([1]). Sau đó thử mở lại ứng dụng.",
+    "note": "Nếu gặp phải lỗi này, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau để cho phép mở ứng dụng: `sudo xattr -r -d com.apple.quarantine /path/to/AI-Content-Hub`. Thay /path/to/AI-Content-Hub bằng đường dẫn thực tế đến thư mục ứng dụng ([1]). Sau đó nhập password ở terminal và thử mở lại ứng dụng.",
     "noteLinks": [
       { "text": "Tham khảo cách lấy đường dẫn", "url": "https://support.apple.com/vi-vn/guide/mac-help/mchlp1774/mac" }
     ],
