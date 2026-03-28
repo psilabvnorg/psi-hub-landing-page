@@ -25,6 +25,7 @@ interface StepData {
   description: string;
   link?: StepLink;
   links?: StepDetailLink[];
+  videoLink?: StepLink;
   image?: string;
   note?: string;
   noteImage?: string;
@@ -144,6 +145,16 @@ export function ContentHubInstallGuide() {
                     <p className="text-white text-base mt-1">
                       {renderDescription(step.description, step.link)}
                     </p>
+                    {step.videoLink && (
+                      <a
+                        href={step.videoLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-2 text-[#ffa31a] underline hover:text-white transition-colors font-bold"
+                      >
+                        {step.videoLink.text}
+                      </a>
+                    )}
                     {step.links && (
                       <div className="mt-3 flex flex-col gap-3">
                         {step.links.map((l, i) => (

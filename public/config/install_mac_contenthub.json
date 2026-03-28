@@ -18,7 +18,11 @@
   {
     "number": 3,
     "title": "Mở ứng dụng — nhấn chuột phải và chọn \"Open\"",
-    "description": "Mở thư mục vừa giải nén, **nhấn chuột phải** vào **\"AI Content Hub.app\"** và chọn **\"Open\"**. Không nhấn đôi chuột trực tiếp khi lần đầu chạy.",
+    "description": "Mở thư mục vừa giải nén, **nhấn chuột phải** vào **\"AI Content Hub.app\"** và chọn **\"Open\"**. Không nhấn đôi chuột trực tiếp khi lần đầu chạy. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
+    "videoLink": {
+      "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
+      "url": "https://www.facebook.com/reel/1611932096739881"
+    },
     "image": "/assets/docs/install_mac_contenthub/3.PNG",
     "note": "Nếu gặp phải lỗi này, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau để app không bị block bởi OS:\nxattr -r -d com.apple.quarantine /Applications/AppName.app\nThay chỗ /Applications/AppName.app thành đường dẫn đến app trên máy bạn.",
     "noteImage": "/assets/MacIssue.png"

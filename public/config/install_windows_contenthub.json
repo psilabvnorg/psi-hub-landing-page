@@ -34,7 +34,11 @@
   {
     "number": 4,
     "title": "Cảnh báo Windows — nhấn \"More info\"",
-    "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục.",
+    "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
+    "videoLink": {
+      "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
+      "url": "https://www.facebook.com/reel/1611932096739881"
+    },
     "image": "/assets/docs/install_window_contenthub/4.PNG"
   },
   {
