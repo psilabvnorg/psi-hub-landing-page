@@ -16,13 +16,13 @@
       }
     ],
     "note": "Tất cả tính năng đều chạy được trên CPU, hiện tại voice clone chỉ hỗ trợ GPU của NVIDIA chạy CUDA, các phiên bản chạy voice clone CPU hoặc GPU của AMD sẽ được ra mắt sớm.",
-    "noteBeforeImage": "Lưu ý, nên tải và sử dụng file ở ổ C để hạn chế lỗi về phân quyền, bạn vẫn có thể dùng ở ổ khác như ổ D hoặc E, nhưng nếu bị lỗi thì hãy dùng ở ổ C.",
+    "noteBeforeImage": "Lưu ý, nên tải và sử dụng file ở ổ C để hạn chế lỗi về phân quyền, ví dụ: C:\\Users\\ADMIN\\Desktop",
     "image": "/assets/docs/install_window_contenthub/1.PNG"
   },
   {
     "number": 2,
     "title": "Giải nén file",
-    "description": "Nhấn chuột phải vào file .rar vừa tải về và giải nén ra một thư mục.",
+    "description": "Nhấn chuột phải vào file .rar vừa tải về và giải nén ra một thư mục. LƯU Ý: NÊN GIẢI NÉN Ở Ổ C, THƯ MỤC DESKTOP VÍ DỤ: C:\\Users\\ADMIN\\Desktop, để hạn chế lỗi về phân quyền",
     "image": "/assets/docs/install_window_contenthub/2.PNG"
   },
   {
