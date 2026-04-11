@@ -17,7 +17,7 @@ export function Banner({ contentHub }: BannerProps) {
           <h3 className="text-white text-xl font-bold mb-3">{t.demoGuide}</h3>
           <div className="relative overflow-hidden rounded-sm border border-[#222222] min-h-[350px] flex-1">
             <iframe
-              src="https://www.youtube.com/embed/IEepEZDoFDI?autoplay=1&mute=1&loop=1&playlist=IEepEZDoFDI"
+              src="https://www.youtube.com/embed/mrKhGq2x9z4?autoplay=1&mute=1&loop=1&playlist=mrKhGq2x9z4"
               title="PsiHub Video"
               allow="autoplay; encrypted-media"
               allowFullScreen
