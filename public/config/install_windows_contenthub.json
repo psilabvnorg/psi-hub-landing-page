@@ -1,62 +1,103 @@
-[
-  {
-    "number": 1,
-    "title": "Tải file cài đặt về máy",
-    "description": "Tải file, chỉ cần tải 1 trong 2 file sau đây:",
-    "links": [
-      {
-        "text": "WINDOWS-full69-base",
-        "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/WINDOWS-full69-base",
-        "detail": "nhẹ hơn chỉ 8GB, đầy đủ chức năng, trừ nhại giọng nói voice clone và dịch"
-      },
-      {
-        "text": "WINDOWS-full69-voice-clone-translation",
-        "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/WINDOWS-full69-voice-clone-translation",
-        "detail": "nặng hơn khá nhiều 22GB, đầy đủ chức năng, để chạy nhại giọng voice clone thì cần GPU của NVIDIA (Hỗ trợ CUDA), có phiên bản CPU nhưng chạy sẽ rất chậm, bạn nào cần bản CPU thì liên hệ mình gửi"
-      }
-    ],
-    "note": "Tất cả tính năng đều chạy được trên CPU, hiện tại voice clone chỉ hỗ trợ GPU của NVIDIA chạy CUDA, các phiên bản chạy voice clone CPU hoặc GPU của AMD sẽ được ra mắt sớm.",
-    "noteBeforeImage": "LƯU Ý: NÊN GIẢI NÉN Ở Ổ C, THƯ MỤC DESKTOP VÍ DỤ: C:\\Users\\ADMIN\\Desktop\\windows-psi-full69, tên thư mục nên ngắn gọn không dấu và ký tự đặc biệt, để hạn chế lỗi về phân quyền",
-    "image": "/assets/docs/install_window_contenthub/1.PNG"
-  },
-  {
-    "number": 2,
-    "title": "Giải nén file",
-    "description": "Nhấn chuột phải vào file .rar vừa tải về và giải nén ra một thư mục. LƯU Ý: NÊN GIẢI NÉN Ở Ổ C, THƯ MỤC DESKTOP VÍ DỤ: C:\\Users\\ADMIN\\Desktop\\windows-psi-full69, tên thư mục nên ngắn gọn không dấu và ký tự đặc biệt, để hạn chế lỗi về phân quyền",
-    "image": "/assets/docs/install_window_contenthub/2.PNG"
-  },
-  {
-    "number": 3,
-    "title": "Mở thư mục và chạy ứng dụng",
-    "description": "Mở thư mục vừa giải nén, click chuột phải vào file \"ContentHub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
-    "image": "/assets/docs/install_window_contenthub/3.PNG"
-  },
-  {
-    "number": 4,
-    "title": "Cảnh báo Windows — nhấn \"More info\"",
-    "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
-    "videoLink": {
-      "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
-      "url": "https://www.facebook.com/reel/1611932096739881"
+{
+  "basic": [
+    {
+      "number": 1,
+      "title": "Tải file cài đặt về máy",
+      "description": "Tải file, chỉ cần tải 1 trong 2 file sau đây:",
+      "links": [
+        {
+          "text": "WINDOWS-full69-base",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/WINDOWS-full69-base",
+          "detail": "nhẹ hơn chỉ 8GB, đầy đủ chức năng, trừ nhại giọng nói voice clone và dịch"
+        },
+        {
+          "text": "WINDOWS-full69-voice-clone-translation",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/WINDOWS-full69-voice-clone-translation",
+          "detail": "nặng hơn khá nhiều 22GB, đầy đủ chức năng, để chạy nhại giọng voice clone thì cần GPU của NVIDIA (Hỗ trợ CUDA), có phiên bản CPU nhưng chạy sẽ rất chậm, bạn nào cần bản CPU thì liên hệ mình gửi"
+        }
+      ],
+      "note": "Tất cả tính năng đều chạy được trên CPU, hiện tại voice clone chỉ hỗ trợ GPU của NVIDIA chạy CUDA, các phiên bản chạy voice clone CPU hoặc GPU của AMD sẽ được ra mắt sớm.",
+      "noteBeforeImage": "LƯU Ý: NÊN GIẢI NÉN Ở Ổ C, THƯ MỤC DESKTOP VÍ DỤ: C:\\Users\\ADMIN\\Desktop\\windows-psi-full69, tên thư mục nên ngắn gọn không dấu và ký tự đặc biệt, để hạn chế lỗi về phân quyền",
+      "image": "/assets/docs/install_window_contenthub/1.PNG"
     },
-    "image": "/assets/docs/install_window_contenthub/4.PNG"
-  },
-  {
-    "number": 5,
-    "title": "Nhấn \"Run anyway\" để chạy",
-    "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
-    "image": "/assets/docs/install_window_contenthub/5.PNG"
-  },
-  {
-    "number": 6,
-    "title": "Chờ ứng dụng khởi động",
-    "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
-    "image": "/assets/docs/install_window_contenthub/6.PNG"
-  },
-  {
-    "number": 7,
-    "title": "Vào trang cài đặt để khởi động ứng dụng",
-    "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.",
-    "image": "/assets/docs/install_window_contenthub/7.PNG"
-  }
-]
+    {
+      "number": 2,
+      "title": "Giải nén file",
+      "description": "Nhấn chuột phải vào file .rar vừa tải về và giải nén ra một thư mục. LƯU Ý: NÊN GIẢI NÉN Ở Ổ C, THƯ MỤC DESKTOP VÍ DỤ: C:\\Users\\ADMIN\\Desktop\\windows-psi-full69, tên thư mục nên ngắn gọn không dấu và ký tự đặc biệt, để hạn chế lỗi về phân quyền",
+      "image": "/assets/docs/install_window_contenthub/2.PNG"
+    },
+    {
+      "number": 3,
+      "title": "Mở thư mục và chạy ứng dụng",
+      "description": "Mở thư mục vừa giải nén, click chuột phải vào file \"ContentHub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
+      "image": "/assets/docs/install_window_contenthub/3.PNG"
+    },
+    {
+      "number": 4,
+      "title": "Cảnh báo Windows — nhấn \"More info\"",
+      "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
+      "videoLink": {
+        "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
+        "url": "https://www.facebook.com/reel/1611932096739881"
+      },
+      "image": "/assets/docs/install_window_contenthub/4.PNG"
+    },
+    {
+      "number": 5,
+      "title": "Nhấn \"Run anyway\" để chạy",
+      "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
+      "image": "/assets/docs/install_window_contenthub/5.PNG"
+    },
+    {
+      "number": 6,
+      "title": "Chờ ứng dụng khởi động",
+      "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
+      "image": "/assets/docs/install_window_contenthub/6.PNG"
+    },
+    {
+      "number": 7,
+      "title": "Vào trang cài đặt để khởi động ứng dụng",
+      "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.",
+      "image": "/assets/docs/install_window_contenthub/7.PNG"
+    }
+  ],
+  "advanced": [
+    {
+      "number": 1,
+      "title": "Bật WSL2 và cài đặt Ubuntu",
+      "description": "Mở **PowerShell với quyền Administrator** và chạy lệnh dưới đây. Lệnh này sẽ tự động cài WSL2 và Ubuntu. Khởi động lại máy khi được yêu cầu, sau đó mở **Ubuntu** từ Start menu và hoàn tất thiết lập người dùng Linux (tên đăng nhập và mật khẩu).",
+      "link": {
+        "text": "Hướng dẫn cài WSL của Microsoft →",
+        "url": "https://learn.microsoft.com/en-us/windows/wsl/install"
+      },
+      "note": "$ wsl --install\nNếu WSL2 với Ubuntu đã được cài rồi, bỏ qua bước này và chuyển sang Bước 2. Để kiểm tra WSL2 đang hoạt động:\n$ wsl --status\nNếu WSL2 không được nhận diện sau khi khởi động lại, hãy kiểm tra Virtualization đã được bật trong BIOS chưa."
+    },
+    {
+      "number": 2,
+      "title": "Cài đặt Node.js trong Ubuntu",
+      "description": "Mở terminal Ubuntu và chạy các lệnh dưới đây để cài Node.js 24.",
+      "note": "$ curl -fsSL https://deb.nodesource.com/setup_24.x | sudo bash -\n$ sudo apt-get install -y nodejs\n$ node -v"
+    },
+    {
+      "number": 3,
+      "title": "Cài đặt OpenClaw",
+      "description": "Vẫn trong terminal Ubuntu, cài đặt gói OpenClaw toàn cục và kiểm tra phiên bản.",
+      "note": "$ sudo npm install -g openclaw@2026.4.9\n$ openclaw --version\nNếu cần cài lại:\n$ sudo npm install -g openclaw@2026.4.9 --force"
+    },
+    {
+      "number": 4,
+      "title": "Tạo Telegram Bot",
+      "description": "Mở Telegram và tìm **@BotFather**. Gửi /newbot và làm theo hướng dẫn. BotFather sẽ trả về token theo định dạng 7xxxxxxxxxx:AAxxxxxx... — lưu lại để dùng ở bước tiếp theo. Để tìm Telegram user ID của bạn (cần thiết cho danh sách người dùng được phép), nhắn tin cho @userinfobot.",
+      "link": {
+        "text": "Mở @BotFather →",
+        "url": "https://t.me/BotFather"
+      }
+    },
+    {
+      "number": 5,
+      "title": "Cài đặt trong ứng dụng PSI",
+      "description": "Mở **PSI AI Content Hub**, vào **Cài Đặt → OpenClaw** và điền: Telegram bot token (từ @BotFather) và Allowed Telegram user IDs (các ID cách nhau bằng dấu phẩy). Về AI model, bạn có thể chọn **Anthropic API key** hoặc **Ollama với model cục bộ**. Nhấn **Save**, sau đó khởi động OpenClaw gateway từ trang Cài Đặt.",
+      "note": "⚠ Khuyến nghị dùng Anthropic API: OpenClaw cần hiểu chính xác yêu cầu bạn gửi qua Telegram (ví dụ: \"tạo video từ bài này\" hay \"tải video kia\") để thực thi đúng lệnh. Anthropic API (Claude) hiểu ngữ nghĩa tốt hơn nhiều so với các model nhỏ chạy local. Nếu dùng Ollama với model yếu, OpenClaw có thể hiểu sai yêu cầu và thực thi nhầm lệnh — ví dụ tải nhầm, tạo sai nội dung, hoặc không phản hồi đúng.\n\nNếu dùng Ollama: nên chọn model có ít nhất 7B parameters (ví dụ: llama3, mistral) và đảm bảo Ollama đang chạy trên máy trước khi khởi động OpenClaw.\n\nThông tin đăng nhập được lưu cục bộ tại %APPDATA%\\psi-ai-content-hub\\ và không gửi đến bất kỳ dịch vụ bên ngoài nào.\n\nXử lý sự cố:\n- Bot không phản hồi: kiểm tra Telegram user ID của bạn đã có trong danh sách Allowed IDs và trạng thái OpenClaw đang xanh trong Cài Đặt.\n- Gateway không khởi động được: mở Ubuntu, chạy openclaw --version và node -v (phải ≥ 22) để kiểm tra, sau đó khởi động lại ứng dụng PSI.\n- Lỗi OCR model chưa cài: vào Cài Đặt → Models và tải mô hình DeepSeek-OCR (~2 GB).\n- Chưa đăng nhập Facebook: vào Cài Đặt → Facebook và đăng nhập qua cửa sổ trình duyệt."
+    }
+  ]
+}
