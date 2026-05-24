@@ -7,8 +7,8 @@
       "links": [
         {
           "text": "psi-runtime.rar",
-          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/RUNTIME",
-          "detail": "File runtime ứng dụng, khoảng 11–13 GB"
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/psi-runtime.rar",
+          "detail": "File runtime ứng dụng, khoảng 10 GB"
         }
       ],
       "note": "Tất cả tính năng đều chạy được trên CPU. Voice clone yêu cầu GPU NVIDIA (CUDA). Models AI được tải riêng ở bước 3.",
