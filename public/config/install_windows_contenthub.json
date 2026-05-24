@@ -2,63 +2,73 @@
   "basic": [
     {
       "number": 1,
-      "title": "Tải file cài đặt về máy",
-      "description": "Tải file, chỉ cần tải 1 trong 2 file sau đây:",
+      "title": "Tải file RUNTIME về máy",
+      "description": "Tải file psi-runtime.rar — đây là file chạy ứng dụng (không bao gồm models AI):",
       "links": [
         {
-          "text": "WINDOWS-full69-base",
-          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/WINDOWS-full69-base",
-          "detail": "nhẹ hơn chỉ 8GB, đầy đủ chức năng, trừ nhại giọng nói voice clone và dịch"
-        },
-        {
-          "text": "WINDOWS-full69-voice-clone-translation",
-          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/WINDOWS-full69-voice-clone-translation",
-          "detail": "nặng hơn khá nhiều 22GB, đầy đủ chức năng, để chạy nhại giọng voice clone thì cần GPU của NVIDIA (Hỗ trợ CUDA), có phiên bản CPU nhưng chạy sẽ rất chậm, bạn nào cần bản CPU thì liên hệ mình gửi"
+          "text": "psi-runtime.rar",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/RUNTIME",
+          "detail": "File runtime ứng dụng, khoảng 11–13 GB"
         }
       ],
-      "note": "Tất cả tính năng đều chạy được trên CPU, hiện tại voice clone chỉ hỗ trợ GPU của NVIDIA chạy CUDA, các phiên bản chạy voice clone CPU hoặc GPU của AMD sẽ được ra mắt sớm.",
-      "noteBeforeImage": "LƯU Ý: NÊN GIẢI NÉN Ở Ổ C, THƯ MỤC DESKTOP VÍ DỤ: C:\\Users\\ADMIN\\Desktop\\windows-psi-full69, tên thư mục nên ngắn gọn không dấu và ký tự đặc biệt, để hạn chế lỗi về phân quyền",
+      "note": "Tất cả tính năng đều chạy được trên CPU. Voice clone yêu cầu GPU NVIDIA (CUDA). Models AI được tải riêng ở bước 3.",
+      "noteBeforeImage": "LƯU Ý: Nên đặt ở ổ C hoặc D với đường dẫn ngắn, không dấu, không ký tự đặc biệt để tránh lỗi phân quyền. Ví dụ: C:\\PSI hoặc D:\\PSI",
       "image": "/assets/docs/install_window_contenthub/1.PNG"
     },
     {
       "number": 2,
-      "title": "Giải nén file",
-      "description": "Nhấn chuột phải vào file .rar vừa tải về và giải nén ra một thư mục. LƯU Ý: NÊN GIẢI NÉN Ở Ổ C, THƯ MỤC DESKTOP VÍ DỤ: C:\\Users\\ADMIN\\Desktop\\windows-psi-full69, tên thư mục nên ngắn gọn không dấu và ký tự đặc biệt, để hạn chế lỗi về phân quyền",
+      "title": "Tạo thư mục gốc và giải nén RUNTIME",
+      "description": "Tạo một thư mục gốc ngắn gọn, ví dụ C:\\PSI. Bên trong tạo thư mục con tên RUNTIME. Nhấn chuột phải vào file psi-runtime.rar và chọn \"Extract files...\" rồi chọn đường dẫn C:\\PSI\\RUNTIME để giải nén vào đó. Sau khi xong cấu trúc sẽ là:\nC:\\PSI\\RUNTIME\\AI Content Hub.exe\nC:\\PSI\\RUNTIME\\python_runtime\\\nC:\\PSI\\RUNTIME\\resources\\",
+      "note": "LƯU Ý: Giải nén VÀO bên trong thư mục RUNTIME, không phải giải nén ra ngoài thư mục PSI. Tên thư mục gốc (PSI) có thể đặt tùy ý, nhưng thư mục con phải tên là RUNTIME và MODELS (viết hoa).",
       "image": "/assets/docs/install_window_contenthub/2.PNG"
     },
     {
       "number": 3,
-      "title": "Mở thư mục và chạy ứng dụng",
-      "description": "Mở thư mục vừa giải nén, click chuột phải vào file \"ContentHub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
+      "title": "Tải Models và đặt vào thư mục MODELS",
+      "description": "Tạo thư mục MODELS nằm cùng cấp với RUNTIME, ví dụ C:\\PSI\\MODELS. Tải các gói model cần thiết và giải nén từng model vào đúng thư mục con bên trong MODELS. Cấu trúc thư mục ví dụ:C:\\PSI\\MODELS\\whisper\\, C:\\PSI\\MODELS\\f5-tts-en\\, các model khác...",
+      "links": [
+        {
+          "text": "Tải Models tại đây",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/models",
+          "detail": "Chỉ tải những model bạn cần dùng. Mỗi model giải nén vào đúng tên thư mục con tương ứng bên trong MODELS."
+        }
+      ],
+      "note": "Tên thư mục con bên trong MODELS phải giữ nguyên đúng như khi giải nén (ví dụ: whisper, f5-tts-en, latent-sync...). Ứng dụng tự động tìm models theo tên thư mục, đặt sai tên sẽ không nhận được.",
       "image": "/assets/docs/install_window_contenthub/3.PNG"
     },
     {
       "number": 4,
+      "title": "Mở thư mục RUNTIME và chạy ứng dụng",
+      "description": "Vào thư mục C:\\PSI\\RUNTIME, click chuột phải vào file \"AI Content Hub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
+      "image": "/assets/docs/install_window_contenthub/4.PNG"
+    },
+    {
+      "number": 5,
       "title": "Cảnh báo Windows — nhấn \"More info\"",
       "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
       "videoLink": {
         "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
         "url": "https://www.facebook.com/reel/1611932096739881"
       },
-      "image": "/assets/docs/install_window_contenthub/4.PNG"
-    },
-    {
-      "number": 5,
-      "title": "Nhấn \"Run anyway\" để chạy",
-      "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
       "image": "/assets/docs/install_window_contenthub/5.PNG"
     },
     {
       "number": 6,
-      "title": "Chờ ứng dụng khởi động",
-      "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
+      "title": "Nhấn \"Run anyway\" để chạy",
+      "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
       "image": "/assets/docs/install_window_contenthub/6.PNG"
     },
     {
       "number": 7,
+      "title": "Chờ ứng dụng khởi động",
+      "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
+      "image": "/assets/docs/install_window_contenthub/7.PNG"
+    },
+    {
+      "number": 8,
       "title": "Vào trang cài đặt để khởi động ứng dụng",
       "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.",
-      "image": "/assets/docs/install_window_contenthub/7.PNG"
+      "image": "/assets/docs/install_window_contenthub/8.PNG"
     }
   ],
   "advanced": [
