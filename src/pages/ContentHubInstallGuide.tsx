@@ -89,7 +89,7 @@ export function ContentHubInstallGuide() {
 
   const steps = installConfig[section];
 
-  const advancedLabelVi = platform === 'windows' ? 'Nâng cao — WSL + OpenClaw' : 'Nâng cao — Docker + OpenClaw';
+  const advancedLabelVi = 'Nâng cao - OCR, LipSync, OpenClaw';
 
   return (
     <LanguageProvider>
@@ -190,12 +190,12 @@ export function ContentHubInstallGuide() {
           )}
 
           {/* Advanced intro */}
-          {section === 'advanced' && steps.length > 0 && (
+          {section === 'advanced' && steps.length > 0 && platform === 'windows' && (
             <div className="mb-10 p-6 rounded-2xl border border-[#ffa31a]/20 bg-[#ffa31a]/5 flex flex-col gap-5">
               <div>
                 <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-2">WSL là gì?</p>
                 <p className="text-white text-base leading-relaxed">
-                  <strong>WSL (Windows Subsystem for Linux)</strong> là một tính năng có sẵn trên Windows 10/11, cho phép bạn chạy môi trường Linux ngay bên trong Windows — không cần cài máy ảo, không cần khởi động lại máy. Bạn chỉ cần bật nó lên một lần, sau đó dùng như một cửa sổ terminal bình thường.
+                  <strong>WSL (Windows Subsystem for Linux)</strong> là một tính năng có sẵn trên Windows 10/11, cho phép bạn chạy môi trường Linux ngay bên trong Windows - không cần cài máy ảo, không cần khởi động lại máy. Bạn chỉ cần bật nó lên một lần, sau đó dùng như một cửa sổ terminal bình thường.
                 </p>
               </div>
               <div className="flex items-start gap-3 p-4 rounded-xl bg-[#1a1a2e] border border-[#3a3a6a]">
@@ -203,20 +203,47 @@ export function ContentHubInstallGuide() {
                 <div className="flex flex-col gap-1">
                   <p className="text-[#a0a8ff] text-sm font-bold">Tại sao cài OpenClaw trong WSL mà không phải thẳng trên Windows?</p>
                   <p className="text-[#aaa] text-sm leading-relaxed">
-                    OpenClaw có khả năng tự động thực thi một số thao tác theo lệnh bạn gửi qua Telegram. Để đảm bảo an toàn, chúng tôi chạy OpenClaw bên trong WSL — một môi trường Linux tách biệt hoàn toàn khỏi Windows. Điều này có nghĩa là OpenClaw <strong className="text-white">không thể truy cập vào file và dữ liệu cá nhân</strong> trên máy tính Windows của bạn, giúp dữ liệu luôn được bảo mật.
+                    OpenClaw có khả năng tự động thực thi một số thao tác theo lệnh bạn gửi qua Telegram. Để đảm bảo an toàn, chúng tôi chạy OpenClaw bên trong WSL - một môi trường Linux tách biệt hoàn toàn khỏi Windows. Điều này có nghĩa là OpenClaw <strong className="text-white">không thể truy cập vào file và dữ liệu cá nhân</strong> trên máy tính Windows của bạn, giúp dữ liệu luôn được bảo mật.
                   </p>
                 </div>
               </div>
               <div>
                 <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-2">OpenClaw là gì?</p>
                 <p className="text-white text-base leading-relaxed">
-                  <strong>OpenClaw</strong> là cầu nối giữa Telegram và ứng dụng PSI. Sau khi cài xong, bạn có thể nhắn tin trực tiếp cho bot Telegram của mình để ra lệnh — tải video, tạo video tin tức, đọc văn bản, nhận dạng chữ trong ảnh, v.v. — mà không cần mở máy tính. OpenClaw chạy ngầm trong WSL và tự động kết nối với PSI khi bạn khởi động ứng dụng.
+                  <strong>OpenClaw</strong> là cầu nối giữa Telegram và ứng dụng PSI. Sau khi cài xong, bạn có thể nhắn tin trực tiếp cho bot Telegram của mình để ra lệnh - tải video, tạo video tin tức, đọc văn bản, nhận dạng chữ trong ảnh, v.v. - mà không cần mở máy tính. OpenClaw chạy ngầm trong WSL và tự động kết nối với PSI khi bạn khởi động ứng dụng.
                 </p>
               </div>
               <div className="flex items-start gap-3 p-4 rounded-xl bg-[#111] border border-[#2a2a2a]">
                 <span className="text-xl mt-0.5">💡</span>
                 <p className="text-[#aaa] text-sm leading-relaxed">
-                  Hướng dẫn này chỉ cần làm <strong className="text-white">một lần duy nhất</strong>. Sau khi cài xong, mỗi lần muốn dùng chỉ cần mở ứng dụng PSI lên là đủ — không cần thao tác thêm gì trong terminal nữa.
+                  Hướng dẫn này chỉ cần làm <strong className="text-white">một lần duy nhất</strong>. Sau khi cài xong, mỗi lần muốn dùng chỉ cần mở ứng dụng PSI lên là đủ - không cần thao tác thêm gì trong terminal nữa.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Advanced intro - Mac */}
+          {section === 'advanced' && steps.length > 0 && platform === 'mac' && (
+            <div className="mb-10 p-6 rounded-2xl border border-[#ffa31a]/20 bg-[#ffa31a]/5 flex flex-col gap-5">
+              <div>
+                <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-2">OpenClaw là gì?</p>
+                <p className="text-white text-base leading-relaxed">
+                  <strong>OpenClaw</strong> là cầu nối giữa Telegram và ứng dụng PSI. Sau khi cài xong, bạn có thể nhắn tin trực tiếp cho bot Telegram của mình để ra lệnh - tải video, tạo video tin tức, đọc văn bản, nhận dạng chữ trong ảnh, v.v. - mà không cần mở máy tính. OpenClaw tự động khởi động cùng ứng dụng PSI, không cần cài thêm bất kỳ phần mềm nào.
+                </p>
+              </div>
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-[#1a1a2e] border border-[#3a3a6a]">
+                <span className="text-xl mt-0.5">🔒</span>
+                <div className="flex flex-col gap-1">
+                  <p className="text-[#a0a8ff] text-sm font-bold">Tại sao OpenClaw chạy trong máy ảo Linux thay vì thẳng trên Mac?</p>
+                  <p className="text-[#aaa] text-sm leading-relaxed">
+                    OpenClaw có khả năng tự động thực thi các thao tác theo lệnh bạn gửi qua Telegram. Để đảm bảo an toàn, chúng tôi chạy OpenClaw bên trong một <strong className="text-white">máy ảo Linux nhỏ (QEMU microVM)</strong> được nhúng sẵn trong ứng dụng - hoàn toàn tách biệt khỏi macOS. Điều này có nghĩa là OpenClaw <strong className="text-white">không thể truy cập vào file và dữ liệu cá nhân</strong> trên máy tính của bạn, giúp dữ liệu luôn được bảo mật.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-[#111] border border-[#2a2a2a]">
+                <span className="text-xl mt-0.5">💡</span>
+                <p className="text-[#aaa] text-sm leading-relaxed">
+                  Máy ảo Linux được <strong className="text-white">nhúng sẵn trong ứng dụng</strong> - bạn không cần cài Node.js, Docker, Homebrew hay bất kỳ công cụ nào khác. Chỉ cần điền Telegram bot token vào phần Cài Đặt, OpenClaw sẽ tự khởi động mỗi khi mở ứng dụng PSI.
                 </p>
               </div>
             </div>
@@ -331,7 +358,7 @@ export function ContentHubInstallGuide() {
                 </div>
               ))}
 
-              {/* Lock note — basic only */}
+              {/* Lock note - basic only */}
               {section === 'basic' && (
                 <>
                   <div className="ml-14 flex flex-col gap-3">
@@ -402,6 +429,46 @@ export function ContentHubInstallGuide() {
                         <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.84 4.84 0 0 1-1-.15z"/></svg>
                         TikTok: @psihub.me
                       </a>
+                    </div>
+
+                    <div className="flex flex-col gap-4 mt-8">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#ffa31a] flex items-center justify-center text-black font-bold text-lg">
+                          ⭐
+                        </div>
+                        <div>
+                          <p className="text-[#ffa31a] text-xs font-bold uppercase tracking-widest mb-1">
+                            VIDEO
+                          </p>
+                          <h2 className="text-white text-xl font-bold">VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT</h2>
+                        </div>
+                      </div>
+                      <div className="ml-14 rounded-2xl border border-[#2a2a2a] bg-[#111] p-5">
+                        <div className="relative overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[#111]" style={{ paddingBottom: '56.25%' }}>
+                          <iframe
+                            src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1611932096739881&show_text=0&width=560"
+                            title="Video trải nghiệm tool từ người dùng thật"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
+                        <div className="mt-4 text-sm text-[#aaa]">
+                          <p>Trực tiếp xem video Facebook Reel mà không cần rời trang.</p>
+                          <p>
+                            Nếu trình nhúng không hiển thị, bạn vẫn có thể xem trực tiếp tại{' '}
+                            <a
+                              href="https://www.facebook.com/reel/1611932096739881"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[#ffa31a] underline hover:text-white"
+                            >
+                              link Facebook Reel
+                            </a>
+                            .
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </>

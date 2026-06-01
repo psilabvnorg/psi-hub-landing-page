@@ -3,29 +3,25 @@
     {
       "number": 1,
       "title": "Tải file cài đặt về máy",
-      "description": "Tải file **mac-psi-full69-voice-clone.zip** (đầy đủ, có nhân giọng) về máy tính.",
+      "description": "Tải file **psi-base-mac.zip** (bản cơ bản, bao gồm runtime port 6901 chức năng video, hình ảnh cơ bản + 6902 clone giọng nói và đầy đủ 7 model AI) về máy tính.",
       "link": {
         "text": "Tải tại đây →",
-        "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/MAC-full69-voice-clone-translation"
+        "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/MAC-psi69-base/psi-base-mac.zip"
       },
-      "image": "/assets/docs/install_mac_contenthub/1.PNG"
+      "image": "/assets/docs/install_mac_contenthub/base-download.png"
     },
     {
       "number": 2,
       "title": "Giải nén file",
-      "description": "Nhấn chuột phải vào file .zip vừa tải về và giải nén ra một thư mục.",
-      "image": "/assets/docs/install_mac_contenthub/2.PNG"
+      "description": "Nhấn chuột phải vào file .zip vừa tải về và giải nén ra một thư mục. Sau khi giải nén sẽ có 2 thư mục: **RUNTIME/** (ứng dụng + runtime) và **MODELS/** (các model AI).",
+      "image": "/assets/docs/install_mac_contenthub/base-structure.png"
     },
     {
       "number": 3,
       "title": "Mở ứng dụng",
-      "description": "Mở thư mục vừa giải nén, nhấn đúp chuột trực tiếp vào logo ứng dụng để chạy hoặc chuột phải vào logo ứng dụng và chọn \"Open\". Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
-      "videoLink": {
-        "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
-        "url": "https://www.facebook.com/reel/1611932096739881"
-      },
-      "image": "/assets/docs/install_mac_contenthub/3.PNG",
-      "note": "Nếu gặp phải lỗi này, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau để cho phép mở ứng dụng: `sudo xattr -r -d com.apple.quarantine /path/to/AI-Content-Hub`. Thay /path/to/AI-Content-Hub bằng đường dẫn thực tế đến thư mục ứng dụng ([1]). Sau đó nhập password ở terminal và thử mở lại ứng dụng.",
+      "description": "Mở thư mục **RUNTIME**, nhấn đúp chuột vào **AI Content Hub.app** để chạy hoặc chuột phải và chọn \"Open\". Ứng dụng đã được ký và xác thực bởi Apple (notarized), không cần thêm bước nào.",
+      "image": "/assets/docs/install_mac_contenthub/base-openapp.png",
+      "note": "Nếu gặp phải lỗi Gatekeeper, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau: `sudo xattr -r -d com.apple.quarantine /path/to/RUNTIME/AI\\ Content\\ Hub.app`. Thay /path/to/RUNTIME bằng đường dẫn thực tế đến thư mục RUNTIME ([1]). Sau đó nhập password ở terminal và thử mở lại ứng dụng.",
       "noteLinks": [
         { "text": "Tham khảo cách lấy đường dẫn", "url": "https://support.apple.com/vi-vn/guide/mac-help/mchlp1774/mac" }
       ],
@@ -35,14 +31,73 @@
       "number": 4,
       "title": "Chờ ứng dụng khởi động",
       "description": "Lần đầu khởi động có thể mất vài phút. Nếu chờ quá 10 phút mà chưa xong, hãy vào trang **Cài Đặt** để bật thủ công.",
-      "image": "/assets/docs/install_mac_contenthub/4.PNG"
+      "image": "/assets/docs/install_mac_contenthub/waiting-app-start.png"
     },
     {
       "number": 5,
       "title": "Vào trang cài đặt để khởi động ứng dụng",
       "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công nếu cần.",
-      "image": "/assets/docs/install_mac_contenthub/5.PNG"
+      "image": "/assets/docs/install_mac_contenthub/start-app-manually.png"
     }
   ],
-  "advanced": []
+  "advanced": [
+    {
+      "number": 1,
+      "title": "Tải file RUNTIME về máy",
+      "description": "Tải file **psi-full-runtime-mac.zip** - đây là bản đầy đủ gồm runtime port 6901 (video, hình ảnh, giọng nói cơ bản), 6902 (clone giọng nói) và 6903 (OCR + LipSync). Không bao gồm models AI, models được tải riêng ở bước 3.",
+      "links": [
+        {
+          "text": "psi-full-runtime-mac.zip",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/MAC-psi69-full-runtime/psi-full-runtime-mac.zip",
+          "detail": "File runtime đầy đủ 3 port, không kèm model AI"
+        }
+      ],
+      "image": "/assets/docs/install_mac_contenthub/full-runtime-download.png",
+      "note": "Tất cả tính năng đều chạy được trên CPU. Voice clone và OCR/LipSync hoạt động tốt hơn với GPU. Models AI được tải riêng ở bước 3."
+    },
+    {
+      "number": 2,
+      "title": "Tạo thư mục gốc và giải nén RUNTIME",
+      "description": "Tạo một thư mục gốc ngắn gọn, ví dụ **~/PSI**. Giải nén **psi-full-runtime-mac.zip** vào thư mục đó. Sau khi giải nén cấu trúc sẽ là:\n~/PSI/RUNTIME/AI Content Hub.app\n~/PSI/RUNTIME/python_runtime/\n~/PSI/RUNTIME/ffmpeg/",
+      "image": "/assets/docs/install_mac_contenthub/full-runtime-unzip.png",
+      "note": "LƯU Ý: Đường dẫn thư mục không nên có dấu cách hoặc ký tự đặc biệt để tránh lỗi phân quyền. Tên thư mục gốc có thể đặt tùy ý, nhưng thư mục con phải tên là RUNTIME và MODELS (viết hoa)."
+    },
+    {
+      "number": 3,
+      "title": "Tải Models và đặt vào thư mục MODELS",
+      "description": "Tạo thư mục **MODELS** nằm cùng cấp với RUNTIME, ví dụ ~/PSI/MODELS. Tải các gói model cần thiết và giải nén từng model vào đúng thư mục con bên trong MODELS. Cấu trúc ví dụ:\n~/PSI/MODELS/whisper/\n~/PSI/MODELS/f5-tts-en/\n~/PSI/MODELS/deepseek_ocr/\n~/PSI/MODELS/latentsync/\ncác model khác...",
+      "links": [
+        {
+          "text": "Tải Models tại đây",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/models",
+          "detail": "Chỉ tải những model bạn cần dùng. Mỗi model giải nén vào đúng tên thư mục con tương ứng bên trong MODELS."
+        }
+      ],
+      "image": "/assets/docs/install_mac_contenthub/full-runtime-MODELS.png",
+      "note": "Tên thư mục con bên trong MODELS phải giữ nguyên đúng như khi giải nén (ví dụ: whisper, f5-tts-en, deepseek_ocr, latentsync...). Ứng dụng tự động tìm models theo tên thư mục, đặt sai tên sẽ không nhận được."
+    },
+    {
+      "number": 4,
+      "title": "Mở ứng dụng",
+      "description": "Mở thư mục **RUNTIME**, nhấn đúp chuột vào **AI Content Hub.app** để chạy hoặc chuột phải và chọn \"Open\". Ứng dụng đã được ký và xác thực bởi Apple (notarized), không cần thêm bước nào.",
+      "image": "/assets/docs/install_mac_contenthub/base-openapp.png",
+      "note": "Nếu gặp phải lỗi Gatekeeper, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau: `sudo xattr -r -d com.apple.quarantine /path/to/RUNTIME/AI\\ Content\\ Hub.app`. Thay /path/to/RUNTIME bằng đường dẫn thực tế đến thư mục RUNTIME ([1]). Sau đó nhập password ở terminal và thử mở lại ứng dụng.",
+      "noteLinks": [
+        { "text": "Tham khảo cách lấy đường dẫn", "url": "https://support.apple.com/vi-vn/guide/mac-help/mchlp1774/mac" }
+      ],
+      "noteImage": "/assets/MacIssue.png"
+    },
+    {
+      "number": 5,
+      "title": "Chờ ứng dụng khởi động",
+      "description": "Lần đầu khởi động có thể mất vài phút. Nếu chờ quá 10 phút mà chưa xong, hãy vào trang **Cài Đặt** để bật thủ công.",
+      "image": "/assets/docs/install_mac_contenthub/waiting-app-start.png"
+    },
+    {
+      "number": 6,
+      "title": "Vào trang cài đặt để khởi động ứng dụng",
+      "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công nếu cần.",
+      "image": "/assets/docs/install_mac_contenthub/start-app-manually.png"
+    }
+  ]
 }
