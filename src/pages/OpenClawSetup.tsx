@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Contact } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
 import { useProducts } from '@/hooks/useProducts';
-import { LanguageProvider } from '@/contexts/LanguageContext';
+import { /*LanguageProvider*/ } from '@/contexts/LanguageContext';
 import { PhLogo } from '@/components/PhLogo';
 
 function CodeBlock({ children }: { children: string }) {
@@ -59,7 +59,6 @@ export function OpenClawSetup() {
   const { config } = useProducts();
 
   return (
-    <LanguageProvider>
       <div className="min-h-screen bg-[#1b1b1b]">
 
         {/* Top bar */}
@@ -307,6 +306,5 @@ openclaw --version   # confirm installation`}</CodeBlock>
         {config && <Contact contact={config.contact} />}
         {config && <Footer brandName={config.brand.name} />}
       </div>
-    </LanguageProvider>
   );
 }

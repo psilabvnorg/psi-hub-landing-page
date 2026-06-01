@@ -1,0 +1,103 @@
+{
+  "basic": [
+    {
+      "number": 1,
+      "title": "Download the installer file",
+      "description": "Download psi-base-mac.zip (basic version includes runtime port 6901 for video and image features, 6902 for voice cloning, and 7 AI models) to your computer.",
+      "link": {
+        "text": "Download here →",
+        "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/MAC-psi69-base/psi-base-mac.zip"
+      },
+      "image": "/assets/docs/install_mac_contenthub/base-download.png"
+    },
+    {
+      "number": 2,
+      "title": "Extract the ZIP file",
+      "description": "Right-click the downloaded .zip file and extract it to a folder. After extraction you should have two folders: RUNTIME/ (app and runtime) and MODELS/ (AI models).",
+      "image": "/assets/docs/install_mac_contenthub/base-structure.png"
+    },
+    {
+      "number": 3,
+      "title": "Open the app",
+      "description": "Open the RUNTIME folder, double-click AI Content Hub.app to run it, or right-click and choose \"Open\". The app is notarized by Apple and does not require extra steps.",
+      "image": "/assets/docs/install_mac_contenthub/base-openapp.png",
+      "note": "If you encounter Gatekeeper issues, open Terminal on Mac and run: `sudo xattr -r -d com.apple.quarantine /path/to/RUNTIME/AI\\ Content\\ Hub.app`. Replace /path/to/RUNTIME with the actual path to the RUNTIME folder ([1]). Then enter your password and try opening the app again.",
+      "noteLinks": [
+        { "text": "Learn how to get the path", "url": "https://support.apple.com/vi-vn/guide/mac-help/mchlp1774/mac" }
+      ],
+      "noteImage": "/assets/MacIssue.png"
+    },
+    {
+      "number": 4,
+      "title": "Wait for the app to start",
+      "description": "The first startup may take a few minutes. If it takes longer than 10 minutes, go to the Settings page and start the app manually.",
+      "image": "/assets/docs/install_mac_contenthub/waiting-app-start.png"
+    },
+    {
+      "number": 5,
+      "title": "Go to Settings to start the app",
+      "description": "Open the Settings page inside the app and click the start button to launch the app manually if needed.",
+      "image": "/assets/docs/install_mac_contenthub/start-app-manually.png"
+    }
+  ],
+  "advanced": [
+    {
+      "number": 1,
+      "title": "Download the RUNTIME file",
+      "description": "Download psi-full-runtime-mac.zip — the full package includes runtime port 6901 (video, image, basic voice), 6902 (voice cloning), and 6903 (OCR + LipSync). AI models are not included and are downloaded separately in step 3.",
+      "links": [
+        {
+          "text": "psi-full-runtime-mac.zip",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/MAC-psi69-full-runtime/psi-full-runtime-mac.zip",
+          "detail": "Full runtime package for all 3 ports, without AI models"
+        }
+      ],
+      "image": "/assets/docs/install_mac_contenthub/full-runtime-download.png",
+      "note": "All features can run on CPU. Voice cloning and OCR/LipSync work better with a GPU. AI models are downloaded separately in step 3."
+    },
+    {
+      "number": 2,
+      "title": "Create the root folder and extract RUNTIME",
+      "description": "Create a short root folder, such as ~/PSI. Extract psi-full-runtime-mac.zip into that folder. After extraction, the structure should be:\n~/PSI/RUNTIME/AI Content Hub.app\n~/PSI/RUNTIME/python_runtime/\n~/PSI/RUNTIME/ffmpeg/",
+      "image": "/assets/docs/install_mac_contenthub/full-runtime-unzip.png",
+      "note": "NOTE: Avoid spaces or special characters in the folder path to prevent permission issues. The root folder name can be anything, but the child folders must be named RUNTIME and MODELS (uppercase)."
+    },
+    {
+      "number": 3,
+      "title": "Download Models and place them in MODELS",
+      "description": "Create a MODELS folder alongside RUNTIME, for example ~/PSI/MODELS. Download the necessary models and extract each model into the correct child folder inside MODELS. Example structure:\n~/PSI/MODELS/whisper/\n~/PSI/MODELS/f5-tts-en/\n~/PSI/MODELS/deepseek_ocr/\n~/PSI/MODELS/latentsync/\nother models...",
+      "links": [
+        {
+          "text": "Download Models here",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/models",
+          "detail": "Only download the models you need. Each model must be extracted into the matching child folder inside MODELS."
+        }
+      ],
+      "image": "/assets/docs/install_mac_contenthub/full-runtime-MODELS.png",
+      "note": "Each child folder inside MODELS must keep the exact name from extraction (for example: whisper, f5-tts-en, deepseek_ocr, latentsync...). The app auto-detects models by folder name; incorrect names will not be recognized."
+    },
+    {
+      "number": 4,
+      "title": "Open the app",
+      "description": "Open the RUNTIME folder, double-click AI Content Hub.app to run it, or right-click and choose \"Open\". The app is notarized by Apple and does not require extra steps.",
+      "image": "/assets/docs/install_mac_contenthub/base-openapp.png",
+      "note": "If you encounter Gatekeeper issues, open Terminal on Mac and run: `sudo xattr -r -d com.apple.quarantine /path/to/RUNTIME/AI\\ Content\\ Hub.app`. Replace /path/to/RUNTIME with the actual path to the RUNTIME folder ([1]). Then enter your password and try opening the app again.",
+      "noteLinks": [
+        { "text": "Learn how to get the path", "url": "https://support.apple.com/vi-vn/guide/mac-help/mchlp1774/mac" }
+      ],
+      "noteImage": "/assets/MacIssue.png"
+    },
+    {
+      "number": 5,
+      "title": "Wait for the app to start",
+      "description": "The first startup may take a few minutes. If it takes longer than 10 minutes, go to the Settings page and start the app manually.",
+      "image": "/assets/docs/install_mac_contenthub/waiting-app-start.png"
+    },
+    {
+      "number": 6,
+      "title": "Go to Settings to start the app",
+      "description": "Open the Settings page inside the app and click the start button to launch the app manually if needed.",
+      "image": "/assets/docs/install_mac_contenthub/start-app-manually.png"
+    }
+  ]
+}

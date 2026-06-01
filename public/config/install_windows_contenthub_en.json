@@ -1,0 +1,113 @@
+{
+  "basic": [
+    {
+      "number": 1,
+      "title": "Download the RUNTIME file",
+      "description": "Download psi-runtime.rar — this is the application runtime (AI models are not included):",
+      "links": [
+        {
+          "text": "psi-runtime.rar",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/psi-runtime.rar",
+          "detail": "Application runtime file, about 10 GB"
+        }
+      ],
+      "note": "All features can run on CPU. Voice clone requires an NVIDIA GPU (CUDA). AI models are downloaded separately in step 3.",
+      "noteBeforeImage": "NOTE: Place the files on drive C or D with a short, ASCII path and no special characters to avoid permission issues. For example: C:\\PSI or D:\\PSI",
+      "image": "/assets/docs/install_window_contenthub/1.PNG"
+    },
+    {
+      "number": 2,
+      "title": "Create the root folder and extract RUNTIME",
+      "description": "Create a short root folder, such as C:\\PSI. Inside it, create a child folder named RUNTIME. Right-click psi-runtime.rar and choose \"Extract files...\" then select C:\\PSI\\RUNTIME to extract there. After extraction, the structure should be:\nC:\\PSI\\RUNTIME\\AI Content Hub.exe\nC:\\PSI\\RUNTIME\\python_runtime\\\nC:\\PSI\\RUNTIME\\resources\\",
+      "note": "NOTE: Extract INTO the RUNTIME folder, not outside the PSI folder. The root folder name (PSI) can be anything, but the child folders must be named RUNTIME and MODELS (uppercase).",
+      "image": "/assets/docs/install_window_contenthub/2.PNG"
+    },
+    {
+      "number": 3,
+      "title": "Download Models and place them in MODELS",
+      "description": "Create a MODELS folder alongside RUNTIME, e.g. C:\\PSI\\MODELS. Download the required model packages and extract each model into the correct child folder inside MODELS. Example structure: C:\\PSI\\MODELS\\whisper\\, C:\\PSI\\MODELS\\f5-tts-en\\, other models...",
+      "links": [
+        {
+          "text": "Download Models here",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/models",
+          "detail": "Only download the models you need. Each model should be extracted into the matching child folder inside MODELS."
+        }
+      ],
+      "note": "Each child folder inside MODELS must keep the exact name from extraction (for example: whisper, f5-tts-en, latent-sync...). The app auto-detects models by folder name; wrong folder names will not be recognized.",
+      "image": "/assets/docs/install_window_contenthub/3.PNG"
+    },
+    {
+      "number": 4,
+      "title": "Open the RUNTIME folder and run the app",
+      "description": "Go to C:\\PSI\\RUNTIME, right-click AI Content Hub.exe and choose \"Run as administrator\" to launch the app with elevated privileges.",
+      "image": "/assets/docs/install_window_contenthub/4.PNG"
+    },
+    {
+      "number": 5,
+      "title": "Windows warning — click \"More info\"",
+      "description": "Windows may show a SmartScreen security warning. This is normal — click \"More info\" to continue. The tool is legitimate, and the team currently does not have budget for an official Microsoft/Apple certificate. This is a real user experience video.",
+      "videoLink": {
+        "text": "REAL USER EXPERIENCE VIDEO",
+        "url": "https://www.facebook.com/reel/1611932096739881"
+      },
+      "image": "/assets/docs/install_window_contenthub/5.PNG"
+    },
+    {
+      "number": 6,
+      "title": "Click \"Run anyway\" to launch",
+      "description": "Click \"Run anyway\" to start the application. The app is safe to run.",
+      "image": "/assets/docs/install_window_contenthub/6.PNG"
+    },
+    {
+      "number": 7,
+      "title": "Wait for the app to start",
+      "description": "If it takes longer than 10 minutes, close this window and go to the Settings page to start manually.",
+      "image": "/assets/docs/install_window_contenthub/7.PNG"
+    },
+    {
+      "number": 8,
+      "title": "Go to the settings page to launch the app",
+      "description": "Open the Settings page inside the app and click the start button to launch manually.",
+      "image": "/assets/docs/install_window_contenthub/8.PNG"
+    }
+  ],
+  "advanced": [
+    {
+      "number": 1,
+      "title": "Enable WSL2 and install Ubuntu",
+      "description": "Open PowerShell as Administrator and run the command below. This will install WSL2 and Ubuntu automatically. Restart your computer when prompted, then open Ubuntu from the Start menu and complete the Linux user setup (username and password).",
+      "link": {
+        "text": "Microsoft WSL installation guide →",
+        "url": "https://learn.microsoft.com/en-us/windows/wsl/install"
+      },
+      "note": "$ wsl --install\nIf WSL2 with Ubuntu is already installed, skip this step and go to Step 2. To check whether WSL2 is active:\n$ wsl --status\nIf WSL2 is not recognized after restarting, ensure Virtualization is enabled in the BIOS."
+    },
+    {
+      "number": 2,
+      "title": "Install Node.js in Ubuntu",
+      "description": "Open the Ubuntu terminal and run the commands below to install Node.js 24.",
+      "note": "$ curl -fsSL https://deb.nodesource.com/setup_24.x | sudo bash -\n$ sudo apt-get install -y nodejs\n$ node -v"
+    },
+    {
+      "number": 3,
+      "title": "Install OpenClaw",
+      "description": "Still in the Ubuntu terminal, install the global OpenClaw package and verify the version.",
+      "note": "$ sudo npm install -g openclaw@2026.4.9\n$ openclaw --version\nIf you need to reinstall:\n$ sudo npm install -g openclaw@2026.4.9 --force"
+    },
+    {
+      "number": 4,
+      "title": "Create a Telegram bot",
+      "description": "Open Telegram and find @BotFather. Send /newbot and follow the instructions. BotFather will return a token in the form 7xxxxxxxxxx:AAxxxxxx... — save it for the next step. To find your Telegram user ID (required for allowed user list), message @userinfobot.",
+      "link": {
+        "text": "Open @BotFather →",
+        "url": "https://t.me/BotFather"
+      }
+    },
+    {
+      "number": 5,
+      "title": "Configure inside the PSI app",
+      "description": "Open PSI AI Content Hub, go to Settings → OpenClaw, and fill in: Telegram bot token (from @BotFather) and Allowed Telegram user IDs (comma-separated). For the AI model, you can choose Anthropic API key or Ollama with a local model. Click Save, then start the OpenClaw gateway from the Settings page.",
+      "note": "⚠ Recommended: use Anthropic API. OpenClaw needs to understand your Telegram commands accurately (for example: 'create a video from this' or 'download that video'). Anthropic API (Claude) understands meaning much better than small local models. If you use Ollama with a weak model, OpenClaw may misunderstand commands and execute incorrectly — for example downloading the wrong file, generating wrong content, or failing to respond correctly.\n\nIf using Ollama: choose a model with at least 7B parameters (for example: llama3, mistral) and make sure Ollama is running on your machine before starting OpenClaw.\n\nLogin data is stored locally at %APPDATA%\\psi-ai-content-hub\\ and is not sent to any external service.\n\nTroubleshooting:\n- Bot does not respond: check that your Telegram user ID is included in Allowed IDs and that OpenClaw status is green in Settings.\n- Gateway fails to start: open Ubuntu, run openclaw --version and node -v (must be ≥ 22), then restart PSI.\n- OCR model is not installed: go to Settings → Models and download the DeepSeek-OCR model (~2 GB).\n- Not logged into Facebook: go to Settings → Facebook and log in through the browser window."
+    }
+  ]
+}

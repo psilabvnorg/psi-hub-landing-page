@@ -4,7 +4,6 @@ import { Banner } from '@/sections/Banner';
 import { Products } from '@/sections/Products';
 import { Contact } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
-import { LanguageProvider } from '@/contexts/LanguageContext';
 import { Loader2 } from 'lucide-react';
 import './App.css';
 
@@ -39,7 +38,6 @@ function App() {
   }
 
   return (
-    <LanguageProvider>
       <div className="min-h-screen bg-[#1b1b1b] pt-16">
         <Hero />
         <Banner contentHub={config.products.find(p => p.id === 'contenthub')} />
@@ -47,7 +45,6 @@ function App() {
 <Contact contact={config.contact} />
         <Footer brandName={config.brand.name} />
       </div>
-    </LanguageProvider>
   );
 }
 
