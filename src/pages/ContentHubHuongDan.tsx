@@ -4,13 +4,12 @@ import { ApiDocs } from '@/sections/ApiDocs';
 import { Contact } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
 import { useProducts } from '@/hooks/useProducts';
-import { LanguageProvider } from '@/contexts/LanguageContext';
+import { /*LanguageProvider*/ } from '@/contexts/LanguageContext';
 
 export function ContentHubHuongDan() {
   const { config } = useProducts();
 
   return (
-    <LanguageProvider>
       <div className="min-h-screen bg-[#1b1b1b]">
         {/* Top bar */}
         <div className="sticky top-0 z-50 bg-[#111111] border-b border-[#222222]">
@@ -29,11 +28,10 @@ export function ContentHubHuongDan() {
           </div>
         </div>
 
-        <ApiDocs lang="vi" />
+        <ApiDocs />
 
         {config && <Contact contact={config.contact} />}
         {config && <Footer brandName={config.brand.name} />}
       </div>
-    </LanguageProvider>
   );
 }

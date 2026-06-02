@@ -122,7 +122,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className="flex-1 inline-flex items-center justify-center gap-2 py-3 border border-[#333333] text-[#808080] font-bold text-sm tracking-wide hover:border-[#ffa31a]/50 hover:text-[#ffa31a] transition-all duration-150 rounded-sm"
             >
               <Play className="w-4 h-4" />
-              {t.liveDemo}
+              {t.Guide}
             </Link>
           ) : (
             <a
@@ -132,7 +132,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className="flex-1 inline-flex items-center justify-center gap-2 py-3 border border-[#333333] text-[#808080] font-bold text-sm tracking-wide hover:border-[#ffa31a]/50 hover:text-[#ffa31a] transition-all duration-150 rounded-sm"
             >
               <Play className="w-4 h-4" />
-              {t.liveDemo}
+              {t.Guide}
             </a>
           )}
           <a

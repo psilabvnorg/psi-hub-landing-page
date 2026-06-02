@@ -8,7 +8,7 @@ export const translations = {
     productsLogo: { prefix: 'Our ', suffix: 'Products' },
     contactLogo: { prefix: 'Contact ', suffix: 'Us' },
     getInTouch: 'Get In Touch',
-    liveDemo: 'Live Demo',
+    Guide: 'Guide',
     visitSite: 'Visit Site',
     contactDesc: 'Reach out through any channel below. We\'re ready to help.',
     labels: {
@@ -27,7 +27,7 @@ export const translations = {
     productsLogo: { prefix: 'Sản ', suffix: 'Phẩm' },
     contactLogo: { prefix: 'Liên ', suffix: 'Hệ' },
     getInTouch: 'Liên Hệ',
-    liveDemo: 'Hướng Dẫn',
+    Guide: 'Hướng Dẫn',
     visitSite: 'Truy Cập',
     contactDesc: 'Liên hệ qua bất kỳ kênh nào bên dưới. Chúng tôi luôn sẵn sàng hỗ trợ.',
     labels: {

@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { LanguageProvider } from '@/contexts/LanguageContext';
 import './index.css'
 import App from './App.tsx'
 import { ContentHubDocs } from './pages/ContentHubDocs.tsx'
@@ -14,8 +15,9 @@ import { ScrollToTop } from './components/ScrollToTop.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
+      <LanguageProvider>
+        <ScrollToTop />
+        <Routes>
         <Route path="/" element={<App />} />
         <Route path="/contenthub/docs" element={<ContentHubDocs />} />
         <Route path="/contenthub/huong-dan-api" element={<ContentHubHuongDan />} />
@@ -25,7 +27,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/lifehub/huong-dan" element={<ComingSoon prefix="Life" suffix="Hub" />} />
         <Route path="/contenthub/openclaw" element={<OpenClawSetup />} />
         <Route path="/preview" element={<SitePreview />} />
-      </Routes>
+        </Routes>
+      </LanguageProvider>
     </BrowserRouter>
   </StrictMode>,
 )

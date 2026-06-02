@@ -13,7 +13,7 @@ const DOC_LINKS = [
 ];
 
 export function Hero() {
-  const { lang, toggle } = useLang();
+  const { lang, toggle, t } = useLang();
   const [docsOpen, setDocsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -45,7 +45,7 @@ export function Hero() {
               className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base font-black tracking-wide sm:tracking-widest uppercase text-[#ffa31a] hover:text-white transition-colors duration-150 px-2 sm:px-3 py-1"
             >
               <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span className="hidden xs:inline sm:inline">Hướng Dẫn</span>
+              <span className="hidden xs:inline sm:inline">{t.Guide}</span>
               <ChevronDown className={`w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 transition-transform duration-150 ${docsOpen ? 'rotate-180' : ''}`} />
             </button>
 

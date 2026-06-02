@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Contact } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
 import { useProducts } from '@/hooks/useProducts';
-import { LanguageProvider } from '@/contexts/LanguageContext';
+import { /*LanguageProvider*/ } from '@/contexts/LanguageContext';
 import { PhLogo } from '@/components/PhLogo';
 
 interface ComingSoonProps {
@@ -15,7 +15,6 @@ export function ComingSoon({ prefix, suffix }: ComingSoonProps) {
   const { config } = useProducts();
 
   return (
-    <LanguageProvider>
       <div className="min-h-screen bg-[#1b1b1b]">
 
         {/* Top bar */}
@@ -63,6 +62,5 @@ export function ComingSoon({ prefix, suffix }: ComingSoonProps) {
         {config && <Contact contact={config.contact} />}
         {config && <Footer brandName={config.brand.name} />}
       </div>
-    </LanguageProvider>
   );
 }
