@@ -34,8 +34,16 @@ interface StepData {
   noteBeforeImage?: string;
 }
 
+interface InstallOption {
+  id: string;
+  title: string;
+  subtitle?: string;
+  steps: StepData[];
+}
+
 interface InstallConfig {
   basic: StepData[];
+  basicOptions?: InstallOption[];
   advanced: StepData[];
 }
 
@@ -45,12 +53,19 @@ const JSON_URLS: Record<Platform, string> = {
 };
 
 function renderDescription(description: string, link?: StepLink) {
-  const parts = description.split(/\*\*(.+?)\*\*/g);
   return (
     <>
-      {parts.map((part, i) =>
-        i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-      )}
+      {description.split('\n').map((line, li, arr) => {
+        const parts = line.split(/\*\*(.+?)\*\*/g);
+        return (
+          <span key={li}>
+            {parts.map((part, i) =>
+              i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+            )}
+            {li < arr.length - 1 && <br />}
+          </span>
+        );
+      })}
       {link && (
         <>
           {' '}
@@ -73,6 +88,7 @@ export function ContentHubInstallGuide() {
   const [platform, setPlatform] = useState<Platform>('windows');
   const [section, setSection] = useState<Section>('basic');
   const [installConfig, setInstallConfig] = useState<InstallConfig>({ basic: [], advanced: [] });
+  const [selectedOptionId, setSelectedOptionId] = useState<string>('');
 
   useEffect(() => {
     fetch(JSON_URLS[platform])
@@ -80,14 +96,24 @@ export function ContentHubInstallGuide() {
       .then((data) => {
         if (Array.isArray(data)) {
           setInstallConfig({ basic: data, advanced: [] });
+          setSelectedOptionId('');
         } else {
-          setInstallConfig({ basic: data.basic ?? [], advanced: data.advanced ?? [] });
+          setInstallConfig({
+            basic: data.basic ?? [],
+            basicOptions: data.basicOptions ?? undefined,
+            advanced: data.advanced ?? [],
+          });
+          setSelectedOptionId(data.basicOptions?.[0]?.id ?? '');
         }
       })
       .catch(() => setInstallConfig({ basic: [], advanced: [] }));
   }, [platform]);
 
-  const steps = installConfig[section];
+  const basicOptions = installConfig.basicOptions;
+  const steps =
+    section === 'basic' && basicOptions?.length
+      ? basicOptions.find((o) => o.id === selectedOptionId)?.steps ?? []
+      : installConfig[section];
 
   const advancedLabelVi = platform === 'windows' ? 'Nâng cao — WSL + OpenClaw' : 'Nâng cao — Docker + OpenClaw';
 
@@ -168,6 +194,33 @@ export function ContentHubInstallGuide() {
                 </button>
               </div>
             </div>
+
+            {/* Install option selector — shown only when basicOptions exist */}
+            {section === 'basic' && basicOptions?.length && (
+              <div className="mt-8 flex flex-col items-center gap-3">
+                <p className="text-[#888] text-sm font-bold uppercase tracking-widest">Chọn gói cài đặt</p>
+                <div className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl">
+                  {basicOptions.map((opt) => (
+                    <button
+                      key={opt.id}
+                      onClick={() => setSelectedOptionId(opt.id)}
+                      className={`flex-1 px-5 py-4 rounded-xl border-2 text-left transition-all duration-200 cursor-pointer ${
+                        selectedOptionId === opt.id
+                          ? 'border-[#ffa31a] bg-[#ffa31a]/10'
+                          : 'border-[#333] bg-transparent hover:border-[#555]'
+                      }`}
+                    >
+                      <p className={`text-sm font-bold mb-1 ${selectedOptionId === opt.id ? 'text-[#ffa31a]' : 'text-white'}`}>
+                        {opt.title}
+                      </p>
+                      {opt.subtitle && (
+                        <p className="text-[#888] text-xs leading-relaxed">{opt.subtitle}</p>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {section === 'basic' && (
               <p className="text-white text-base mt-6">
