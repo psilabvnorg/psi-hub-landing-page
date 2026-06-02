@@ -17,7 +17,7 @@
             }
           ],
           "noteBeforeImage": "LƯU Ý: Nên đặt ở ổ C hoặc D với đường dẫn ngắn, không dấu, không ký tự đặc biệt để tránh lỗi phân quyền.",
-          "image": "/assets/docs/install_window_contenthub/1.PNG"
+          "image": "/assets/docs/install_window_contenthub/windows-base-download.PNG"
         },
         {
           "number": 2,
@@ -64,7 +64,7 @@
     },
     {
       "id": "full",
-      "title": "Tùy chọn 2 — Đầy đủ 3 ports",
+      "title": "Tùy chọn 2 — Đầy đủ 3 ports (Coming soon)",
       "subtitle": "Đầy đủ tính năng gồm tính năng cơ bản (6901)·  Voice Clone (6902) và OCR LipSync (6903) · tải models riêng theo nhu cầu",
       "steps": [
         {
@@ -74,7 +74,7 @@
           "links": [
             {
               "text": "RUNTIME.rar",
-              "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/RUNTIME.rar",
+              "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-psi69-full-runtime/RUNTIME.rar",
               "detail": "Runtime ứng dụng cho port 6901 · 6902 (Voice Clone) · 6903 (OCR LipSync), khoảng 10 GB"
             }
           ],
@@ -110,17 +110,17 @@
               "text": "Cách 2 - Tải trọn bộ models theo port (tiện hơn nếu dùng đủ các tính năng của port đó):"
             },
             {
-              "text": "MODELS-6901.rar",
+              "text": "MODELS-6901.zip",
               "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/MODELS-6901.rar",
               "detail": "Trọn bộ models cho port 6901 (tính năng cơ bản: video, ảnh, tách giọng, dịch, TTS)"
             },
             {
-              "text": "MODELS-6902.rar",
+              "text": "MODELS-6902.zip",
               "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/MODELS-6902.rar",
               "detail": "Trọn bộ models cho port 6902 (Voice Clone)"
             },
             {
-              "text": "MODELS-6903.rar",
+              "text": "MODELS-6903.zip",
               "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/MODELS-6903.rar",
               "detail": "Trọn bộ models cho port 6903 (OCR LipSync)"
             }
