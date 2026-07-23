@@ -92,7 +92,7 @@ export function Contact({ contact }: ContactProps) {
               `}</style>
               <a href="https://xechohang.vn" target="_blank" rel="noopener noreferrer" className="block h-full">
                 <img
-                  src="/assets/top.jpg"
+                  src="/assets/top.png"
                   alt=""
                   className="h-full w-full object-cover"
                   style={{ animation: 'breathe 3s ease-in-out infinite' }}
