@@ -38,7 +38,7 @@ export function Contact({ contact }: ContactProps) {
     { href: `https://${contact.facebook}`, icon: FB_ICON, label: contact.facebook, external: true },
     { href: `https://${contact.website}`, icon: <Globe className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 text-black" />, label: contact.website, external: true },
     { href: `https://youtube.com/${contact.youtube}`, icon: YT_ICON, label: contact.youtube, external: true },
-    { href: `https://tiktok.com/${contact.tiktok}`, icon: TT_ICON, label: contact.tiktok, external: true },
+    ...(contact.tiktok ? [{ href: `https://tiktok.com/${contact.tiktok}`, icon: TT_ICON, label: contact.tiktok, external: true }] : []),
     { href: contact.linkedin, icon: LI_ICON, label: 'tung-xe-tho', external: true },
     { href: `mailto:${contact.email}`, icon: <Mail className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 text-black" />, label: contact.email },
     { icon: <MapPin className="w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 text-black" />, label: contact.address },
