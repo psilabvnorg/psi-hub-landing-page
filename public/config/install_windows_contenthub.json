@@ -1,171 +1,74 @@
 {
-  "basicOptions": [
+  "basic": [
     {
-      "id": "lite",
-      "title": "Tùy chọn 1 — Chỉ port 6901",
-      "subtitle": "Tính năng cơ bản video, ảnh · nhẹ hơn · dễ cài hơn · có sẵn cả RUNTIME và MODELS sau khi giải nén",
-      "steps": [
+      "number": 1,
+      "title": "Tải file PSI-AI-Content-Hub.rar về máy",
+      "description": "Tải file PSI-AI-Content-Hub.rar — bao gồm cả RUNTIME và MODELS:",
+      "links": [
         {
-          "number": 1,
-          "title": "Tải file psi-6901.rar về máy",
-          "description": "Tải file psi-6901.rar — bao gồm cả runtime ứng dụng VÀ models AI cho port 6901 (không cần tải models riêng): (TODO ảnh)",
-          "links": [
-            {
-              "text": "psi-6901.rar",
-              "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/psi-6901.rar",
-              "detail": "Runtime + Models cho port 6901, khoảng 10–15 GB"
-            }
-          ],
-          "noteBeforeImage": "LƯU Ý: Nên đặt ở ổ C hoặc D với đường dẫn ngắn, không dấu, không ký tự đặc biệt để tránh lỗi phân quyền.",
-          "image": "/assets/docs/install_window_contenthub/windows-base-download.PNG"
-        },
-        {
-          "number": 2,
-          "title": "Giải nén psi-6901.rar",
-          "description": "Nhấn chuột phải vào file psi-6901.rar và chọn \"Extract files...\" rồi chọn thư mục đích, ví dụ C:\\, D:\\. Sau khi giải nén xong, cấu trúc sẽ là:\nC:\\RUNTIME\\AI Content Hub.exe\nC:\\RUNTIME\\python_runtime\\\nC:\\RUNTIME\\resources\\\nC:\\MODELS\\whisper\\\nC:\\MODELS\\birefnet\\\nC:\\MODELS\\... (các models khác)",
-          "note": "LƯU Ý: RUNTIME và MODELS đã có sẵn sau khi giải nén — không cần tạo thêm hay tải thêm gì. (TODO ảnh)",
-          "image": "/assets/docs/install_window_contenthub/3.PNG"
-        },
-        {
-          "number": 3,
-          "title": "Mở thư mục RUNTIME và chạy ứng dụng",
-          "description": "Vào thư mục C:\\RUNTIME, click chuột phải vào file \"AI Content Hub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
-          "image": "/assets/docs/install_window_contenthub/5.PNG"
-        },
-        {
-          "number": 4,
-          "title": "Cảnh báo Windows — nhấn \"More info\"",
-          "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
-          "videoLink": {
-            "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
-            "url": "https://www.facebook.com/reel/1611932096739881"
-          },
-          "image": "/assets/docs/install_window_contenthub/6.PNG"
-        },
-        {
-          "number": 5,
-          "title": "Nhấn \"Run anyway\" để chạy",
-          "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
-          "image": "/assets/docs/install_window_contenthub/7.PNG"
-        },
-        {
-          "number": 6,
-          "title": "Chờ ứng dụng khởi động",
-          "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
-          "image": "/assets/docs/install_window_contenthub/8.PNG"
-        },
-        {
-          "number": 7,
-          "title": "Vào trang cài đặt để khởi động ứng dụng",
-          "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.",
-          "image": "/assets/docs/install_window_contenthub/9.PNG"
+          "text": "PSI-AI-Content-Hub.rar",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-psi69-full-runtime/PSI-AI-Content-Hub.rar",
+          "detail": "Runtime ứng dụng, khoảng 4.5 GB"
         }
-      ]
+      ],
+      "noteBeforeImage": "LƯU Ý: Nên đặt ở ổ C hoặc D với đường dẫn ngắn, không dấu, không ký tự đặc biệt để tránh lỗi phân quyền. Ví dụ: C:\\PSI hoặc D:\\PSI",
+      "image": "/assets/docs/install_window_contenthub/1.PNG"
     },
     {
-      "id": "full",
-      "title": "Tùy chọn 2 — Đầy đủ 3 ports (Coming soon)",
-      "subtitle": "Đầy đủ tính năng gồm tính năng cơ bản (6901)·  Voice Clone (6902) và OCR LipSync (6903) · tải models riêng theo nhu cầu",
-      "steps": [
-        {
-          "number": 1,
-          "title": "Tải file RUNTIME.rar về máy",
-          "description": "Tải file RUNTIME.rar — đây là file chạy ứng dụng cho cả 3 ports (không bao gồm models AI): (TODO ảnh)",
-          "links": [
-            {
-              "text": "RUNTIME.rar",
-              "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-psi69-full-runtime/RUNTIME.rar",
-              "detail": "Runtime ứng dụng cho port 6901 · 6902 (Voice Clone) · 6903 (OCR LipSync), khoảng 10 GB"
-            }
-          ],
-          "note": "Tất cả tính năng đều chạy được trên CPU. Voice Clone yêu cầu GPU NVIDIA (CUDA). Models AI được tải riêng ở bước 3.",
-          "noteBeforeImage": "LƯU Ý: Nên đặt ở ổ C hoặc D với đường dẫn ngắn, không dấu, không ký tự đặc biệt để tránh lỗi phân quyền. Ví dụ: C:\\PSI hoặc D:\\PSI",
-          "image": "/assets/docs/install_window_contenthub/1.PNG"
-        },
-        {
-          "number": 2,
-          "title": "Giải nén RUNTIME",
-          "description": "Nhấn chuột phải vào file RUNTIME.rar và chọn \"Extract files...\" rồi chọn thư mục đích, ví dụ C:\\PSI. Sau khi giải nén xong, cấu trúc sẽ là:\nC:\\PSI\\RUNTIME\\AI Content Hub.exe\nC:\\PSI\\RUNTIME\\python_runtime\\\nC:\\PSI\\RUNTIME\\resources\\",
-          "note": "LƯU Ý: Giải nén VÀO bên trong thư mục PSI. Tên thư mục gốc (PSI) có thể đặt tùy ý.",
-          "image": "/assets/docs/install_window_contenthub/2.PNG"
-        },
-        {
-          "number": 3,
-          "title": "Tạo thư mục MODELS",
-          "description": "Tạo thư mục MODELS nằm cùng cấp với RUNTIME. Ví dụ nếu RUNTIME ở C:\\PSI\\RUNTIME thì tạo C:\\PSI\\MODELS. Cấu trúc đúng:\nC:\\PSI\\RUNTIME\\\nC:\\PSI\\MODELS\\",
-          "note": "LƯU Ý: MODELS phải nằm cùng cấp với RUNTIME (không nằm bên trong RUNTIME). Ứng dụng tự tìm models theo đường dẫn này.",
-          "image": "/assets/docs/install_window_contenthub/3.PNG"
-        },
-        {
-          "number": 4,
-          "title": "Tải Models và đặt vào thư mục MODELS",
-          "description": "Tải models theo port bạn cần dùng",
-          "links": [
-            {
-              "text": "Cách 1 tải từng model riêng lẻ tại đây",
-              "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/models",
-              "detail": "Chỉ tải những model bạn cần dùng. Giải nén từng model vào đúng tên thư mục con bên trong MODELS"
-            },
-            {
-              "text": "Cách 2 - Tải trọn bộ models theo port (tiện hơn nếu dùng đủ các tính năng của port đó):"
-            },
-            {
-              "text": "MODELS-6901.zip",
-              "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/MODELS-6901.rar",
-              "detail": "Trọn bộ models cho port 6901 (tính năng cơ bản: video, ảnh, tách giọng, dịch, TTS)"
-            },
-            {
-              "text": "MODELS-6902.zip",
-              "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/MODELS-6902.rar",
-              "detail": "Trọn bộ models cho port 6902 (Voice Clone)"
-            },
-            {
-              "text": "MODELS-6903.zip",
-              "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/MODELS-6903.rar",
-              "detail": "Trọn bộ models cho port 6903 (OCR LipSync)"
-            }
-          ],
-          "note": "Tên thư mục con bên trong MODELS phải giữ nguyên đúng như khi giải nén (ví dụ: whisper, f5-tts-en, latent-sync...). Ứng dụng tự động tìm models theo tên thư mục, đặt sai tên sẽ không nhận được.",
-          "image": "/assets/docs/install_window_contenthub/4.PNG"
-        },
-        {
-          "number": 5,
-          "title": "Mở thư mục RUNTIME và chạy ứng dụng",
-          "description": "Vào thư mục C:\\PSI\\RUNTIME, click chuột phải vào file \"AI Content Hub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
-          "image": "/assets/docs/install_window_contenthub/5.PNG"
-        },
-        {
-          "number": 6,
-          "title": "Cảnh báo Windows — nhấn \"More info\"",
-          "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
-          "videoLink": {
-            "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
-            "url": "https://www.facebook.com/reel/1611932096739881"
-          },
-          "image": "/assets/docs/install_window_contenthub/6.PNG"
-        },
-        {
-          "number": 7,
-          "title": "Nhấn \"Run anyway\" để chạy",
-          "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
-          "image": "/assets/docs/install_window_contenthub/7.PNG"
-        },
-        {
-          "number": 8,
-          "title": "Chờ ứng dụng khởi động",
-          "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
-          "image": "/assets/docs/install_window_contenthub/8.PNG"
-        },
-        {
-          "number": 9,
-          "title": "Vào trang cài đặt để khởi động ứng dụng",
-          "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công.",
-          "image": "/assets/docs/install_window_contenthub/9.PNG"
-        }
-      ]
+      "number": 2,
+      "title": "Giải nén PSI-AI-Content-Hub.rar",
+      "description": "Nhấn chuột phải vào file PSI-AI-Content-Hub.rar và chọn \"Extract files...\" rồi chọn thư mục đích, ví dụ C:\\PSI. Sau khi giải nén xong, bạn sẽ có 2 thư mục RUNTIME và MODELS",
+      "note": "LƯU Ý: Thư mục MODELS sẽ rỗng mặc định sau khi giải nén — bạn sẽ tải models cần dùng ở bước 8.",
+      "image": "/assets/docs/install_window_contenthub/2.PNG"
+    },
+    {
+      "number": 3,
+      "title": "Mở thư mục RUNTIME và chạy ứng dụng",
+      "description": "Vào thư mục C:\\PSI\\RUNTIME, click chuột phải vào file \"AI Content Hub.exe\" và chọn \"Run as administrator\" để chạy ứng dụng với quyền quản trị.",
+      "image": "/assets/docs/install_window_contenthub/3.PNG"
+    },
+    {
+      "number": 4,
+      "title": "Cảnh báo Windows — nhấn \"More info\"",
+      "description": "Windows có thể hiện thông báo bảo mật SmartScreen. Đây là bình thường — nhấn \"More info\" để tiếp tục. Các bạn yên tâm tool uy tín, hiện tại team chưa có kinh phí mua certificate của Microsoft/Apple, đây là video trải nghiệm thực tế người dùng",
+      "videoLink": {
+        "text": "VIDEO TRẢI NGHIỆM TOOL THỰC TẾ TỪ NGƯỜI DÙNG THẬT",
+        "url": "https://www.facebook.com/reel/1611932096739881"
+      },
+      "image": "/assets/docs/install_window_contenthub/4.PNG"
+    },
+    {
+      "number": 5,
+      "title": "Nhấn \"Run anyway\" để chạy",
+      "description": "Nhấn \"Run anyway\" để khởi động ứng dụng. Ứng dụng hoàn toàn an toàn.",
+      "image": "/assets/docs/install_window_contenthub/5.PNG"
+    },
+    {
+      "number": 6,
+      "title": "Chờ ứng dụng khởi động",
+      "description": "Nếu chờ quá 10 phút mà chưa xong, hãy đóng cửa sổ này và vào trang Cài Đặt để bật thủ công.",
+      "image": "/assets/docs/install_window_contenthub/6.PNG"
+    },
+    {
+      "number": 7,
+      "title": "Vào trang cài đặt để khởi động ứng dụng",
+      "description": "Mở trang Cài Đặt trong ứng dụng, chọn tab Máy chủ và nhấn nút khởi động để bật thủ công.",
+      "image": "/assets/docs/install_window_contenthub/7.PNG"
+    },
+    {
+      "number": 8,
+      "title": "Tải models cần dùng",
+      "description": "Tại trang cài đặt, nhấn nút Tải xuống (download) để tải model cần thiết cho server và các tính năng. Model sẽ được lưu vào thư mục MODELS.",
+      "note": "LƯU Ý: Chỉ cần tải model cho những tính năng bạn thực sự dùng, rê chuột vào dấu ? cạnh tên model để biết ứng dụng sẽ sử dụng model. Ứng dụng tự động lưu và nhận diện model theo đúng thư mục con bên trong MODELS.",
+      "image":"/assets/docs/install_window_contenthub/8.PNG"
+    },
+    {
+      "number": 9,
+      "title": "Sau khi tải model",
+      "description": "Sau khi tải model xong, trạng thái sẽ hiển thị là \"Đã cài\". Một số model nặng khi tải về máy sẽ không tự động tải vào GPU/CPU tránh nặng máy khi không sử dụng, chúng sẽ được tải khi trực tiếp sử dụng chức năng lần đầu tiên. Có thể bấm nút \"Tải vào bộ nhớ\" trước để không phải chờ tải vào GPU/CPU khi sử dụng chức năng lần đầu nếu máy mạnh.",
+      "image": "/assets/docs/install_window_contenthub/9.PNG"
     }
   ],
-  "basic": [],
   "advanced": [
     {
       "number": 1,
