@@ -228,7 +228,7 @@ openclaw --version   # confirm installation`}</CodeBlock>
                 </li>
               </ul>
               <p className="text-white text-base mt-3">
-                The bot replies immediately to confirm, then sends the result as a follow-up message when ready. Some tasks (video generation, OCR, Facebook comments) run in the background and may take 1–5 minutes.
+                The bot replies immediately to confirm, then sends the result as a follow-up message when ready. Some tasks (video generation, Facebook comments) run in the background and may take 1–5 minutes.
               </p>
             </Section>
 

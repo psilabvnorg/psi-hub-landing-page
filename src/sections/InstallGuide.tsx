@@ -263,18 +263,27 @@ export function InstallGuide() {
               <button type="button" onClick={() => setPlatform('windows')} className={toggleBtnClass(platform === 'windows')}>
                 {t.guide.platformWindows}
               </button>
-              <button type="button" onClick={() => setPlatform('mac')} className={toggleBtnClass(platform === 'mac')}>
+              <button
+                type="button"
+                onClick={() => {
+                  setPlatform('mac');
+                  setSection('basic');
+                }}
+                className={toggleBtnClass(platform === 'mac')}
+              >
                 {t.guide.platformMac}
               </button>
             </div>
-            <div className="inline-flex items-center gap-1 rounded-full border border-psi-borderStrong p-1">
-              <button type="button" onClick={() => setSection('basic')} className={toggleBtnClass(section === 'basic')}>
-                {t.guide.sectionBasic}
-              </button>
-              <button type="button" onClick={() => setSection('advanced')} className={toggleBtnClass(section === 'advanced')}>
-                {t.guide.sectionAdvanced}
-              </button>
-            </div>
+            {platform === 'windows' && (
+              <div className="inline-flex items-center gap-1 rounded-full border border-psi-borderStrong p-1">
+                <button type="button" onClick={() => setSection('basic')} className={toggleBtnClass(section === 'basic')}>
+                  {t.guide.sectionBasic}
+                </button>
+                <button type="button" onClick={() => setSection('advanced')} className={toggleBtnClass(section === 'advanced')}>
+                  {t.guide.sectionAdvanced}
+                </button>
+              </div>
+            )}
           </div>
 
           {section === 'basic' && (

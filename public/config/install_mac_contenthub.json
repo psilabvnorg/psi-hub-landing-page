@@ -2,85 +2,29 @@
   "basic": [
     {
       "number": 1,
-      "title": "Tải file cài đặt về máy",
-      "description": "Tải file **psi-base-mac.zip** (bản cơ bản, bao gồm runtime port 6901 chức năng video, hình ảnh cơ bản + 6902 clone giọng nói và đầy đủ 7 model AI) về máy tính.",
-      "link": {
-        "text": "Tải tại đây →",
-        "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/MAC-psi69-base/psi-base-mac.zip"
-      },
-      "image": "/assets/docs/install_mac_contenthub/base-download.png"
-    },
-    {
-      "number": 2,
-      "title": "Giải nén file",
-      "description": "Nhấn chuột phải vào file .zip vừa tải về và giải nén ra một thư mục. Sau khi giải nén sẽ có 2 thư mục: **RUNTIME/** (ứng dụng + runtime) và **MODELS/** (các model AI).",
-      "image": "/assets/docs/install_mac_contenthub/base-structure.png"
-    },
-    {
-      "number": 3,
-      "title": "Mở ứng dụng",
-      "description": "Mở thư mục **RUNTIME**, nhấn đúp chuột vào **AI Content Hub.app** để chạy hoặc chuột phải và chọn \"Open\". Ứng dụng đã được ký và xác thực bởi Apple (notarized), không cần thêm bước nào.",
-      "image": "/assets/docs/install_mac_contenthub/base-openapp.png",
-      "note": "Nếu gặp phải lỗi Gatekeeper, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau: `sudo xattr -r -d com.apple.quarantine /path/to/RUNTIME/AI\\ Content\\ Hub.app`. Thay /path/to/RUNTIME bằng đường dẫn thực tế đến thư mục RUNTIME ([1]). Sau đó nhập password ở terminal và thử mở lại ứng dụng.",
-      "noteLinks": [
-        { "text": "Tham khảo cách lấy đường dẫn", "url": "https://support.apple.com/vi-vn/guide/mac-help/mchlp1774/mac" }
-      ],
-      "noteImage": "/assets/MacIssue.png"
-    },
-    {
-      "number": 4,
-      "title": "Chờ ứng dụng khởi động",
-      "description": "Lần đầu khởi động có thể mất vài phút. Nếu chờ quá 10 phút mà chưa xong, hãy vào trang **Cài Đặt** để bật thủ công.",
-      "image": "/assets/docs/install_mac_contenthub/waiting-app-start.png"
-    },
-    {
-      "number": 5,
-      "title": "Vào trang cài đặt để khởi động ứng dụng",
-      "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công nếu cần.",
-      "image": "/assets/docs/install_mac_contenthub/start-app-manually.png"
-    }
-  ],
-  "advanced": [
-    {
-      "number": 1,
-      "title": "Tải file RUNTIME về máy",
-      "description": "Tải file **psi-full-runtime-mac.zip** - đây là bản đầy đủ gồm runtime port 6901 (video, hình ảnh, giọng nói cơ bản), 6902 (clone giọng nói) và 6903 (OCR + LipSync). Không bao gồm models AI, models được tải riêng ở bước 3.",
+      "title": "Tải file psi-full-runtime-mac.zip về máy",
+      "description": "Tải file psi-full-runtime-mac.zip — bao gồm cả RUNTIME và MODELS:",
       "links": [
         {
           "text": "psi-full-runtime-mac.zip",
           "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/MAC-psi69-full-runtime/psi-full-runtime-mac.zip",
-          "detail": "File runtime đầy đủ 3 port, không kèm model AI"
+          "detail": "Runtime ứng dụng, khoảng 2.4 GB"
         }
       ],
-      "image": "/assets/docs/install_mac_contenthub/full-runtime-download.png",
-      "note": "Tất cả tính năng đều chạy được trên CPU. Voice clone và OCR/LipSync hoạt động tốt hơn với GPU. Models AI được tải riêng ở bước 3."
+      "noteBeforeImage": "LƯU Ý: Nên đặt ở thư mục gốc với đường dẫn ngắn, không dấu, không ký tự đặc biệt để tránh lỗi phân quyền. Ví dụ: ~/PSI",
+      "image": "/assets/docs/install_mac_contenthub/1.png"
     },
     {
       "number": 2,
-      "title": "Tạo thư mục gốc và giải nén RUNTIME",
-      "description": "Tạo một thư mục gốc ngắn gọn, ví dụ **~/PSI**. Giải nén **psi-full-runtime-mac.zip** vào thư mục đó. Sau khi giải nén cấu trúc sẽ là:\n~/PSI/RUNTIME/AI Content Hub.app\n~/PSI/RUNTIME/python_runtime/\n~/PSI/RUNTIME/ffmpeg/",
-      "image": "/assets/docs/install_mac_contenthub/full-runtime-unzip.png",
-      "note": "LƯU Ý: Đường dẫn thư mục không nên có dấu cách hoặc ký tự đặc biệt để tránh lỗi phân quyền. Tên thư mục gốc có thể đặt tùy ý, nhưng thư mục con phải tên là RUNTIME và MODELS (viết hoa)."
+      "title": "Giải nén file",
+      "description": "Nhấn chuột phải vào file .zip vừa tải về và giải nén ra một thư mục. Sau khi giải nén sẽ có 2 thư mục: **RUNTIME/** (ứng dụng + runtime) và **MODELS/** (lưu trữ AI models, mặc định là thư mục rỗng).",
+      "image": "/assets/docs/install_mac_contenthub/2.png"
     },
     {
       "number": 3,
-      "title": "Tải Models và đặt vào thư mục MODELS",
-      "description": "Tạo thư mục **MODELS** nằm cùng cấp với RUNTIME, ví dụ ~/PSI/MODELS. Tải các gói model cần thiết và giải nén từng model vào đúng thư mục con bên trong MODELS. Cấu trúc ví dụ:\n~/PSI/MODELS/whisper/\n~/PSI/MODELS/f5-tts-en/\n~/PSI/MODELS/deepseek_ocr/\n~/PSI/MODELS/latentsync/\ncác model khác...",
-      "links": [
-        {
-          "text": "Tải Models tại đây",
-          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/models",
-          "detail": "Chỉ tải những model bạn cần dùng. Mỗi model giải nén vào đúng tên thư mục con tương ứng bên trong MODELS."
-        }
-      ],
-      "image": "/assets/docs/install_mac_contenthub/full-runtime-MODELS.png",
-      "note": "Tên thư mục con bên trong MODELS phải giữ nguyên đúng như khi giải nén (ví dụ: whisper, f5-tts-en, deepseek_ocr, latentsync...). Ứng dụng tự động tìm models theo tên thư mục, đặt sai tên sẽ không nhận được."
-    },
-    {
-      "number": 4,
       "title": "Mở ứng dụng",
       "description": "Mở thư mục **RUNTIME**, nhấn đúp chuột vào **AI Content Hub.app** để chạy hoặc chuột phải và chọn \"Open\". Ứng dụng đã được ký và xác thực bởi Apple (notarized), không cần thêm bước nào.",
-      "image": "/assets/docs/install_mac_contenthub/base-openapp.png",
+      "image": "/assets/docs/install_mac_contenthub/3.png",
       "note": "Nếu gặp phải lỗi Gatekeeper, bạn vui lòng mở Terminal trên Mac và chạy câu lệnh sau: `sudo xattr -r -d com.apple.quarantine /path/to/RUNTIME/AI\\ Content\\ Hub.app`. Thay /path/to/RUNTIME bằng đường dẫn thực tế đến thư mục RUNTIME ([1]). Sau đó nhập password ở terminal và thử mở lại ứng dụng.",
       "noteLinks": [
         { "text": "Tham khảo cách lấy đường dẫn", "url": "https://support.apple.com/vi-vn/guide/mac-help/mchlp1774/mac" }
@@ -88,16 +32,30 @@
       "noteImage": "/assets/MacIssue.png"
     },
     {
-      "number": 5,
+      "number": 4,
       "title": "Chờ ứng dụng khởi động",
       "description": "Lần đầu khởi động có thể mất vài phút. Nếu chờ quá 10 phút mà chưa xong, hãy vào trang **Cài Đặt** để bật thủ công.",
-      "image": "/assets/docs/install_mac_contenthub/waiting-app-start.png"
+      "image": "/assets/docs/install_mac_contenthub/4.png"
+    },
+    {
+      "number": 5,
+      "title": "Vào trang cài đặt để khởi động ứng dụng",
+      "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công nếu cần.",
+      "image": "/assets/docs/install_mac_contenthub/5.png"
     },
     {
       "number": 6,
-      "title": "Vào trang cài đặt để khởi động ứng dụng",
-      "description": "Mở trang Cài Đặt trong ứng dụng và nhấn nút khởi động để bật thủ công nếu cần.",
-      "image": "/assets/docs/install_mac_contenthub/start-app-manually.png"
+      "title": "Tải models cần dùng",
+      "description": "Tại trang cài đặt, nhấn nút Tải về (download) để tải model cần thiết cho server và các tính năng. Model sẽ được lưu vào thư mục MODELS.",
+      "note": "LƯU Ý: Chỉ cần tải model cho những tính năng bạn thực sự dùng, rê chuột vào dấu ? cạnh tên model để biết ứng dụng sẽ sử dụng model. Ứng dụng tự động lưu và nhận diện model theo đúng thư mục con bên trong MODELS.",
+      "image": "/assets/docs/install_mac_contenthub/6.png"
+    },
+    {
+      "number": 7,
+      "title": "Sau khi tải model",
+      "description": "Sau khi tải model xong, trạng thái sẽ hiển thị là \"Đã cài\". Một số model nặng khi tải về máy sẽ không tự động tải vào GPU/CPU tránh nặng máy khi không sử dụng, chúng sẽ được tải khi trực tiếp sử dụng chức năng lần đầu tiên. Có thể bấm nút \"Tải vào bộ nhớ\" trước để không phải chờ tải vào GPU/CPU khi sử dụng chức năng lần đầu nếu máy mạnh.",
+      "image": "/assets/docs/install_mac_contenthub/7.png"
     }
-  ]
+  ],
+  "advanced": []
 }
