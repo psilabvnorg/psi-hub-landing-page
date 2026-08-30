@@ -16,6 +16,18 @@
     <meta name="twitter:title" content="PsiHub" />
     <meta name="twitter:description" content="EV & AI | Xe Điện và AI | Made in Vietnam | 69" />
     <meta name="twitter:image" content="https://www.psihub.me/thumbnail.png" />
+    <script>
+      // Applied synchronously, before React mounts, so a returning
+      // dark-mode visitor doesn't see a flash of the light theme first.
+      // Kept in sync with src/contexts/ThemeContext.tsx.
+      (function () {
+        try {
+          if (localStorage.getItem('psi-theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

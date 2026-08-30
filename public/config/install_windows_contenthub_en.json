@@ -2,73 +2,71 @@
   "basic": [
     {
       "number": 1,
-      "title": "Download the RUNTIME file",
-      "description": "Download psi-runtime.rar — this is the application runtime (AI models are not included):",
+      "title": "Download PSI-AI-Content-Hub.rar",
+      "description": "Download PSI-AI-Content-Hub.rar — it contains both RUNTIME and MODELS:",
       "links": [
         {
-          "text": "psi-runtime.rar",
-          "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-full69-base/psi-runtime.rar",
-          "detail": "Application runtime file, about 10 GB"
+          "text": "PSI-AI-Content-Hub.rar",
+          "url": "https://huggingface.co/psilab/ai-content-hub-release/blob/main/WINDOWS-psi69-full-runtime/PSI-AI-Content-Hub.rar",
+          "detail": "App runtime, about 4.5 GB"
         }
       ],
-      "note": "All features can run on CPU. Voice clone requires an NVIDIA GPU (CUDA). AI models are downloaded separately in step 3.",
-      "noteBeforeImage": "NOTE: Place the files on drive C or D with a short, ASCII path and no special characters to avoid permission issues. For example: C:\\PSI or D:\\PSI",
+      "noteBeforeImage": "NOTE: Put it on drive C or D using a short path with no accents and no special characters, to avoid permission errors. For example: C:\\PSI or D:\\PSI",
       "image": "/assets/docs/install_window_contenthub/1.PNG"
     },
     {
       "number": 2,
-      "title": "Create the root folder and extract RUNTIME",
-      "description": "Create a short root folder, such as C:\\PSI. Inside it, create a child folder named RUNTIME. Right-click psi-runtime.rar and choose \"Extract files...\" then select C:\\PSI\\RUNTIME to extract there. After extraction, the structure should be:\nC:\\PSI\\RUNTIME\\AI Content Hub.exe\nC:\\PSI\\RUNTIME\\python_runtime\\\nC:\\PSI\\RUNTIME\\resources\\",
-      "note": "NOTE: Extract INTO the RUNTIME folder, not outside the PSI folder. The root folder name (PSI) can be anything, but the child folders must be named RUNTIME and MODELS (uppercase).",
+      "title": "Unzip PSI-AI-Content-Hub.rar",
+      "description": "Right-click PSI-AI-Content-Hub.rar, choose \"Extract files...\", then pick a destination folder such as C:\\PSI. After extracting you will have two folders: RUNTIME and MODELS",
+      "note": "NOTE: The MODELS folder is empty by default after extracting — you download the models you need in step 8.",
       "image": "/assets/docs/install_window_contenthub/2.PNG"
     },
     {
       "number": 3,
-      "title": "Download Models and place them in MODELS",
-      "description": "Create a MODELS folder alongside RUNTIME, e.g. C:\\PSI\\MODELS. Download the required model packages and extract each model into the correct child folder inside MODELS. Example structure: C:\\PSI\\MODELS\\whisper\\, C:\\PSI\\MODELS\\f5-tts-en\\, other models...",
-      "links": [
-        {
-          "text": "Download Models here",
-          "url": "https://huggingface.co/psilab/ai-content-hub-release/tree/main/models",
-          "detail": "Only download the models you need. Each model should be extracted into the matching child folder inside MODELS."
-        }
-      ],
-      "note": "Each child folder inside MODELS must keep the exact name from extraction (for example: whisper, f5-tts-en, latent-sync...). The app auto-detects models by folder name; wrong folder names will not be recognized.",
+      "title": "Open RUNTIME and run the app",
+      "description": "Go into C:\\PSI\\RUNTIME, right-click \"AI Content Hub.exe\" and choose \"Run as administrator\" so the app runs with admin rights.",
       "image": "/assets/docs/install_window_contenthub/3.PNG"
     },
     {
       "number": 4,
-      "title": "Open the RUNTIME folder and run the app",
-      "description": "Go to C:\\PSI\\RUNTIME, right-click AI Content Hub.exe and choose \"Run as administrator\" to launch the app with elevated privileges.",
-      "image": "/assets/docs/install_window_contenthub/4.PNG"
-    },
-    {
-      "number": 5,
       "title": "Windows warning — click \"More info\"",
-      "description": "Windows may show a SmartScreen security warning. This is normal — click \"More info\" to continue. The tool is legitimate, and the team currently does not have budget for an official Microsoft/Apple certificate. This is a real user experience video.",
+      "description": "Windows may show a SmartScreen security notice. This is normal — click \"More info\" to continue. The tool is safe; the team has not yet bought a Microsoft/Apple certificate.",
       "videoLink": {
         "text": "REAL USER EXPERIENCE VIDEO",
         "url": "https://www.facebook.com/reel/1611932096739881"
       },
+      "image": "/assets/docs/install_window_contenthub/4.PNG"
+    },
+    {
+      "number": 5,
+      "title": "Click \"Run anyway\"",
+      "description": "Click \"Run anyway\" to launch the app. It is completely safe.",
       "image": "/assets/docs/install_window_contenthub/5.PNG"
     },
     {
       "number": 6,
-      "title": "Click \"Run anyway\" to launch",
-      "description": "Click \"Run anyway\" to start the application. The app is safe to run.",
+      "title": "Wait for the app to start",
+      "description": "If it takes more than 10 minutes, close this window and open the Settings page to start it manually.",
       "image": "/assets/docs/install_window_contenthub/6.PNG"
     },
     {
       "number": 7,
-      "title": "Wait for the app to start",
-      "description": "If it takes longer than 10 minutes, close this window and go to the Settings page to start manually.",
+      "title": "Start the server from Settings",
+      "description": "Open the Settings page in the app, go to the Server tab and press the start button to bring it up manually.",
       "image": "/assets/docs/install_window_contenthub/7.PNG"
     },
     {
       "number": 8,
-      "title": "Go to the settings page to launch the app",
-      "description": "Open the Settings page inside the app and click the start button to launch manually.",
+      "title": "Download the models you need",
+      "description": "On the Settings page, press Download to fetch the models the server and each feature need. Models are saved into the MODELS folder.",
+      "note": "NOTE: Only download models for the features you actually use. Hover the ? next to a model name to see what the app uses it for. The app saves and detects models automatically in the right subfolder inside MODELS.",
       "image": "/assets/docs/install_window_contenthub/8.PNG"
+    },
+    {
+      "number": 9,
+      "title": "After the models are downloaded",
+      "description": "Once a model is downloaded its status shows \"Installed\". Heavy models are not loaded into GPU/CPU straight away, to keep your machine light — they load the first time you use the feature. On a powerful machine you can press \"Load into memory\" beforehand so there is no wait later.",
+      "image": "/assets/docs/install_window_contenthub/9.PNG"
     }
   ],
   "advanced": [

@@ -8,7 +8,7 @@ html {
 /* Selection color */
 ::selection {
   background: rgba(255, 163, 26, 0.3);
-  color: white;
+  color: var(--psi-selection-color);
 }
 
 /* Focus styles */
@@ -19,5 +19,5 @@ html {
 
 /* Image loading placeholder — screenshots only, not logos */
 img[alt*="screenshot"] {
-  background: linear-gradient(135deg, #292929 0%, #1b1b1b 100%);
+  background: var(--psi-placeholder-grad);
 }

@@ -45,15 +45,27 @@ export function Contact({ contact }: ContactProps) {
   ];
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#111111] border-t border-[#292929]">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#111111] border-t border-[#292929] scroll-mt-[130px]">
       <div className="max-w-7xl mx-auto">
-        <div className="rounded-xl overflow-hidden">
+        <div className="text-center mb-12 psi-reveal">
+          <p className="font-mono text-psi-eyebrow font-bold uppercase tracking-[.16em] text-psi-orange">
+            {t.contactCta.eyebrow}
+          </p>
+          <h2 className="mt-4 font-display font-bold text-psi-h2 text-white">{t.contactCta.h2}</h2>
+        </div>
+
+        <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/60 ring-1 ring-white/[.04]">
 
           {/* Orange header bar */}
-          <div className="flex items-center gap-3 px-5 py-3 bg-[#ffa31a]">
-            <p className="text-sm font-black uppercase tracking-widest text-black">Contact Us</p>
+          <div
+            className="relative z-10 flex items-center gap-3 px-5 py-3 bg-[#ffa31a]"
+            style={{ boxShadow: '0 6px 24px rgba(255,163,26,.35)' }}
+          >
+            <p className="text-sm font-black uppercase tracking-widest text-black [text-shadow:0_1px_0_rgba(255,255,255,.25)]">
+              Contact Us
+            </p>
             <div className="h-px flex-1 bg-black/20" />
-            <p className="text-xs font-semibold text-black/70">{t.contactDesc}</p>
+            <p className="text-xs font-semibold text-black/70">{t.contactCta.desc}</p>
           </div>
 
           {/* Body */}
@@ -63,15 +75,15 @@ export function Contact({ contact }: ContactProps) {
             <div className="w-3/4 py-4 grid grid-cols-2">
               {items.map((item, i) => {
                 const iconEl = (
-                  <span className="flex h-9 w-9 sm:h-11 sm:w-11 lg:h-14 lg:w-14 flex-shrink-0 items-center justify-center rounded-full bg-[#ffa31a]">
+                  <span className="flex h-9 w-9 sm:h-11 sm:w-11 lg:h-14 lg:w-14 flex-shrink-0 items-center justify-center rounded-full bg-[#ffa31a] shadow-[0_6px_16px_rgba(255,163,26,.35)] transition-all duration-200 group-hover:shadow-[0_8px_24px_rgba(255,163,26,.6)] group-hover:scale-105">
                     {item.icon}
                   </span>
                 );
-                const cls = `flex items-center gap-3 px-4 sm:px-6 text-sm sm:text-base lg:text-xl font-bold text-white/80 hover:text-white transition-colors py-2 sm:py-3`;
+                const cls = `group flex items-center gap-3 px-4 sm:px-6 text-sm sm:text-base lg:text-xl font-bold text-white/80 hover:text-white transition-all duration-200 py-2 sm:py-3 hover:-translate-y-0.5`;
                 return item.href ? (
                   <a key={i} href={item.href} {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className={cls}>
                     {iconEl}
-                    <span className="truncate">{item.label}</span>
+                    <span className="truncate [text-shadow:0_1px_4px_rgba(0,0,0,.6)]">{item.label}</span>
                   </a>
                 ) : (
                   <span key={i} className={`${cls} text-white/60`}>
@@ -83,7 +95,7 @@ export function Contact({ contact }: ContactProps) {
             </div>
 
             {/* Right image */}
-            <div className="w-1/4 flex-shrink-0 overflow-hidden">
+            <div className="w-1/4 flex-shrink-0 overflow-hidden relative shadow-[inset_8px_0_24px_rgba(0,0,0,.5)]">
               <style>{`
                 @keyframes breathe {
                   0%, 100% { transform: scale(1); opacity: 0.9; }

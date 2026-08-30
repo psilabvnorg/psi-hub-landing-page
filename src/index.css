@@ -1,6 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* PsiHub redesign tokens — light theme (see design_handoff_landing_redesign/tokens.css
+       for the structural/dark reference this palette re-colors) */
+    --psi-bg: #fbfaf6;
+    --psi-bg-alt: #f3f1ea;
+    --psi-surface: #ffffff;
+    --psi-surface-2: #fefdfa;
+    --psi-surface-3: #f2f0e8;
+    --psi-surface-grad: linear-gradient(160deg, #fff8ec 0%, #ffffff 100%);
+
+    --psi-border: #e6e3da;
+    --psi-border-soft: #ebe8de;
+    --psi-border-strong: #d7d3c6;
+    --psi-border-btn: #d0ccbe;
+    --psi-border-dashed: #d4d0c2;
+    --psi-hairline: #ece9df;
+
+    --psi-orange: #ffa31a;
+    --psi-orange-lite: #b8650a;
+    --psi-orange-deep: #ff5c1a;
+    --psi-ok: #15803d;
+
+    --psi-ink: #15140f;
+    --psi-text: #33322b;
+    --psi-text-2: #46443b;
+    --psi-muted: #5c5a50;
+    --psi-muted-2: #6b6960;
+    --psi-muted-3: #79776d;
+    --psi-muted-4: #8d8b80;
+    --psi-muted-5: #9c9a8e;
+    --psi-dim: #b0ada0;
+
+    --psi-font-display: 'Space Grotesk', sans-serif;
+    --psi-font-body: 'Manrope', system-ui, -apple-system, sans-serif;
+    --psi-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --psi-r-pill: 999px;
+    --psi-r-xl: 22px;
+    --psi-r-lg: 20px;
+    --psi-r-md: 18px;
+    --psi-r-sm: 16px;
+    --psi-r-btn: 14px;
+
+    --psi-ease: cubic-bezier(.2, .8, .2, 1);
+
+    /* Theme-dependent extras used by utilities/rules below that can't just
+       swap a color keyword — see the .dark overrides underneath. */
+    --psi-shadow-rgb: 20, 18, 12;
+    --psi-mesh-color: rgba(20, 18, 12, .06);
+    --psi-text-gradient: linear-gradient(120deg, #ff8a00 0%, #ffa31a 50%, #ff6a00 100%);
+    --psi-scrollbar-track: #efece2;
+    --psi-selection-color: #15140f;
+    --psi-placeholder-grad: linear-gradient(135deg, #efece2 0%, #e2ded0 100%);
+    --psi-nav-bg: rgba(255, 255, 255, .78);
+    --psi-pageindex-bg: rgba(255, 255, 255, .85);
+    --psi-glass: rgba(0, 0, 0, .03);
+    --psi-glass-hover: rgba(0, 0, 0, .05);
+    /* Raised well above dark's — the deep indigo/burnt-orange objects need
+       more opacity to read on cream than white/orange did on near-black. */
+    --psi-universe-opacity: .55;
+  }
+
+  /* Dark theme — the site's original palette, restored verbatim behind a
+     toggle (see ThemeContext) rather than the default anymore. */
+  :root.dark {
+    --psi-bg: #0d0d0d;
+    --psi-bg-alt: #0a0a0a;
+    --psi-surface: #131313;
+    --psi-surface-2: #121212;
+    --psi-surface-3: #0f0f0f;
+    --psi-surface-grad: linear-gradient(160deg, #161616 0%, #111111 100%);
+
+    --psi-border: #242424;
+    --psi-border-soft: #232323;
+    --psi-border-strong: #2c2c2c;
+    --psi-border-btn: #333333;
+    --psi-border-dashed: #2a2a2a;
+    --psi-hairline: #1a1a1a;
+
+    --psi-orange-lite: #ffcc80;
+    --psi-ok: #22c55e;
+
+    --psi-ink: #ffffff;
+    --psi-text: #dcdcdc;
+    --psi-text-2: #b0b0b0;
+    --psi-muted: #a8a8a8;
+    --psi-muted-2: #9c9c9c;
+    --psi-muted-3: #8f8f8f;
+    --psi-muted-4: #7d7d7d;
+    --psi-muted-5: #6f6f6f;
+    --psi-dim: #5f5f5f;
+
+    --psi-shadow-rgb: 0, 0, 0;
+    --psi-mesh-color: rgba(255, 255, 255, .045);
+    --psi-text-gradient: linear-gradient(120deg, #ffa31a 0%, #ffcc80 55%, #ffa31a 100%);
+    --psi-scrollbar-track: #1b1b1b;
+    --psi-selection-color: #ffffff;
+    --psi-placeholder-grad: linear-gradient(135deg, #292929 0%, #1b1b1b 100%);
+    --psi-nav-bg: rgba(13, 13, 13, .78);
+    --psi-pageindex-bg: rgba(13, 13, 13, .85);
+    --psi-glass: rgba(255, 255, 255, .03);
+    --psi-glass-hover: rgba(255, 255, 255, .05);
+    --psi-universe-opacity: .5;
+  }
+}
 
 @layer base {
   :root {
@@ -41,7 +150,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[#1b1b1b] text-white antialiased;
+    @apply bg-psi-bg text-psi-ink antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
@@ -78,6 +187,64 @@
     color: #ffa31a;
     border: 1px solid rgba(255, 163, 26, 0.3);
   }
+
+  /* ---- PsiHub redesign utilities ---- */
+
+  .psi-text-gradient {
+    background: var(--psi-text-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .psi-mesh {
+    background-image:
+      linear-gradient(var(--psi-mesh-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--psi-mesh-color) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(70% 55% at 50% 30%, #000 0%, transparent 100%);
+    mask-image: radial-gradient(70% 55% at 50% 30%, #000 0%, transparent 100%);
+  }
+
+  .psi-glow {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 163, 26, .16) 0%, rgba(255, 163, 26, 0) 70%);
+    pointer-events: none;
+  }
+
+  .psi-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .8s var(--psi-ease), transform .8s var(--psi-ease);
+  }
+  .psi-reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- PsiHub redesign keyframes ---- */
+@keyframes psi-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes psi-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(3%, -4%, 0) scale(1.08); }
+}
+@keyframes psi-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes psi-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 163, 26, .45); }
+  70%      { box-shadow: 0 0 0 18px rgba(255, 163, 26, 0); }
+}
+
+summary::-webkit-details-marker { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .psi-reveal { opacity: 1; transform: none; transition: none; }
+  [data-depth], [data-tilt] { transform: none !important; }
 }
 
 /* Custom scrollbar */
@@ -87,7 +254,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #1b1b1b;
+  background: var(--psi-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, BookOpen, Home, Package, FileText, Layers } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Home, Package, FileText, Layers } from 'lucide-react';
 import { PhLogo } from '@/components/PhLogo';
 
 interface PageCard {
@@ -17,8 +17,8 @@ interface PageCard {
 const PAGES: PageCard[] = [
   {
     title: 'Trang Chủ',
-    subtitle: 'PsiHub — Home',
-    description: 'Trang chính: giới thiệu thương hiệu, video demo, toàn bộ sản phẩm, và liên hệ.',
+    subtitle: 'PsiHub — ContentHub',
+    description: 'Trang chính: giới thiệu ContentHub, ảnh ứng dụng, tính năng, hướng dẫn cài đặt, demo, video trải nghiệm thực tế và liên hệ.',
     path: '/',
     tag: 'Trang chính',
     tagColor: 'green',
@@ -26,13 +26,13 @@ const PAGES: PageCard[] = [
     accent: '#ffa31a',
   },
   {
-    title: 'ContentHub',
-    subtitle: 'Hướng dẫn cài đặt',
-    description: 'Hướng dẫn từng bước tải về, giải nén và chạy ứng dụng ContentHub trên Windows.',
-    path: '/contenthub/huong-dan',
-    tag: 'Hướng dẫn',
-    tagColor: 'orange',
-    icon: <BookOpen className="w-6 h-6" />,
+    title: 'Sản Phẩm Khác',
+    subtitle: 'Các sản phẩm PsiHub',
+    description: 'Những sản phẩm khác PsiHub đang xây dựng, bên cạnh ContentHub.',
+    path: '/others-product',
+    tag: 'Sản phẩm',
+    tagColor: 'green',
+    icon: <Package className="w-6 h-6" />,
     accent: '#ffa31a',
   },
   {
@@ -88,11 +88,24 @@ const PAGES: PageCard[] = [
 ];
 
 const HOME_SECTIONS = [
-  { label: 'Hero / Navbar', desc: 'Logo, menu hướng dẫn, chuyển ngôn ngữ', anchor: '/' },
-  { label: 'Banner', desc: 'Video demo YouTube + card ContentHub nổi bật', anchor: '/' },
-  { label: 'Sản Phẩm', desc: 'Grid tất cả sản phẩm — Ready & Sắp Ra Mắt', anchor: '/#products' },
-  { label: 'Liên Hệ', desc: 'Phone, Facebook, YouTube, TikTok, Email, Địa chỉ', anchor: '/#contact' },
+  { label: 'Nav', desc: 'Logo, menu, chuyển ngôn ngữ', anchor: '/' },
+  { label: 'Page Index', desc: 'Thanh điều hướng nhanh, dính trên đầu trang', anchor: '/' },
+  { label: 'Marquee', desc: 'Danh sách tính năng chạy ngang', anchor: '/' },
+  { label: 'Giới Thiệu', desc: 'ContentHub bên trái, video demo cài đặt bên phải', anchor: '/' },
+  { label: 'Ảnh Ứng Dụng 3D', desc: 'Carousel 3D — kéo, cuộn hoặc bấm để xem', anchor: '/' },
+  { label: 'Tính Năng', desc: 'Rất nhiều tính năng của ContentHub', anchor: '/#features' },
+  { label: 'Hướng Dẫn Cài Đặt', desc: '9 bước cài đặt ContentHub, có ảnh từng bước', anchor: '/#guide' },
+  { label: 'Demo', desc: 'Video demo YouTube', anchor: '/#demo' },
+  { label: 'Video Trải Nghiệm', desc: 'Video Facebook Reel từ người dùng thật', anchor: '/#testimonial' },
+  { label: 'Liên Hệ', desc: 'Phone, Email, YouTube, Địa chỉ', anchor: '/#contact' },
   { label: 'Footer', desc: 'Bản quyền & thương hiệu PsiHub', anchor: '/' },
+];
+
+const OTHERS_PRODUCT_SECTIONS = [
+  { label: 'Nav', desc: 'Logo, menu, chuyển ngôn ngữ', anchor: '/others-product' },
+  { label: 'Sản Phẩm', desc: 'Các sản phẩm khác PsiHub đang xây dựng', anchor: '/others-product' },
+  { label: 'Liên Hệ', desc: 'Phone, Email, YouTube, Địa chỉ', anchor: '/others-product' },
+  { label: 'Footer', desc: 'Bản quyền & thương hiệu PsiHub', anchor: '/others-product' },
 ];
 
 const tagStyle: Record<string, string> = {
@@ -193,6 +206,33 @@ export function SitePreview() {
 
           <div className="flex flex-col gap-0 border border-[#222222] rounded-sm overflow-hidden">
             {HOME_SECTIONS.map((section, i) => (
+              <a
+                key={i}
+                href={section.anchor}
+                className="flex items-center gap-5 px-6 py-4 bg-[#111111] hover:bg-[#161616] border-b border-[#1e1e1e] last:border-b-0 transition-colors duration-150 group"
+              >
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#ffa31a]/10 border border-[#ffa31a]/20 flex items-center justify-center text-[#ffa31a] text-xs font-black">
+                  {i + 1}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-bold text-base">{section.label}</p>
+                  <p className="text-[#606060] text-sm">{section.desc}</p>
+                </div>
+                <ExternalLink className="w-4 h-4 text-[#333] group-hover:text-[#ffa31a] flex-shrink-0 transition-colors duration-150" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Others Product page sections */}
+        <div className="mt-16">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-[#ffa31a] text-xs font-black uppercase tracking-widest">Sections — Sản Phẩm Khác</span>
+            <div className="h-px flex-1 bg-[#222]" />
+          </div>
+
+          <div className="flex flex-col gap-0 border border-[#222222] rounded-sm overflow-hidden">
+            {OTHERS_PRODUCT_SECTIONS.map((section, i) => (
               <a
                 key={i}
                 href={section.anchor}
